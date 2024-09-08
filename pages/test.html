@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>H1文字</h1>
+      <h2>H2文字</h2>
+      <h3>H3文字</h3>
+      <h4>H4文字</h4>
+      <h5>H5文字</h5>
+      <p class="fs-6">fs-6</p>
+      <p class="fs-7">fs-7</p>
+      <p class="fs-8">fs-8</p>
+      <p class="fs-9">fs-9</p>
+      <p class="fs-10">fs-10</p>
+      <p>普通文字</p>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="請輸入備註...">
+      </br>
+      <div>
+        <button
+          class="btn btn-gray-600 fs-7"
+          style="width: 265px;">
+          button
+        </button>
+        <button
+          class="btn btn-sm btn-gray-600 fs-7 mt-3"
+          style="width: 265px;">
+          button
+        </button>
+      </div>
+      <div class="mt-5">
+        <button
+          class="btn btn-outline-gray-500 fs-7"
+          style="width: 265px;">
+          button
+        </button>
+        <button
+          class="btn btn-sm btn-outline-gray-500 fs-7 mt-3"
+          style="width: 265px;">
+          button
+        </button>
+      </div>
+      <div class="mt-5">
+        <span class="badge bg-gray-400">label</span>
+      </div>
+      <div class="card mt-5">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+      <ul class="nav nav-pills bg-white radius-xs p-1 mt-5">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">支出</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">收入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">移轉</a>
+        </li>
+      </ul>
+      <div class="dropdown my-13">
+        <a class="dropdown-toggle form-select border-gray-200 bg-gray-100 py-4 px-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">1號</a>
+        <ul class="dropdown-menu mt-3">
+          <li>
+            <a class="dropdown-item radius-3xs" href="#">
+              1號
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item radius-3xs" href="#">
+              2號
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item radius-3xs" href="#">
+              3號
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item radius-3xs" href="#">
+              4號
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item radius-3xs" href="#">
+              5號
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <%- include('./layout/tab-bar'); -%>
+
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>
