@@ -1,23 +1,246 @@
 <!-- accountModal -->
 <div
-  class="modal fade"
+  class="accountModal modal fade show"
   id="accountModal"
   tabindex="-1"
   aria-labelledby="accountModalLabel"
-  aria-hidden="true">
+  aria-hidden="true"
+  style="display: block;">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="accountModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-content bg-white border-0">
+      <div class="modal-header py-2">
+        <p
+          class="modal-title fs-7"
+          id="accountModalLabel">
+          記帳
+        </p>
+        <button
+          type="button"
+          class="btn-close text-gray-600 position-absolute end-0 me-4"
+          data-bs-dismiss="modal"
+          aria-label="Close">
+        </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body py-0">
+        <div class="radius-xl bg-gray-50 py-3 px-6 position-relative">
+          <ul
+            class="nav nav-pills bg-white radius-xs p-1"
+            id="categoryTab" role="tablist">
+            <li class="nav-item flex-grow-1">
+              <a 
+                class="nav-link text-center active" href="#"
+                id="pay-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#pay"
+                type="button"
+                role="tab"
+                aria-controls="pay"
+                aria-selected="true">支出</a>
+            </li>
+            <li class="nav-item flex-grow-1">
+              <a 
+                class="nav-link text-center" href="#"
+                id="income-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#income"
+                type="button"
+                role="tab"
+                aria-controls="income"
+                aria-selected="true">收入</a>
+            </li>
+            <li class="nav-item flex-grow-1">
+              <a
+                class="nav-link text-center" href="#"
+                id="move-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#move"
+                type="button"
+                role="tab"
+                aria-controls="move"
+                aria-selected="true">移轉</a>
+            </li>
+          </ul>
+          <div class="tab-content mt-2" id="categoryTabContent">
+            <div
+              class="pay-tab-pane tab-pane fade show active d-flex"
+              id="pay"
+              role="tabpanel"
+              aria-labelledby="pay-tab">
+              <div class="swiper category-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <ul class="nav w-100">
+                      <li class="nav-item active radius-l p-1">
+                        <a
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="../assets/images/icon/account/category-food.png" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            飲食
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="../assets/images/icon/account/category-shop.png" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            購物
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="../assets/images/icon/account/category-transport.png" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            交通
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="../assets/images/icon/account/category-entertainment.png" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            娛樂
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="../assets/images/icon/account/category-learn.png" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            學習
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="../assets/images/icon/account/category-life.png" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            生活
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="../assets/images/icon/account/category-medical.png" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            醫療
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="../assets/images/icon/account/category-add.png" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            新增
+                          </p>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="swiper-slide"></div>
+                </div>
+              </div>
+              <div class="swiper-pagination category-pagination"></div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="income"
+              role="tabpanel"
+              aria-labelledby="income-tab">
+            </div>
+            <div
+              class="tab-pane fade"
+              id="move"
+              role="tabpanel"
+              aria-labelledby="move-tab">
+            </div>
+          </div>
+        </div>
+        <div class="account-category-tag-wrap mt-2">
+          <a href="#" class="badge bg-gray-100">#早餐</a>
+          <a href="#" class="badge bg-gray-100">#午餐</a>
+          <a href="#" class="badge bg-gray-100">#晚餐</a>
+          <a href="#" class="badge bg-gray-100">#宵夜</a>
+          <a href="#" class="badge bg-gray-100">#點心</a>
+          <a href="#" class="badge bg-gray-100">
+            <img
+              src="../assets/images/icon/add/add_pressed.svg"
+              alt="add-icon"
+              style="width: 16px; height: 16px;">
+          </a>
+        </div>
+        <div class="d-flex mt-2 py-1">
+          <button
+            class="btn btn-outline-gray-500 fs-8 bg-white py-1 flex-grow-1">
+            今天 08/05
+          </button>
+          <button
+            class="btn btn-outline-gray-500 fs-8 bg-white ms-2 py-1 flex-grow-1">
+            週期性記帳
+          </button>
+        </div>
+        <div class="mt-2">
+          <input
+            type="text"
+            class="form-control w-100 bg-gray-50 border-gray-200"
+            placeholder="請輸入備註...">
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-footer border-0 mt-3 p-0">
+        <div class="calculator w-100 m-0">
+          <div class="display" id="display">0</div>
+          <div class="cal-btn-group">
+            <button class="cal-btn">7</button>
+            <button class="cal-btn">8</button>
+            <button class="cal-btn">9</button>
+            <button class="cal-btn button-red">刪除</button>
+      
+            <button class="cal-btn">4</button>
+            <button class="cal-btn">5</button>
+            <button class="cal-btn">6</button>
+            <button class="cal-btn">+</button>
+      
+            <button class="cal-btn">1</button>
+            <button class="cal-btn">2</button>
+            <button class="cal-btn">3</button>
+            <button class="cal-btn">-</button>
+      
+            <button class="cal-btn">.</button>
+            <button class="cal-btn">0</button>
+            <button class="cal-btn">00</button>
+            <button class="cal-btn button-green">✔</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".category-swiper", {
+    direction: "vertical",
+    slidesPerView: 1,
+    spaceBetween: 30,
+    mousewheel: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>

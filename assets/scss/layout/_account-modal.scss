@@ -1,0 +1,107 @@
+/* accountModal */
+.accountModal {
+  border-radius: 18px 18px 0 0;
+
+  .modal-dialog {
+    position: fixed;
+    bottom: 0; left: 0;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .modal-header {
+    border: 0;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  &.modal.fade .modal-dialog {
+    transition: transform .3s ease-out;
+    transform: translate(0, 50px);
+  }
+  
+  &.modal.show .modal-dialog {
+    transform: translateY(0);
+  }
+}
+
+/* pay-tab-pane */
+.pay-tab-pane {
+  .nav {
+    justify-content: space-between;
+
+    .nav-item {
+      border: 2px solid transparent;
+
+      p {
+        color: $gray-600;
+      }
+    }
+  
+    .active {
+      background-color: $white;
+      border: 2px solid $orange-200;
+
+      p {
+        color: $orange-950;
+      }
+    }
+  }
+}
+
+/* category-swiper */
+.category-swiper {
+  height: 176px;
+}
+.category-pagination {
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 28px;
+  margin-right: 8px;
+
+    .swiper-pagination-bullet {
+    background-color: $gray-200;
+    width: 4px;
+    border-radius: 100px;
+    height: 100%;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $gray-500;
+  }
+
+  &.swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-vertical
+    >.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+  }
+}
+
+/* account-category-tag-wrap */
+.account-category-tag-wrap {
+  display: flex;
+  gap: 8px;
+
+  .badge {
+    font-size: 13px;
+    color: $gray-600;
+    font-weight: 400;
+    padding: 8px;
+  }
+}
+
+/* calculator */
+.calculator {
+  border-radius: 32px 32px 0 0;
+  padding: 16px;
+  background-color: $gray-200;
+
+  .cal-btn-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
