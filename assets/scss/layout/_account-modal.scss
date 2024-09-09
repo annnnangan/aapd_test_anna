@@ -63,7 +63,7 @@
   margin-bottom: 28px;
   margin-right: 8px;
 
-    .swiper-pagination-bullet {
+  .swiper-pagination-bullet {
     background-color: $gray-200;
     width: 4px;
     border-radius: 100px;
@@ -100,8 +100,33 @@
   padding: 16px;
   background-color: $gray-200;
 
+  .cal-total {
+    width: 100%;
+    border-radius: 20px;
+    background-color: #FFFFFFB2;
+    padding: 8px 12px;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    h4 {
+      font-size: 24px;
+    }
+  }
+
   .cal-btn-group {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+
+  .cal-btn {
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: $white;
+    border-radius: 20px;
+    border: 0;
+    padding: 6px 10px;
   }
 }
