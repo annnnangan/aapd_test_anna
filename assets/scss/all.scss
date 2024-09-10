@@ -2,10 +2,10 @@
 @import './utils/variables';
 @import './utils/custom-colors.scss';
 @import 'bootstrap/scss/bootstrap';
-@import './utils/_roundeds.scss';
-@import './utils/_btns.scss';
-@import './utils/_nav-pill.scss';
-@import './utils/_flex.scss';
+@import './utils/roundeds.scss';
+@import './utils/btns.scss';
+@import './utils/nav-pill.scss';
+@import './utils/flex.scss';
 @import './utils/base.scss';
 
 @import './base/font.scss';
@@ -13,5 +13,7 @@
 @import './layout/header.scss';
 @import './layout/tab-bar.scss';
 @import './layout/account-modal.scss';
+@import './layout/calendar.scss';
 
 @import './pages/index.scss';
+@import './pages/accounting-receipt.scss';

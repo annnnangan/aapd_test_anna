@@ -1,0 +1,84 @@
+$text-muted: #666;
+
+.calendar {
+  width: 100%;
+  background-color: $white;
+
+  &-header {
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid $surface-divider;
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &-weekdays,
+  &-days {
+    color: $gray-600;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    .weekday {
+      color: $gray-950;
+    }
+  }
+  &-weekdays {
+    margin-top: 12px;
+  }
+  &-days {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.calendar-days {
+  .day {
+    position: relative;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Nunito", sans-serif;
+
+    &.active,
+    &.selected {
+      position: relative;
+      z-index: 1;
+      color: $gray-950;
+      font-weight: bolder;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 32px;
+        height: 32px;
+        background-color: $orange-200;
+        border-radius: 14px;
+        z-index: -1;
+      }
+    }
+
+    &:hover {
+      &::before {
+        background-color: $orange-200;
+      }
+    }
+
+    &.prev-month,
+    &.next-month {
+      color: $gray-300;
+    }
+  }
+}
