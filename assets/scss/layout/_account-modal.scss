@@ -32,6 +32,11 @@
   .nav {
     justify-content: space-between;
 
+    @include mobile-lg {
+      justify-content: center;
+      gap: 12px;
+    }
+
     .nav-item {
       border: 2px solid transparent;
 
@@ -53,7 +58,11 @@
 
 /* category-swiper */
 .category-swiper {
-  height: 176px;
+  height: 180px;
+
+  @include mobile-lg {
+    height: 200px;
+  }
 }
 .category-pagination {
   height: 35px;
