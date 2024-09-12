@@ -2,21 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <title>index</title>
+    <title>復盤</title>
   </head>
   <body>
-    <%- include('./layout/header'); -%>
+    <div class="expense-review">
+      <div class="container">
+        <div class="d-flex mb-5">
+          <%- include('./layout/income-card', {background:"bg-surface-second",
+          title:"本月收入",income:"36,000"}); -%> <%-
+          include('./layout/view-card', {background:"bg-surface-second",
+          goal:"存下 $8,000"}); -%>
+        </div>
 
-    <h1 class="index-title">我是首頁</h1>
-    <a href="test.html">test page</a>
-    <p>Matcha的PR測試</p>
-
+        <div>
+          <div class="d-flex justify-content-end">
+            <img src="../assets/images/icon/graph/graph_default.svg" alt="" />
+          </div>
+          <canvas id="budget-pie-chart"></canvas>
+        </div>
+      </div>
+    </div>
     <%- include('./layout/tab-bar'); -%>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../assets/js/budget-pie-chart.js"></script>
     <script type="module" src="../main.js"></script>
   </body>
 </html>
