@@ -28,7 +28,7 @@ new Chart(budgetPieChart, {
   options: {
     borderRadius: 10,
     cutout: "72%",
-    aspectRatio: 2,
+    aspectRatio: 1.5,
     plugins: {
       legend: {
         display: false,
