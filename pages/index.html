@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>復盤</title>
+    <title>主頁</title>
   </head>
   <body>
-    <div class="expense-review">
+    <div class="home mb-13">
       <div class="container">
         <div class="d-flex mb-5">
           <%- include('./layout/income-card', {background:"bg-surface-second",
@@ -15,11 +15,61 @@
           goal:"存下 $8,000"}); -%>
         </div>
 
-        <div>
+        <!-- chart -->
+        <div class="mb-4">
           <div class="d-flex justify-content-end">
             <img src="../assets/images/icon/graph/graph_default.svg" alt="" />
           </div>
           <canvas id="budget-pie-chart"></canvas>
+          <div>
+            <div class="d-flex flex-column font-Nunito align-items-end">
+              <p><span class="dot bg-gray-200 me-1"></span>已用：$12,950</p>
+              <p><span class="dot bg-orange-300 me-1"></span>剩餘：$15,050</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Budget List -->
+        <div class="bg-white radius-xl pt-6">
+          <div class="d-flex align-items-center">
+            <p class="ms-6 fw-bold fs-6 me-1">各類別預算</p>
+            <img
+              src="../assets/images/icon/edit/edit_presed.svg"
+              alt="edit icon"
+              width="16"
+              height="16"
+            />
+          </div>
+          <ul>
+            <!-- Food -->
+            <%- include('./layout/budget-card',
+            {categoryImage:"category-food",category:"飲食",hasBudget: "true",
+            spentAmount:2500, budget:9000}); -%>
+            <!-- Shopping -->
+            <%- include('./layout/budget-card',
+            {categoryImage:"category-shop",category:"購物",hasBudget: "true",
+            spentAmount:500, budget:4000}); -%>
+            <!-- Learn -->
+            <%- include('./layout/budget-card',
+            {categoryImage:"category-learn",category:"學習",hasBudget: "true",
+            spentAmount:2200, budget:3000}); -%>
+            <!-- Transport -->
+            <%- include('./layout/budget-card',
+            {categoryImage:"category-transport",category:"交通",hasBudget:
+            "true", spentAmount:2000, budget:3000}); -%>
+            <!-- Life -->
+            <%- include('./layout/budget-card',
+            {categoryImage:"category-life",category:"生活",hasBudget: "true",
+            spentAmount:6400, budget:8000}); -%>
+            <!-- Entertainment-->
+            <%- include('./layout/budget-card',
+            {categoryImage:"category-entertainment",category:"娛樂",hasBudget:
+            "false", spentAmount:800, budget:0}); -%>
+            <!-- Medical-->
+            <%- include('./layout/budget-card',
+            {categoryImage:"category-medical",category:"醫療",hasBudget:
+            "false", spentAmount:150, budget:0}); -%>
+          </ul>
         </div>
       </div>
     </div>
