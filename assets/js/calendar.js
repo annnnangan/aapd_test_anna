@@ -61,8 +61,26 @@ function renderCalendar() {
   });
 }
 
+
 function selectDate(day, month, year) {
   selectedDate = { day, month, year };
+
+  const specialRecordSection = document.getElementById('special-record-section');
+  const accountingReceiptSection = document.getElementById('accounting-receipt-section');
+  const noRecordSection = document.getElementById('no-record-section');
+
+  specialRecordSection.classList.add('d-none');
+  accountingReceiptSection.classList.add('d-none');
+  noRecordSection.classList.add('d-none');
+
+  if (day === 2 && month === 7 && year === 2024) {
+    noRecordSection.classList.remove('d-none');
+  } else if (day === 3 && month === 7 && year === 2024) {
+    specialRecordSection.classList.remove('d-none');
+  } else {
+    accountingReceiptSection.classList.remove('d-none');
+  }
+
   renderCalendar();
 }
 
