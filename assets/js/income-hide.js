@@ -8,12 +8,14 @@ eyeIcons.forEach((item) => {
   item.addEventListener("click", (e) => {
     let isShow = item.dataset.show;
     if (isShow === "true") {
-      item.src = "../assets/images/icon/eyes/eye_grey_no.svg";
+      item.src =
+        "https://raw.githubusercontent.com/ahmomoz/AAPD_Hex_Doughnut_Expense_Tracker/main/assets/images/icon/eyes/eye_grey_no.svg";
       item.setAttribute("data-show", "false");
       item.closest(".income-card").querySelector(".income span").innerText =
         "----";
     } else {
-      item.src = "../assets/images/icon/eyes/eye_grey_yes.svg";
+      item.src =
+        "https://raw.githubusercontent.com/ahmomoz/AAPD_Hex_Doughnut_Expense_Tracker/main/assets/images/icon/eyes/eye_grey_yes.svg";
       item.setAttribute("data-show", "true");
       item.closest(".income-card").querySelector(".income span").innerText =
         income;
