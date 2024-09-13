@@ -1,4 +1,19 @@
-<h1 class="header">我是 header</h1>
-<a href="index.html">index</a>
-<a href="about.html">about</a>
-<a href="contact.html">contact</a>
+<div class="bg-white py-3 shadow position-relative header" data-page="<%= page %>">
+    <% if (showBackButton) { %>
+        <div class="position-absolute start-0 top-50 translate-middle-y ms-4">
+            <button onclick="window.history.back()" class="btn">
+                <span class="material-symbols-outlined text-gray-600">chevron_left</span>
+            </button>
+        </div>
+        <% } %>
+            <p class="text-center" id="pageTitle"></p>
+            <% if (showSearchButton) { %>
+                <div class="position-absolute end-0 top-50 translate-middle-y me-4">
+                    <button class="btn">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                    </button>
+                </div>
+                <% } %>
+</div>
