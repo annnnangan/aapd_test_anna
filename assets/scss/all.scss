@@ -8,6 +8,8 @@
 @import "./utils/flex.scss";
 @import "./utils/list-group.scss";
 @import "./utils/base.scss";
+@import "./utils/badge.scss";
+@import "./utils/spacer.scss";
 
 @import "./base/font.scss";
 
@@ -19,3 +21,4 @@
 @import "./pages/index.scss";
 @import "./pages/accounting-receipt.scss";
 @import "./pages/review-expense.scss";
+@import "./pages/accounting-search.scss";

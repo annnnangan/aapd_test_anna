@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <title>index</title>
+    <title>明細</title>
   </head>
   <body>
     <div class="accounting-receipt-section mt-6">
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="bg-white border-bottom f-between-center py-2 px-4">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center py-tiny">
             <div class="flex-shrink-0">
               <img
                 src="../assets/images/icon/account/category-shop.png"
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="bg-white border-bottom f-between-center py-2 px-4">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center py-tiny">
             <div class="flex-shrink-0">
               <img
                 src="../assets/images/icon/account/category-transport.png"
@@ -59,17 +59,17 @@
               <p class="fs-8">月票</p>
             </div>
           </div>
-          <div class="font-Nunito text-red-600 fw-semibold f-column-center">
+          <div class="font-Nunito text-red-600 fw-semibold text-end py-tiny">
             <p>-$1,200</p>
             <span
-              class="fs-9 text-white fw-normal bg-gray-300 rounded-pill w-100 text-center mt-1 py-1"
+              class="fs-9 text-white fw-normal bg-gray-300 rounded-pill text-center mt-1 px-2"
             >
               週期3
             </span>
           </div>
         </div>
         <div class="bg-white border-bottom f-between-center py-2 px-4">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center py-tiny">
             <div class="flex-shrink-0">
               <img
                 src="../assets/images/icon/account/category-learn.png"
@@ -88,7 +88,7 @@
           </div>
         </div>
         <div class="bg-white border-bottom f-between-center py-2 px-4">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center py-tiny">
             <div class="flex-shrink-0">
               <img
                 src="../assets/images/icon/account/category-bank.png"
@@ -136,7 +136,7 @@
           </div>
         </div>
         <div class="bg-white border-bottom f-between-center py-2 px-4">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center py-tiny">
             <div class="flex-shrink-0">
               <img
                 src="../assets/images/icon/account/category-entertainment.png"
@@ -155,7 +155,7 @@
           </div>
         </div>
         <div class="bg-white border-bottom f-between-center py-2 px-4">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center py-tiny">
             <div class="flex-shrink-0">
               <img
                 src="../assets/images/icon/account/category-medical.png"
@@ -173,7 +173,7 @@
         </div>
       </div>
     </div>
-    <%- include('./layout/tab-bar'); -%>
+    <%- include('./layout/tab-bar', {page:'accounting-receipt'}); -%>
 
     <script type="module" src="../main.js"></script>
   </body>
