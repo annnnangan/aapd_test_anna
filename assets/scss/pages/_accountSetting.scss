@@ -1,0 +1,41 @@
+.account-setting {
+  .dash-border {
+    border: 2px dashed $gray-200 !important;
+  }
+}
+
+.account-bank {
+  background-color: #f3f8fb;
+  .text-esu {
+    color: #009d95;
+  }
+  .btn-esu {
+    background-color: #009d95;
+  }
+  .open {
+    display: inline-block;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease-in-out;
+  }
+  .collapsed .open {
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.account-bank-done {
+  .center-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 500px);
+  }
+  .bottom-10 {
+    bottom: 10%;
+  }
+  .bottom-5 {
+    bottom: 5%;
+  }
+}
