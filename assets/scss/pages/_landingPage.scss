@@ -1,0 +1,45 @@
+.landing-page {
+  .image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 500px);
+  }
+  .custom-dollar {
+    color: $gray-200; /* 預設顏色 */
+    &.active {
+      color: $gray-950; /* 當輸入有值時顏色改變 */
+    }
+  }
+  .input-padding {
+    padding-left: 30px !important;
+  }
+  .step-btn {
+    padding: 15px 20px;
+  }
+  .d-flex {
+    gap: 20px;
+  }
+  .bottom-10 {
+    bottom: 10%;
+  }
+  .bottom-5 {
+    bottom: 5%;
+  }
+  .bg-gray-100 {
+    &:hover,
+    &:active,
+    &.active,
+    &.focus {
+      background-color: $gray-600 !important;
+    }
+  }
+  .text-gray-200 {
+    &:hover,
+    &:active,
+    &.active,
+    &.focus {
+      color: $white !important;
+    }
+  }
+}

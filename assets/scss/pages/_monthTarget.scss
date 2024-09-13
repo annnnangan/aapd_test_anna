@@ -1,0 +1,14 @@
+.month-target {
+  padding-top: 24px;
+
+  .form-check-input:checked {
+    background-color: $green-400;
+    border-color: transparent !important;
+  }
+  .form-check-input:focus {
+    box-shadow: none; // 移除淡藍色邊框
+  }
+  .container {
+    padding-bottom: 100px;
+  }
+}
