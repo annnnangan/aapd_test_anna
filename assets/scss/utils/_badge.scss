@@ -1,0 +1,15 @@
+.badge-gray-100 {
+  color: $gray-600;
+  background-color: $gray-100;
+
+  &.active, &:hover {
+    color: $white;
+    background-color: $gray-400;
+  }
+}
+
+.badge-sm {
+  font-size: 13px;
+  font-weight: 400;
+  padding: 10px 8px;
+}
