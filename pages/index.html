@@ -3,14 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>主頁</title>
+    <title>首頁</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
   </head>
   <body>
-    <div class="home" style="padding-bottom: 150px">
+    <!-- Header -->
+    <div class="header position-fixed w-100" data-page="首頁">
+      <div class="bg-white py-3 shadow font-Nunito fs-7 position-relative">
+        <p class="text-center" style="transform: translateY(3px)">
+          2024 / 07 / 05 - 2024 / 08 / 04
+        </p>
+        <div class="position-absolute end-0 top-50 translate-middle-y me-4">
+          <img
+            src="../assets/images/icon/review/review_uncheceked.svg"
+            alt="review icon"
+            style="cursor: pointer"
+            data-bs-toggle="modal"
+            data-bs-target="#expenseReviewModal"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="expenseReviewModal"
+      tabindex="-1"
+      aria-labelledby="expenseReviewModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content mx-auto border-0" style="width: 50%">
+          <div class="modal-header border-bottom-0 pt-6 pe-6">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body d-flex justify-content-center px-10 py-0 mb-9">
+            <img src="../assets/images/img_good.png" alt="" class="w-100" />
+          </div>
+          <div class="modal-footer border-top-0 px-6 py-0 pb-6">
+            <a
+              href="review-expense.html"
+              type="button"
+              class="btn btn-gray-600 w-100 fs-8 m-0 py-1"
+            >
+              回顧上月財務
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home pt-13 pb-14">
       <div class="container">
         <div class="d-flex mb-5">
           <%- include('./layout/income-card', {background:"bg-surface-second",
