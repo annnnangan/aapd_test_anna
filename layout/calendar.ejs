@@ -15,7 +15,7 @@
         style="width: 24px; height: 24px;">
     </button>
   </div>
-  <div class="calendar-weekdays">
+  <div class="calendar-weekdays <%=page === 'account-modal' ? 'p-0' : '' %>">
     <div class="weekday">日</div>
     <div class="weekday">一</div>
     <div class="weekday">二</div>
@@ -24,7 +24,7 @@
     <div class="weekday">五</div>
     <div class="weekday">六</div>
   </div>
-  <div class="calendar-days pt-0"></div>
+  <div class="calendar-days <%=page === 'account-modal' ? 'p-0' : 'pt-0' %>"></div>
 </div>
 
 <script type="module" src="../assets/js/calendar.js"></script>

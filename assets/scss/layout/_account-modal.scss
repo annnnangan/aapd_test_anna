@@ -1,7 +1,6 @@
-/* accountModal */
-.accountModal {
-  border-radius: 18px 18px 0 0;
-
+/* common */
+.accountModal,
+.selectDateModal {
   .modal-dialog {
     position: fixed;
     bottom: 0; left: 0;
@@ -130,5 +129,22 @@
     border-radius: 20px;
     border: 0;
     padding: 6px 10px;
+  }
+}
+
+/* addCategoryModal & addSubCategoryModal */
+.addCategoryModal,
+.addSubCategoryModal {
+  .modal-dialog {
+    width: 72%;
+    margin: 0 auto;
+  }
+}
+
+/* selectDateModal */
+.selectDateModal {
+  .modal-content {
+    border-radius: 28px 28px 0 0;
+    padding: 24px 24px 54px;
   }
 }
