@@ -1,0 +1,19 @@
+<li class="px-6 d-flex expense-review-compare-list-item align-items-center list-hover">
+  <div class="d-flex position-relative ms-auto">
+    <div class="d-flex align-items-center category">
+      <div class="category-color-index bg-<%= backgroundColor %>"></div>
+      <p class="fs-8"><%= category %></p>
+    </div>
+    <div class="progress-bar-thick-wrapper progress-bar-thick-wrapper-<%=status === "increase" ? 'right' : 'left' %>">
+      <div class="progress-bar-thick" style="width: <%= progress %>%"></div>
+    </div>
+  </div>
+
+  <div class="ms-auto comparison-expense">
+    <div class="d-flex">
+      <img src="../assets/images/icon/<%=status === "increase" ? 'arrow-up' :
+      'arrow-down' %>.svg" alt="arrow" width="20" height="20">
+      <p class="font-Nunito fw-semibold fs-8">$<%= change.toLocaleString('en-IN') %></p>
+    </div>
+  </div>
+</li>
