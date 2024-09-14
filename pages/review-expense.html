@@ -4,13 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>復盤頁｜花費總覽</title>
+    <!-- Material icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
   </head>
   <body>
-    <div class="review-expense" style="padding-bottom: 100px">
+    <%- include('./layout/header', { page: '復盤' , showBackButton: true,
+    showSearchButton: false}); -%>
+    <div class="review-expense pt-13 pb-14">
       <div class="container">
         <div class="goal-card mb-6">
           <div
@@ -53,7 +60,7 @@
             <div class="list-group-wrapper mb-3">
               <div class="list-group flex-row" id="list-tab" role="tablist">
                 <a
-                  class="list-group-item list-group-item-action"
+                  class="list-group-item list-group-item-action active"
                   id="list-expense-overview-list"
                   data-bs-toggle="list"
                   href="#list-expense-overview"
@@ -62,7 +69,7 @@
                   >花費總覽</a
                 >
                 <a
-                  class="list-group-item list-group-item-action active"
+                  class="list-group-item list-group-item-action"
                   id="list-expense-rank-list"
                   data-bs-toggle="list"
                   href="#list-expense-rank"
@@ -75,46 +82,123 @@
             <!-- tab content -->
             <div>
               <div class="tab-content" id="nav-tabContent">
-                <!-- 花費總覽 Details -->
+                <!-- Tab 1 - 花費總覽 - Details -->
                 <div
-                  class="tab-pane fade"
+                  class="tab-pane fade show active"
                   id="list-expense-overview"
                   role="tabpanel"
                   aria-labelledby="list-expense-overview-list"
                 >
-                  ...
+                  <!-- Tab 1 - 花費總覽 - Details - 花費 -->
+                  <div class="expense-review-section mb-6">
+                    <canvas id="total-expense-pie-chart"></canvas>
+                    <table
+                      class="table expense-overview-table mt-5 table-hover"
+                    >
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">總花費</th>
+                          <th scope="col">類別預算</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Category Food -->
+                        <%-
+                        include('./layout/expense-review-overview-list-item', {
+                        backgroundColor:"light-food",
+                        category:"飲食",spentAmount:12000, budget:14000}); -%>
+                      </tbody>
+
+                      <!-- Category Learn -->
+                      <%- include('./layout/expense-review-overview-list-item',
+                      { backgroundColor:"light-shop",
+                      category:"購物",spentAmount:4300, budget:5000}); -%>
+
+                      <!-- Category Learn -->
+                      <%- include('./layout/expense-review-overview-list-item',
+                      { backgroundColor:"light-learn",
+                      category:"學習",spentAmount:4600, budget:4000}); -%>
+
+                      <!-- Category Transport -->
+                      <%- include('./layout/expense-review-overview-list-item',
+                      { backgroundColor:"light-transport",
+                      category:"交通",spentAmount:8000, budget:10000}); -%>
+
+                      <!-- Category Entertainment -->
+                      <%- include('./layout/expense-review-overview-list-item',
+                      { backgroundColor:"light-entertainment",
+                      category:"娛樂",spentAmount:4700, budget:"----"}); -%>
+
+                      <!-- Category Medical -->
+                      <%- include('./layout/expense-review-overview-list-item',
+                      { backgroundColor:"light-medical",
+                      category:"醫療",spentAmount:3000, budget:"----"}); -%>
+                    </table>
+                  </div>
+                  <!-- Tab 1 - 花費總覽 - Details - 與上月相比 -->
+                  <div class="expense-review-section expense-comparison">
+                    <h4 class="fs-7 fw-bold mb-4 px-6">與上月相比</h4>
+                    <ol class="ps-0">
+                      <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 學習 -->
+                      <%- include('./layout/expense-review-compare-list-item', {
+                      backgroundColor:"light-learn", category:"學習", change:
+                      4000, status:"increase", progress:"120" }); -%>
+
+                      <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 飲食 -->
+
+                      <%- include('./layout/expense-review-compare-list-item', {
+                      backgroundColor:"light-food", category:"飲食", change:
+                      1000, status:"increase",progress:"50" }); -%>
+
+                      <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 購物 -->
+
+                      <%- include('./layout/expense-review-compare-list-item', {
+                      backgroundColor:"light-shop", category:"購物", change:
+                      1000, status:"decrease", progress:"40" }); -%>
+
+                      <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 娛樂 -->
+
+                      <%- include('./layout/expense-review-compare-list-item', {
+                      backgroundColor:"light-entertainment", category:"娛樂",
+                      change: 2400, status:"decrease", progress:"70" }); -%>
+                    </ol>
+                  </div>
                 </div>
 
-                <!-- 花費排名 Details -->
+                <!-- Tab 2 - 花費排名 - Details -->
                 <div
-                  class="tab-pane fade show active"
+                  class="tab-pane fade"
                   id="list-expense-rank"
                   role="tabpanel"
                   aria-labelledby="list-expense-rank-list"
                 >
                   <!-- 單筆花費 TOP3 -->
-                  <div class="bg-white radius-xl py-5 px-6 mb-5">
-                    <h4 class="fs-6 fw-bold mb-4">單筆花費 TOP3</h4>
-                    <ol class="top-expense-list">
+                  <div class="expense-review-section mb-5">
+                    <h4 class="fs-6 fw-bold mb-4 px-6">單筆花費 TOP3</h4>
+                    <ol class="top-expense-list link-hover">
                       <!-- Top 1 -->
-                      <%- include('./layout/top-3-overall-list-item', {index: 1,
-                      backgroundColor:"light-food", category:"飲食",
+                      <%-
+                      include('./layout/expense-review-top-3-overall-list-item',
+                      {index: 1, backgroundColor:"light-food", category:"飲食",
                       details:"晚餐", expense:4000}); -%>
                       <!-- Top 2 -->
-                      <%- include('./layout/top-3-overall-list-item', {index: 2,
-                      backgroundColor:"light-shop", category:"購物",
+                      <%-
+                      include('./layout/expense-review-top-3-overall-list-item',
+                      {index: 2, backgroundColor:"light-shop", category:"購物",
                       details:"衣服", expense:3200}); -%>
                       <!-- Top 3 -->
-                      <%- include('./layout/top-3-overall-list-item', {index: 3,
-                      backgroundColor:"light-learn", category:"學習",
+                      <%-
+                      include('./layout/expense-review-top-3-overall-list-item',
+                      {index: 3, backgroundColor:"light-learn", category:"學習",
                       details:"課程", expense:3000}); -%>
                     </ol>
                   </div>
                   <!-- 各類別花費 TOP3 -->
                   <div
-                    class="bg-white radius-xl py-5 px-6 category-top-3-expense-list"
+                    class="expense-review-section category-top-3-expense-list"
                   >
-                    <h4 class="fs-6 fw-bold mb-4">各類別花費 TOP3</h4>
+                    <h4 class="fs-6 fw-bold mb-4 px-6">各類別花費 TOP3</h4>
 
                     <!-- navigation buttons -->
                     <div class="swiper-button-custom-prev">
@@ -148,13 +232,16 @@
                           </div>
                           <ol class="top-expense-list">
                             <!-- Top 1 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 1, details:"牛排", expense:1200}); -%>
                             <!-- Top 2 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 2, details:"甜點", expense:480}); -%>
                             <!-- Top 3 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 3, details:"壽司", expense:360}); -%>
                           </ol>
                         </div>
@@ -171,13 +258,16 @@
                           </div>
                           <ol class="top-expense-list">
                             <!-- Top 1 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 1, details:"平板電腦", expense:2500}); -%>
                             <!-- Top 2 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 2, details:"韓版上衣", expense:1000}); -%>
                             <!-- Top 3 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 3, details:"黑色短褲", expense:800}); -%>
                           </ol>
                         </div>
@@ -194,15 +284,18 @@
                           </div>
                           <ol class="top-expense-list">
                             <!-- Top 1 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 1, details:"UI 設計線上實戰營",
                             expense:2500}); -%>
                             <!-- Top 2 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 2, details:"網頁切版直播班", expense:2000});
                             -%>
                             <!-- Top 3 -->
-                            <%- include('./layout/top-3-category-list-item',
+                            <%-
+                            include('./layout/expense-review-top-3-category-list-item',
                             {index: 3, details:"使用 HTML、CSS 開發一個網站",
                             expense:1600}); -%>
                           </ol>
@@ -218,7 +311,7 @@
       </div>
     </div>
 
-    <div class="set-goal-tab fixed-bottom py-4 px-8 bg-white">
+    <div class="set-goal-tab fixed-bottom py-4 px-8 bg-white shadow">
       <a href="#" class="btn py-2 px-4 w-100 btn-gray-600 fs-7"
         >前往設定本月目標</a
       >
@@ -227,7 +320,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="../assets/js/category-top-3-swiper.js"></script>
-    <script type="module" src="../assets/js/budget-pie-chart.js"></script>
+    <script type="module" src="../assets/js/pie-chart.js"></script>
     <script type="module" src="../main.js"></script>
   </body>
 </html>

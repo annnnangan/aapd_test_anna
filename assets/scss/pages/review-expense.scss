@@ -7,6 +7,39 @@
   }
 }
 
+.review-expense {
+  .list-hover {
+    &:hover {
+      color: var(--bs-emphasis-color);
+      // background-color: rgba(var(--bs-emphasis-color-rgb), 0.075);
+      background-color: rgba(255, 209, 169, 0.3);
+    }
+  }
+
+  .table-hover {
+    --bs-table-hover-bg: rgba(255, 209, 169, 0.3);
+  }
+}
+
+.set-goal-tab.shadow {
+  box-shadow: 0px -4px 10px 0px #00000014;
+}
+
+.category-color-index {
+  margin-right: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.expense-review-section {
+  background-color: white;
+  border-radius: 32px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
 .top-expense-list {
   padding: 0px;
 }
@@ -23,13 +56,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .category-color-index {
-    margin-right: 8px;
-    width: 12px;
-    height: 12px;
-    border-radius: 4px;
   }
 
   hr {
@@ -53,5 +79,115 @@
     position: absolute;
     right: 100px;
     z-index: 10;
+  }
+}
+
+.expense-overview-table {
+  th {
+    color: $gray-600;
+    font-weight: normal;
+    text-align: start;
+
+    &:nth-child(2) {
+      padding-left: 30px;
+    }
+  }
+
+  td {
+    font-size: 15px;
+    border-bottom: 0px;
+  }
+
+  tr > td:nth-child(1) {
+    width: 20%;
+    padding-left: 16px;
+    @media (max-width: 400px) {
+      width: 21%;
+    }
+  }
+
+  tr > td:nth-child(2) {
+    width: 55%;
+    @media (max-width: 400px) {
+      width: 50%;
+    }
+  }
+
+  tr > td:nth-child(3) {
+    width: 25%;
+    padding-right: 16px;
+  }
+
+  .spent-amount {
+    margin-left: auto;
+
+    @media (max-width: 339px) {
+      margin-left: 0;
+    }
+  }
+
+  .progress {
+    height: 8px;
+    width: 70%;
+    @media (max-width: 487px) {
+      width: 60%;
+    }
+
+    @media (max-width: 400px) {
+      width: 40%;
+    }
+    @media (max-width: 339px) {
+      width: 100%;
+    }
+  }
+  .overbudget {
+    color: $red-600;
+  }
+}
+
+.expense-comparison {
+  .expense-review-compare-list-item {
+    height: 40px;
+  }
+  .category {
+    position: relative;
+    z-index: 10;
+    transform: translateX(50%);
+  }
+
+  .progress-bar-thick-wrapper {
+    position: absolute;
+    width: 150%;
+    top: -45%;
+
+    &.progress-bar-thick-wrapper-right {
+      right: -150%;
+    }
+    &.progress-bar-thick-wrapper-left {
+      right: 0;
+      display: flex;
+      justify-content: end;
+    }
+  }
+
+  .progress-bar-thick {
+    height: 40px;
+    background-color: $gray-50;
+  }
+
+  .progress-bar-thick-wrapper-right {
+    .progress-bar-thick {
+      border-radius: 0px 18px 18px 0px;
+    }
+  }
+
+  .progress-bar-thick-wrapper-left {
+    .progress-bar-thick {
+      border-radius: 18px 0px 0px 18px;
+    }
+  }
+
+  .comparison-expense {
+    z-index: 11;
   }
 }

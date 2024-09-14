@@ -501,6 +501,7 @@ $spacers: (
   11: $spacer * 3,
   12: $spacer * 4,
   13: $spacer * 5,
+  14: $spacer * 8,
 ) !default;
 // scss-docs-end spacer-variables-maps
 
@@ -828,7 +829,8 @@ $table-cell-padding-x-sm: 0.25rem !default;
 $table-cell-vertical-align: top !default;
 
 $table-color: var(--#{$prefix}emphasis-color) !default;
-$table-bg: var(--#{$prefix}body-bg) !default;
+// $table-bg: var(--#{$prefix}body-bg) !default;
+$table-bg: $white !default; //custom
 $table-accent-bg: transparent !default;
 
 $table-th-font-weight: null !default;
