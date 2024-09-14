@@ -6,7 +6,7 @@
   <div class="bg-white py-3 shadow position-relative">
     <% if (showBackButton) { %>
     <div class="position-absolute start-0 top-50 translate-middle-y ms-4">
-      <button onclick="window.history.back()" class="btn">
+      <button onclick="window.history.back()" class="btn p-0">
         <span class="material-symbols-outlined text-gray-600"
           >chevron_left</span
         >
@@ -16,9 +16,13 @@
     <p class="text-center" id="pageTitle"></p>
     <% if (showSearchButton) { %>
     <div class="position-absolute end-0 top-50 translate-middle-y me-4">
-      <button class="btn">
-        <span class="material-symbols-outlined"> search </span>
-      </button>
+      <a href="accounting-search.html">
+        <img
+          src="../assets/images/icon/search/search_pressed.svg"
+          alt="icon-search"
+          style="width: 24px; height: 24px;"
+        >
+      </a>
     </div>
     <% } %>
   </div>

@@ -4,7 +4,9 @@
   id="accountModal"
   tabindex="-1"
   aria-labelledby="accountModalLabel"
-  aria-hidden="true">
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false">
   <div class="modal-dialog">
     <div class="modal-content bg-white border-0">
       <div class="modal-header py-2">
@@ -142,7 +144,10 @@
                       <li class="nav-item radius-l p-1">
                         <a  
                           href="#"
-                          class="nav-link f-column-center p-0">
+                          class="nav-link f-column-center p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#addCategoryModal"
+                        >
                           <img src="../assets/images/icon/account/category-add.png" alt="category-food-icon">
                           <p class="fs-9 font-Nunito mt-1">
                             新增
@@ -176,7 +181,12 @@
           <a href="#" class="badge badge-sm badge-gray-100">#晚餐</a>
           <a href="#" class="badge badge-sm badge-gray-100">#宵夜</a>
           <a href="#" class="badge badge-sm badge-gray-100">#點心</a>
-          <a href="#" class="badge badge-sm badge-gray-100">
+          <a
+            href="#"
+            class="badge badge-sm badge-gray-100"
+            data-bs-toggle="modal"
+            data-bs-target="#addSubCategoryModal"
+          >
             <img
               src="../assets/images/icon/add/add_pressed.svg"
               alt="add-icon"
@@ -185,7 +195,9 @@
         </div>
         <div class="d-flex mt-2 py-1">
           <button
-            class="btn btn-outline-gray-500 fs-8 bg-white py-1 f-center flex-grow-1 position-relative">
+            class="btn btn-outline-gray-500 fs-8 bg-white py-1 f-center flex-grow-1 position-relative"
+            data-bs-toggle="modal"
+            data-bs-target="#selectDateModal">
             今天 08/05
             <img
               src="../assets/images/icon/arrow-left/arrow_left_pressed.svg"
@@ -274,7 +286,141 @@
   </div>
 </div>
 
+<!-- addCategoryModal -->
+<div
+  class="addCategoryModal modal fade"
+  id="addCategoryModal"
+  tabindex="-1" 
+  aria-labelledby="addCategoryModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-white border-0 p-6">
+      <div class="modal-header border-0 p-0">
+        <p
+          class="modal-title fs-6"
+          id="addCategoryModalLabel">
+          新增類別
+        </p>
+        <button
+          type="button"
+          class="btn-close text-gray-600"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body f-column-center p-0 mt-5">
+        <img
+          src="../assets/images/icon/account/category-necessary.png"
+          alt="category-necessary-icon"
+          style="width: 56px; height: 56px;">
+        <input
+          type="text"
+          class="form-control w-100 bg-white border-gray-300 mt-3"
+          placeholder="請輸入類別名稱">
+        <div class="border-0 d-flex w-100 p-0 mt-5">
+          <button
+            type="button"
+            class="btn btn-outline-gray-500 fs-8 w-100"
+            data-bs-dismiss="modal">
+            取消
+          </button>
+          <button
+            type="button"
+            class="btn btn-gray-600 fs-8 w-100 ms-3">
+            儲存
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- addSubCategoryModal -->
+<div
+  class="addSubCategoryModal modal fade"
+  id="addSubCategoryModal"
+  tabindex="-1" 
+  aria-labelledby="addSubCategoryModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-white border-0 p-6">
+      <div class="modal-header border-0 p-0">
+        <p
+          class="modal-title fs-6"
+          id="addSubCategoryModalLabel">
+          新增飲食子類別
+        </p>
+        <button
+          type="button"
+          class="btn-close text-gray-600"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body f-column-center p-0 mt-5">
+        <input
+          type="text"
+          class="form-control w-100 bg-white border-gray-300 mt-3"
+          placeholder="請輸入類別名稱">
+        <div class="border-0 d-flex w-100 p-0 mt-5">
+          <button
+            type="button"
+            class="btn btn-outline-gray-500 fs-8 w-100"
+            data-bs-dismiss="modal">
+            取消
+          </button>
+          <button
+            type="button"
+            class="btn btn-gray-600 fs-8 w-100 ms-3">
+            儲存
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- selectDateModal -->
+<div
+  class="selectDateModal modal fade"
+  id="selectDateModal"
+  tabindex="-1" 
+  aria-labelledby="selectDateModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content bg-white border-0">
+      <div class="modal-header flex-row border-0 p-0">
+        <p
+          class="modal-title fs-6"
+          id="selectDateModalLabel">
+          選擇日期
+        </p>
+        <button
+          type="button"
+          class="btn-close text-gray-600"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body f-column-center p-0 mt-5">
+        <%- include('./layout/calendar', {page:'account-modal'}); -%>
+        <div class="border-0 d-flex w-100 p-0 mt-8">
+          <button
+            type="button"
+            class="btn btn-gray-600 fs-8 w-100">
+            確認
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
   var swiper = new Swiper(".category-swiper", {
     direction: "vertical",
