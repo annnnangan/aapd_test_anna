@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>統計</title>
+  </head>
+  <body>
+    <%- include('./layout/header', { page: '統計' , showBackButton: false,
+    showSearchButton: false}); -%>
+
+    <div class="statistics pt-13 pb-14">
+      <div class="container">
+        <div class="main-content">
+          <div class="d-flex flex-column">
+            <!-- Level 1 - Tab - 趨勢 / 報告 -->
+            <div class="list-group-wrapper mb-9">
+              <div class="list-group flex-row" id="list-tab" role="tablist">
+                <a
+                  class="list-group-item list-group-item-action active"
+                  id="list-trend-list"
+                  data-bs-toggle="list"
+                  href="#list-trend"
+                  role="tab"
+                  aria-controls="list-trend"
+                  >趨勢</a
+                >
+                <a
+                  class="list-group-item list-group-item-action"
+                  id="list-report-list"
+                  data-bs-toggle="list"
+                  href="#list-report"
+                  role="tab"
+                  aria-controls="list-report"
+                  >報告</a
+                >
+              </div>
+            </div>
+            <!-- Level 1 - Tab Content - 趨勢 / 報告 -->
+            <div>
+              <div class="tab-content" id="nav-tabContent">
+                <!-- Level 1 - Tab 1 Content - 趨勢 -->
+                <div
+                  class="tab-pane fade show active"
+                  id="list-trend"
+                  role="tabpanel"
+                  aria-labelledby="list-trend-list"
+                >
+                  <!-- 日期 -->
+                  <div class="date-picker px-4 mb-6">
+                    <div
+                      class="d-flex justify-content-between align-items-center bg-white radius-sm py-3 px-4"
+                    >
+                      <img
+                        src="../assets/images/icon/arrow-left/arrow_left_default.svg"
+                        alt="right arrow"
+                      />
+                      <p class="text-black fs-8 font-Nunito">
+                        2024 / 01/ 01 - 2024 / 07 / 31
+                      </p>
+                      <img
+                        src="../assets/images/icon/arrow-right/arrow_right_default.svg"
+                        alt="right arrow"
+                      />
+                    </div>
+                  </div>
+                  <!-- Income Card -->
+                  <div class="d-flex mb-5">
+                    <%- include('./layout/income-card',
+                    {background:"bg-surface-second",
+                    title:"本月收入",income:"36,000", width:"w-50"}); -%> <%-
+                    include('./layout/income-card',
+                    {background:"bg-surface-second",
+                    title:"總存款",income:"550,000",width:"w-50"}); -%>
+                  </div>
+                  <!-- 年度存款 -->
+                  <div>
+                    <h5 class="section-title mb-2">年度存款</h5>
+                    <div class="section-block">
+                      <canvas id="savingLineChart"> </canvas>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Level 1 - Tab 2 Content - 報告 -->
+                <div
+                  class="tab-pane fade"
+                  id="list-report"
+                  role="tabpanel"
+                  aria-labelledby="list-report-list"
+                >
+                  <!-- 日期 -->
+                  <div class="date-picker px-4 mb-6">
+                    <div
+                      class="d-flex justify-content-between align-items-center bg-white radius-sm py-3 px-4"
+                    >
+                      <img
+                        src="../assets/images/icon/arrow-left/arrow_left_default.svg"
+                        alt="right arrow"
+                      />
+                      <p class="text-black fs-8 font-Nunito">
+                        2024 / 01/ 01 - 2024 / 07 / 31
+                      </p>
+                      <img
+                        src="../assets/images/icon/arrow-right/arrow_right_default.svg"
+                        alt="right arrow"
+                      />
+                    </div>
+                  </div>
+                  <!-- Level 2 - Tab - 支出 / 收入 -->
+                  <div class="d-flex flex-column section-block p-4">
+                    <div
+                      class="list-group-wrapper list-group-wrapper-secondary mb-6"
+                    >
+                      <div
+                        class="list-group flex-row"
+                        id="list-tab"
+                        role="tablist"
+                      >
+                        <a
+                          class="list-group-item list-group-item-secondary list-group-item-action active"
+                          id="list-expense-list"
+                          data-bs-toggle="list"
+                          href="#list-expense"
+                          role="tab"
+                          aria-controls="list-expense"
+                          >支出</a
+                        >
+                        <a
+                          class="list-group-item list-group-item-secondary list-group-item-action"
+                          id="list-income-list"
+                          data-bs-toggle="list"
+                          href="#list-income"
+                          role="tab"
+                          aria-controls="list-report"
+                          >收入</a
+                        >
+                      </div>
+                    </div>
+                    <!-- Level 2 - Tab Content - 支出 / 收入 -->
+                    <div>
+                      <div class="tab-content" id="nav-tabContent">
+                        <!-- Level 2 - Tab 1 Content - 支出 -->
+                        <div
+                          class="tab-pane fade show active"
+                          id="list-expense"
+                          role="tabpanel"
+                          aria-labelledby="list-expense-list"
+                        >
+                          <!-- Income Card -->
+                          <div class="d-flex mb-5">
+                            <%- include('./layout/income-card',
+                            {background:"bg-gray-50",
+                            title:"總存款",income:"12,950", width:"w-50"}); -%>
+                            <!-- card 2 -->
+                            <%- include('./layout/view-card',
+                            {background:"bg-gray-50", goal:"$8,000", hasIcon:
+                            false,fontSize:"fs-9", text:"比前月增加"}); -%>
+                          </div>
+
+                          <!-- Chart -->
+                          <canvas id="monthly-total-expense-pie-chart"></canvas>
+                          <!-- List Table -->
+                          <div class="w-100 mt-6">
+                            <p
+                              class="fs-8 text-gray-600 text-end pe-4 py-2 border-bottom"
+                            >
+                              支出
+                            </p>
+                            <ul>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-food", category:"飲食",
+                              expense:14000}); -%>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-shop", category:"購物",
+                              expense:14000}); -%>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-transport",
+                              category:"交通", expense:2000}); -%>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-entertainment",
+                              category:"娛樂", expense:2000}); -%>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-learn", category:"學習",
+                              expense:4700}); -%>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-life", category:"生活",
+                              expense:8000}); -%>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-medical",
+                              category:"醫療", expense:3000}); -%>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <!-- Level 2 - Tab 2 Content - 收入 -->
+                        <div
+                          class="tab-pane fade"
+                          id="list-income"
+                          role="tabpanel"
+                          aria-labelledby="list-income-list"
+                        >
+                          <div class="mb-6">
+                            <%- include('./layout/income-card',
+                            {background:"bg-gray-50",
+                            title:"本月總收入",income:"38,000", width:"w-100"});
+                            -%>
+                          </div>
+
+                          <!-- Chart -->
+                          <canvas id="total-income-pie-char"></canvas>
+                          <!-- List Table -->
+                          <div class="w-100 mt-6">
+                            <p
+                              class="fs-8 text-gray-600 text-end pe-4 py-2 border-bottom"
+                            >
+                              收入
+                            </p>
+                            <ul>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-earnings",
+                              category:"薪水", expense:35000}); -%>
+                              <%-include('./layout/statistics-expense-list-item',
+                              { backgroundColor:"light-bonus", category:"獎金",
+                              expense:3000}); -%>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include('./layout/tab-bar', {page:'statistics'}); -%>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../assets/js/line-chart.js"></script>
+    <script type="module" src="../assets/js/pie-chart.js"></script>
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>
