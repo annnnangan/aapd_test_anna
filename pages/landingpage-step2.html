@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,8 +10,8 @@
 
 <body>
   <section class="landing-page bg-orange-50 vh-100 py-6">
-    <div class="container h-100 position-relative">
-      <div class="btn bg-orange-500 step-btn mb-10">
+    <div class="container h-100 px-1">
+      <div class="btn bg-orange-400 step-btn mb-10">
         <h4 class="text-white">步驟2</h4>
       </div>
       <label for="inputIncome" class="form-label mb-4 d-block">
@@ -24,17 +24,22 @@
       <div class="image-wrapper">
         <img src="../assets/images/image_pig.png" class="mx-auto d-block" style="max-width: 185px;">
       </div>
-      <div class="d-flex position-absolute bottom-10 start-50 translate-middle mb-4">
-        <a href="landingpage-step1.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
-        <a href="landingpage-step2.html" class="badge rounded-circle p-2 bg-gray-600"> </a>
-        <a href="landingpage-step3.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+    </div>
+    <div class="fixed-bottom mb-6">
+      <div class="container px-1">
+        <div class="d-flex mb-4 justify-content-center">
+          <a href="landingpage-step1.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+          <a href="landingpage-step2.html" class="badge rounded-circle p-2 bg-gray-600"> </a>
+          <a href="landingpage-step3.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+        </div>
+        <div class="d-flex">
+          <button onclick="window.history.back()" class="btn p-0">
+            <img src="../assets/images/icon/arrow-left/arrow_left_pressed.svg">
+          </button>
+          <a href="landingpage-step3.html" class="btn w-100 bg-gray-100 text-gray-200">下一步</a>
+        </div>
       </div>
-      <a href="landingpage-step3.html"
-        class="btn w-100 bg-gray-100 text-gray-200 position-absolute start-0 bottom-5">下一步</a>
     </div>
-    </div>
-
-
   </section>
   <script>
     const inputIncome = document.getElementById('inputIncome');

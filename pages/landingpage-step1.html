@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,15 +10,16 @@
 
 <body>
   <section class="landing-page bg-orange-50 vh-100 py-6">
-    <div class="container h-100 position-relative">
-      <div class="btn bg-orange-500 step-btn mb-10">
+    <div class="container h-100 px-1">
+      <div class="btn bg-orange-400 step-btn mb-10">
         <h4 class="text-white">步驟1</h4>
       </div>
       <form class="mb-9">
         <label for="start">
           <h5 class="mb-4">每月的起始日期</h5>
         </label>
-        <input type="date" id="start" name="bday" class="form-control" />
+        <select class="form-select" aria-label="Default select example" id="start">
+        </select>
       </form>
       <form>
         <label for="inputIncome" class="form-label mb-4">
@@ -32,22 +33,21 @@
       <div class="image-wrapper">
         <img src="../assets/images/image_calender.png" class="mx-auto d-block" style="max-width: 185px;">
       </div>
-      <div class="d-flex position-absolute bottom-10 start-50 translate-middle mb-4">
-        <a href="landingpage-step1.html" class="badge rounded-circle p-2 bg-gray-600"> </a>
-        <a href="landingpage-step2.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
-        <a href="landingpage-step3.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+    </div>
+    <div class="fixed-bottom mb-6">
+      <div class="container px-1">
+        <div class="d-flex mb-4 justify-content-center">
+          <a href="landingpage-step1.html" class="badge rounded-circle p-2 bg-gray-600"> </a>
+          <a href="landingpage-step2.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+          <a href="landingpage-step3.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+        </div>
+        <a href="landingpage-step2.html" class="btn w-100 bg-gray-100 text-gray-200">下一步</a>
       </div>
-      <a href="landingpage-step2.html"
-        class="btn w-100 bg-gray-100 text-gray-200 position-absolute start-0 bottom-5">下一步</a>
     </div>
-    </div>
-
-
   </section>
   <script>
     const inputIncome = document.getElementById('inputIncome');
     const dollarSign = document.getElementById('dollarSign');
-
     inputIncome.addEventListener('input', function () {
       if (this.value.length > 0) {
         dollarSign.classList.add('active'); // 當有值時，添加 active 類別
@@ -56,7 +56,19 @@
       }
     });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const select = document.getElementById('start');
 
+      // 使用迴圈生成 1-31 號選項
+      for (let day = 1; day <= 31; day++) {
+        const option = document.createElement('option');
+        option.value = day;
+        option.textContent = `${day}號`;
+        select.appendChild(option);
+      }
+    });
+  </script>
   <script type="module" src="../main.js"></script>
 </body>
 
