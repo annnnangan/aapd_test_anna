@@ -82,13 +82,27 @@
       </a>
     </li>
     <li>
-      <a href="#" class="pt-3 pb-1 px-3">
-        <img
-          src="../assets/images/icon/Tab_Bar/user_default.svg"
-          alt="user-icon"
-        />
-        <p class="fs-10 text-gray-600 mt-1">設定</p>
-      </a>
+      <a
+      href="account-setting-total.html"
+      class="pt-3 pb-1 px-3 <%=page === 'account-setting' ? 'd-none' : '' %>"
+    >
+      <img
+        src="../assets/images/icon/Tab_Bar/user_default.svg"
+        alt="user-icon"
+      />
+      <p class="fs-10 text-gray-600 mt-1">設定</p>
+    </a>
+
+    <a
+      href="account-setting-total.html"
+      class="pt-3 pb-1 px-3 <%=page === 'account-setting' ? '' : 'd-none' %>"
+    >
+      <img
+        src="../assets/images/icon/Tab_Bar/user_selected.svg"
+        alt="user-icon"
+      />
+      <p class="fs-10 text-orange-400 mt-1">設定</p>
+    </a>
     </li>
   </ul>
 </nav>
