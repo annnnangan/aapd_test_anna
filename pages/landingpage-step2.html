@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>landingPage</title>
+</head>
+
+<body>
+  <section class="landing-page bg-orange-50 vh-100 py-6">
+    <div class="container h-100 px-1">
+      <div class="btn bg-orange-400 step-btn mb-10">
+        <h4 class="text-white">步驟2</h4>
+      </div>
+      <label for="inputIncome" class="form-label mb-4 d-block">
+        <h5>每月預計存下金額</h5>
+      </label>
+      <form class="mb-12 position-relative">
+        <input type="number" id="inputIncome" class="form-control input-padding" placeholder="0" min="0" required>
+        <span id="dollarSign" class="position-absolute start-0 top-50 translate-middle-y ms-4 custom-dollar">$</span>
+      </form>
+      <div class="image-wrapper">
+        <img src="../assets/images/image_pig.png" class="mx-auto d-block" style="max-width: 185px;">
+      </div>
+    </div>
+    <div class="fixed-bottom mb-6">
+      <div class="container px-1">
+        <div class="d-flex mb-4 justify-content-center">
+          <a href="landingpage-step1.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+          <a href="landingpage-step2.html" class="badge rounded-circle p-2 bg-gray-600"> </a>
+          <a href="landingpage-step3.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+        </div>
+        <div class="d-flex">
+          <button onclick="window.history.back()" class="btn p-0">
+            <img src="../assets/images/icon/arrow-left/arrow_left_pressed.svg">
+          </button>
+          <a href="landingpage-step3.html" class="btn w-100 bg-gray-100 text-gray-200">下一步</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const inputIncome = document.getElementById('inputIncome');
+    const dollarSign = document.getElementById('dollarSign');
+
+    inputIncome.addEventListener('input', function () {
+      if (this.value.length > 0) {
+        dollarSign.classList.add('active'); // 當有值時，添加 active 類別
+      } else {
+        dollarSign.classList.remove('active'); // 沒有值時移除 active 類別
+      }
+    });
+  </script>
+  <script type="module" src="../main.js"></script>
+</body>
+
+</html>

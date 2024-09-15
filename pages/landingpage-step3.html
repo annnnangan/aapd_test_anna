@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>landingPage</title>
+</head>
+
+<body>
+  <section class="landing-page bg-orange-50 vh-100 py-6">
+    <div class="container h-100 px-1">
+      <div class="btn bg-orange-400 step-btn mb-10">
+        <h4 class="text-white">步驟3</h4>
+      </div>
+      <h5>綁定帳戶，<br />
+        記下你的存款起始點</h5>
+      <div class="image-wrapper">
+        <img src="../assets/images/image_cash.png" class="mx-auto d-block" style="max-width: 185px;">
+      </div>
+    </div>
+    <div class="fixed-bottom mb-6">
+      <div class="container px-1">
+        <div class="d-flex mb-4 justify-content-center">
+          <a href="landingpage-step1.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+          <a href="landingpage-step2.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
+          <a href="landingpage-step3.html" class="badge rounded-circle p-2 bg-gray-600"> </a>
+        </div>
+        <div class="d-flex gap-2 justify-content-center">
+          <a href="index.html" class="btn btn-outline-secondary me-md-2 w-50" type="button">跳過</a>
+          <a href="account-setting.html" class="btn btn-secondary w-50" type="button">前往設定</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const inputIncome = document.getElementById('inputIncome');
+    const dollarSign = document.getElementById('dollarSign');
+
+    inputIncome.addEventListener('input', function () {
+      if (this.value.length > 0) {
+        dollarSign.classList.add('active'); // 當有值時，添加 active 類別
+      } else {
+        dollarSign.classList.remove('active'); // 沒有值時移除 active 類別
+      }
+    });
+  </script>
+  <script type="module" src="../main.js"></script>
+</body>
+
+</html>
