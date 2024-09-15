@@ -65,9 +65,10 @@
       <div class="container">
         <div class="d-flex mb-5">
           <%- include('./layout/income-card', {background:"bg-surface-second",
-          title:"本月收入",income:"36,000"}); -%> <%-
+          title:"本月收入",income:"36,000", width:"w-50"}); -%> <%-
           include('./layout/view-card', {background:"bg-surface-second",
-          goal:"存下 $8,000"}); -%>
+          goal:"存下 $8,000", hasIcon: true,fontSize:"fs-9", text:"本月目標"});
+          -%>
         </div>
 
         <!-- chart -->
