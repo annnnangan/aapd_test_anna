@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/images/image_app.png"
+    />
     <title>統計</title>
     <!-- Material icon -->
     <link
@@ -281,6 +286,32 @@
       </div>
     </div>
     <%- include('./layout/tab-bar', {page:'statistics'}); -%>
+    <script>
+      const eyeIcons = document.querySelectorAll(".income-card .eye-icon");
+      const incomeText = document.querySelectorAll(".income-card .income");
+
+      eyeIcons.forEach((item) => {
+        const income = item
+          .closest(".income-card")
+          .querySelector(".income span").innerText;
+        item.addEventListener("click", (e) => {
+          let isShow = item.dataset.show;
+          if (isShow === "true") {
+            item.src = "../assets/images/icon/eyes/eye_grey_no.svg";
+            item.setAttribute("data-show", "false");
+            item
+              .closest(".income-card")
+              .querySelector(".income span").innerText = "----";
+          } else {
+            item.src = "../assets/images/icon/eyes/eye_grey_yes.svg";
+            item.setAttribute("data-show", "true");
+            item
+              .closest(".income-card")
+              .querySelector(".income span").innerText = income;
+          }
+        });
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="../assets/js/line-chart.js"></script>
     <script type="module" src="../assets/js/pie-chart.js"></script>

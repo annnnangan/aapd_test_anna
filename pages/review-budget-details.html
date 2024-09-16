@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/images/image_app.png"
+    />
+    <title>檢視預算</title>
+    <!-- Material icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <%- include('./layout/header', { page: '檢視預算' , showBackButton: true,
+    showSearchButton: false}); -%> <%- include('./layout/tab-bar',
+    {page:'index'}); -%>
+
+    <div class="review-budget-details pt-13 pb-14">
+      <div class="container px-4">
+        <div class="section-block py-5 px-6">
+          <!-- card head -->
+          <div class="d-flex mb-5">
+            <!-- category image-->
+            <img
+              src="../assets/images/icon/account/category-food.svg"
+              alt="category-food"
+              width="32"
+              height="32"
+              class="me-1"
+            />
+            <!-- category -->
+            <p class="fs-5 fw-bold">飲食</p>
+          </div>
+          <!-- card body -->
+          <div>
+            <div class="d-flex f-between-center mb-3 flex-wrap">
+              <!-- budget count -->
+              <p>
+                <span class="fs-8 text-gray-600">剩餘 </span
+                ><span class="font-Nunito fw-bold fs-3">$7,500</span>
+              </p>
+            </div>
+            <!-- progress bar -->
+
+            <div
+              class="progress mb-3"
+              role="progressbar"
+              aria-label="progress bar"
+              aria-valuenow="28%"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="height: 12px"
+            >
+              <div class="progress-bar" style="width: 28%; height: 12px"></div>
+            </div>
+
+            <!-- budget count details -->
+            <div class="fs-9 text-gray-600">
+              <p>
+                已用：<span>$2,500</span>
+                <span>/ $9,000</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <table class="table mt-5 table-hover" style="background-color: #f7f7f7">
+          <thead>
+            <tr>
+              <th class="py-3 px-4" scope="col">支出</th>
+              <th
+                scope="col"
+                class="font-Nunito fw-semibold text-end py-3 px-4"
+              >
+                $2,500
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <%- include('./layout/budget-review-list-item', { details:"早餐",
+            spentAmount:150, spentTotal:2500 }); -%>
+          </tbody>
+          <%- include('./layout/budget-review-list-item', { details:"午餐",
+          spentAmount:800, spentTotal:2500 }); -%>
+             <%- include('./layout/budget-review-list-item', { details:"晚餐",
+          spentAmount:1550, spentTotal:2500 }); -%>
+        </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

@@ -7,20 +7,6 @@
   }
 }
 
-.review-expense {
-  .list-hover {
-    &:hover {
-      color: var(--bs-emphasis-color);
-      // background-color: rgba(var(--bs-emphasis-color-rgb), 0.075);
-      background-color: rgba(255, 209, 169, 0.3);
-    }
-  }
-
-  .table-hover {
-    --bs-table-hover-bg: rgba(255, 209, 169, 0.3);
-  }
-}
-
 .set-goal-tab.shadow {
   box-shadow: 0px -4px 10px 0px #00000014;
 }
@@ -81,7 +67,7 @@
     text-align: start;
 
     &:nth-child(2) {
-      padding-left: 30px;
+      padding-left: 15%;
     }
   }
 

@@ -1,0 +1,10 @@
+.review-budget-details {
+  .table {
+    --bs-table-bg: $surface-first;
+  }
+
+  th:nth-child(1) {
+    color: $gray-600;
+    font-weight: 700;
+  }
+}

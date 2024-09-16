@@ -23,3 +23,10 @@
     }
   }
 }
+
+.list-hover {
+  &:hover {
+    color: var(--bs-emphasis-color);
+    background-color: rgba(var(--bs-emphasis-color-rgb), 0.075);
+  }
+}
