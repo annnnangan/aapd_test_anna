@@ -1,5 +1,5 @@
-<li class="budget-card-wrapper py-5 px-4">
-  <a href="<%= categoryImage %>-details.html">
+<li class="budget-card-wrapper py-5 px-4 list-hover">
+  <a href="<%= hasBudget === "true"? "review-budget-details.html" : "review-budget-empty.html" %>">
     <div class="budget-card d-flex align-items-center">
       <div class="me-4">
         <!-- category image-->
