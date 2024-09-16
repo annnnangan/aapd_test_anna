@@ -1,12 +1,16 @@
-/* common */
-.accountModal,
-.selectDateModal {
+/* accountModal */
+.accountModal {
   .modal-dialog {
     position: fixed;
     bottom: 0; left: 0;
     margin: 0;
     max-width: 100%;
     width: 100%;
+
+    @include short-screen {
+      height: 100vh;
+      overflow-y: auto;
+    }
   }
 
   .modal-header {
@@ -132,19 +136,68 @@
   }
 }
 
-/* addCategoryModal & addSubCategoryModal */
-.addCategoryModal,
-.addSubCategoryModal {
-  .modal-dialog {
+/* addCategoryModal & addSubCategoryModal & periodSettingCard */
+.addCategoryCard,
+.addSubCategoryCard,
+.periodSettingCard,
+.remarksCard {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10500;
+
+  .modal-content {
+    max-width: 500px;
     width: 72%;
-    margin: 0 auto;
+    border-radius: 28px;
   }
 }
 
 /* selectDateModal */
-.selectDateModal {
+.selectDateCard {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10500;
+
   .modal-content {
+    position: fixed;
+    bottom: 0;
     border-radius: 28px 28px 0 0;
     padding: 24px 24px 54px;
+  }
+}
+
+/* periodSettingCard */
+.periodSettingCard {
+  .modal-content {
+    width: 80%;
+  }
+
+  .nav-pills > .nav-item {
+    .active {
+      background-color: $white;
+    }
+  }
+
+  .dropdown {
+    width: 160px;
+  }
+}
+
+/* remarksCard */
+.remarksCard {
+  .modal-content {
+    width: 63%;
   }
 }
