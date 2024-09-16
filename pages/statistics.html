@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>統計</title>
+    <!-- Material icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <%- include('./layout/header', { page: '統計' , showBackButton: false,
     showSearchButton: false}); -%>
 
     <div class="statistics pt-13 pb-14">
-      <div class="container">
+      <div class="container px-4">
         <div class="main-content">
           <div class="d-flex flex-column">
             <!-- Level 1 - Tab - 趨勢 / 報告 -->
@@ -74,10 +83,45 @@
                     title:"總存款",income:"550,000",width:"w-50"}); -%>
                   </div>
                   <!-- 年度存款 -->
-                  <div>
+                  <div class="mb-6">
                     <h5 class="section-title mb-2">年度存款</h5>
-                    <div class="section-block">
-                      <canvas id="savingLineChart"> </canvas>
+                    <div class="section-block pt-6 pb-4 px-3">
+                      <canvas id="savingLineChart" height="228"> </canvas>
+                      <div class="d-flex justify-content-center mt-2">
+                        <div
+                          class="font-Nunito py-2 px-2 bg-gray-50 radius-3xs d-flex justify-content-center align-items-center"
+                        >
+                          <div class="category-color-index bg-orange-400"></div>
+                          存款&nbsp;<span class="fw-bold text-gray-600">
+                            $ 600,000</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 年度收支 -->
+                  <div>
+                    <h5 class="section-title mb-2">年度收支</h5>
+                    <div class="section-block pt-6 pb-4 px-3">
+                      <canvas id="balanceBarChart" height="264"> </canvas>
+                      <div class="d-flex justify-content-center mt-2">
+                        <div
+                          class="font-Nunito py-2 px-2 bg-gray-50 radius-3xs d-flex justify-content-center align-items-center me-3"
+                        >
+                          <div class="category-color-index bg-red-400"></div>
+                          支出&nbsp;<span class="fw-bold text-gray-600">
+                            $236,000</span
+                          >
+                        </div>
+                        <div
+                          class="font-Nunito py-2 px-2 bg-gray-50 radius-3xs d-flex justify-content-center align-items-center"
+                        >
+                          <div class="category-color-index bg-green-300"></div>
+                          收入&nbsp;<span class="fw-bold text-gray-600">
+                            $249,000</span
+                          >
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -240,6 +284,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="../assets/js/line-chart.js"></script>
     <script type="module" src="../assets/js/pie-chart.js"></script>
+    <script type="module" src="../assets/js/bar-chart.js"></script>
     <script type="module" src="../main.js"></script>
   </body>
 </html>
