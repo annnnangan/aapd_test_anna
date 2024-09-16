@@ -3,6 +3,11 @@
     @content;
   }
 }
+@mixin short-screen {
+  @media(max-height: 768px){
+    @content;
+  }
+}
 
 ul {
   padding: 0;

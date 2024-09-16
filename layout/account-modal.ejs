@@ -145,8 +145,7 @@
                         <a  
                           href="#"
                           class="nav-link f-column-center p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#addCategoryModal"
+                          id="addCategoryModal"
                         >
                           <img src="../assets/images/icon/account/category-add.svg" alt="category-food-icon">
                           <p class="fs-9 font-Nunito mt-1">
@@ -184,8 +183,7 @@
           <a
             href="#"
             class="badge badge-sm badge-gray-100"
-            data-bs-toggle="modal"
-            data-bs-target="#addSubCategoryModal"
+            id="addSubCategoryModal"
           >
             <img
               src="../assets/images/icon/add/add_pressed.svg"
@@ -196,8 +194,7 @@
         <div class="d-flex mt-2 py-1">
           <button
             class="btn btn-outline-gray-500 fs-8 bg-white py-1 f-center flex-grow-1 position-relative"
-            data-bs-toggle="modal"
-            data-bs-target="#selectDateModal">
+            id="addSelectDateModal">
             今天 08/05
             <img
               src="../assets/images/icon/arrow-left/arrow_left_pressed.svg"
@@ -211,7 +208,8 @@
               style="width: 24px; height: 24px;">
           </button>
           <button
-            class="btn btn-outline-gray-500 fs-8 bg-white ms-2 py-1 flex-grow-1">
+            class="btn btn-outline-gray-500 fs-8 bg-white ms-2 py-1 flex-grow-1"
+            id="periodSettingModal">
             週期性記帳
           </button>
         </div>
@@ -220,17 +218,20 @@
             type="text"
             class="form-control w-100 bg-gray-50 border-gray-200"
             placeholder="請輸入備註...">
-          <img
-            src="../assets/images/icon/extension/extension_default.svg"
-            alt="extension-icon"
-            class="position-absolute top-0 end-0 mt-2 me-4"
-            style="width: 24px; height: 24px;">
+            <button
+              class="btn position-absolute top-0 end-0 p-0 mt-2 me-4"
+              id="remarksModal">
+              <img src="../assets/images/icon/extension/extension_default.svg"
+                alt="extension-icon"
+                style="width: 24px; height: 24px;">
+            </button>
         </div>
       </div>
       <div class="modal-footer border-0 mt-3 p-0">
         <div class="calculator w-100 m-0">
-          <div class="cal-total f-between-center">
-            <img
+          <div class="cal-total">
+            <div class="f-between-center">
+              <img
               src="../assets/images/icon/scan.svg"
               alt="scan-icon"
               style="width: 24px; height: 24px;">
@@ -238,6 +239,12 @@
                 <h4 class="font-Nunito">＄</h4>
                 <h2 class="font-Nunito">0</h2>
               </div>
+            </div>
+            <p
+              class="fs-9 text-gray-600 text-end d-none"
+              id="cal-total-remark">
+              週期：每月1號 / 分3期
+            </p>
           </div>
           <div class="cal-btn-group mt-4">
             <button class="cal-btn btn">7</button>
@@ -288,49 +295,41 @@
 
 <!-- addCategoryModal -->
 <div
-  class="addCategoryModal modal fade"
-  id="addCategoryModal"
-  tabindex="-1" 
-  aria-labelledby="addCategoryModalLabel"
-  aria-hidden="true"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-white border-0 p-6">
-      <div class="modal-header border-0 p-0">
-        <p
-          class="modal-title fs-6"
-          id="addCategoryModalLabel">
-          新增類別
-        </p>
+  class="addCategoryCard d-none"
+  id="addCategoryCard">
+  <div class="modal-content bg-white border-0 p-6">
+    <div class="modal-header border-0 f-between-center p-0">
+      <p class="modal-title fs-6" id="addCategoryCardLabel">
+        新增類別
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closeAddCategoryCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <img
+        src="../assets/images/icon/account/category-necessary.svg"
+        alt="category-necessary-icon"
+        style="width: 56px; height: 56px;">
+      <input
+        type="text"
+        class="form-control w-100 bg-white border-gray-300 mt-3"
+        placeholder="請輸入類別名稱">
+      <div class="border-0 d-flex w-100 p-0 mt-5">
         <button
           type="button"
-          class="btn-close text-gray-600"
-          data-bs-dismiss="modal"
-          aria-label="Close"></button>
-      </div>
-      <div class="modal-body f-column-center p-0 mt-5">
-        <img
-          src="../assets/images/icon/account/category-necessary.svg"
-          alt="category-necessary-icon"
-          style="width: 56px; height: 56px;">
-        <input
-          type="text"
-          class="form-control w-100 bg-white border-gray-300 mt-3"
-          placeholder="請輸入類別名稱">
-        <div class="border-0 d-flex w-100 p-0 mt-5">
-          <button
-            type="button"
-            class="btn btn-outline-gray-500 fs-8 w-100"
-            data-bs-dismiss="modal">
-            取消
-          </button>
-          <button
-            type="button"
-            class="btn btn-gray-600 fs-8 w-100 ms-3">
-            儲存
-          </button>
-        </div>
+          class="btn btn-outline-gray-500 bg-surface-second fs-8 w-100"
+          id="cancelAddCategory">
+          取消
+        </button>
+        <button
+          type="button"
+          class="btn btn-gray-600 fs-8 w-100 ms-3">
+          儲存
+        </button>
       </div>
     </div>
   </div>
@@ -338,45 +337,39 @@
 
 <!-- addSubCategoryModal -->
 <div
-  class="addSubCategoryModal modal fade"
-  id="addSubCategoryModal"
-  tabindex="-1" 
-  aria-labelledby="addSubCategoryModalLabel"
-  aria-hidden="true"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-white border-0 p-6">
-      <div class="modal-header border-0 p-0">
-        <p
-          class="modal-title fs-6"
-          id="addSubCategoryModalLabel">
-          新增飲食子類別
-        </p>
+  class="addSubCategoryCard d-none"
+  id="addSubCategoryCard">
+  <div class="modal-content bg-white border-0 p-6">
+    <div class="modal-header border-0 f-between-center p-0">
+      <p
+        class="modal-title fs-6"
+        id="addSubCategoryModalLabel">
+        新增飲食子類別
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closeAddSubCategoryCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <input
+        type="text"
+        class="form-control w-100 bg-white border-gray-300 mt-3"
+        placeholder="請輸入類別名稱">
+      <div class="border-0 d-flex w-100 p-0 mt-5">
         <button
           type="button"
-          class="btn-close text-gray-600"
-          data-bs-dismiss="modal"
-          aria-label="Close"></button>
-      </div>
-      <div class="modal-body f-column-center p-0 mt-5">
-        <input
-          type="text"
-          class="form-control w-100 bg-white border-gray-300 mt-3"
-          placeholder="請輸入類別名稱">
-        <div class="border-0 d-flex w-100 p-0 mt-5">
-          <button
-            type="button"
-            class="btn btn-outline-gray-500 fs-8 w-100"
-            data-bs-dismiss="modal">
-            取消
-          </button>
-          <button
-            type="button"
-            class="btn btn-gray-600 fs-8 w-100 ms-3">
-            儲存
-          </button>
-        </div>
+          class="btn btn-outline-gray-500 bg-surface-second fs-8 w-100"
+          id="cancelAddSubCategory">
+          取消
+        </button>
+        <button
+          type="button"
+          class="btn btn-gray-600 fs-8 w-100 ms-3">
+          儲存
+        </button>
       </div>
     </div>
   </div>
@@ -384,52 +377,215 @@
 
 <!-- selectDateModal -->
 <div
-  class="selectDateModal modal fade"
-  id="selectDateModal"
-  tabindex="-1" 
-  aria-labelledby="selectDateModalLabel"
-  aria-hidden="true"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false">
-  <div class="modal-dialog">
-    <div class="modal-content bg-white border-0">
-      <div class="modal-header flex-row border-0 p-0">
-        <p
-          class="modal-title fs-6"
-          id="selectDateModalLabel">
-          選擇日期
-        </p>
+  class="selectDateCard d-none"
+  id="selectDateCard">
+  <div class="modal-content bg-white border-0">
+    <div class="modal-header f-between-center border-0 p-0">
+      <p
+        class="modal-title fs-6"
+        id="selectDateModalLabel">
+        選擇日期
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closeSelectDateCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <%- include('./layout/calendar', {page:'account-modal'}); -%>
+      <div class="border-0 d-flex w-100 p-0 mt-8">
         <button
           type="button"
-          class="btn-close text-gray-600"
-          data-bs-dismiss="modal"
-          aria-label="Close"></button>
-      </div>
-      <div class="modal-body f-column-center p-0 mt-5">
-        <%- include('./layout/calendar', {page:'account-modal'}); -%>
-        <div class="border-0 d-flex w-100 p-0 mt-8">
-          <button
-            type="button"
-            class="btn btn-gray-600 fs-8 w-100">
-            確認
-          </button>
-        </div>
+          class="btn btn-gray-600 fs-8 w-100">
+          確認
+        </button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- periodSettingCard -->
+<div
+  class="periodSettingCard d-none"
+  id="periodSettingCard">
+  <div class="modal-content bg-white border-0 p-6">
+    <div class="modal-header border-0 f-between-center p-0">
+      <p
+        class="modal-title fs-6"
+        id="addSubCategoryModalLabel">
+        設定週期
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closePeriodSettingCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <ul
+        class="nav nav-pills bg-gray-100 radius-xs w-100 p-1"
+        id="categoryTab" role="tablist">
+        <li class="nav-item flex-grow-1">
+          <a 
+            class="nav-link text-center text-gray-950 active" href="#"
+            id="one-time-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#one-time"
+            type="button"
+            role="tab"
+            aria-controls="one-time"
+            aria-selected="true">單次</a>
+        </li>
+        <li class="nav-item flex-grow-1">
+          <a 
+            class="nav-link text-center text-gray-950" href="#"
+            id="recurring-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#recurring"
+            type="button"
+            role="tab"
+            aria-controls="recurring"
+            aria-selected="true">週期</a>
+        </li>
+      </ul>
+      <div class="tab-content w-100 mt-6" id="categoryTabContent">
+        <div
+          class="one-time tab-pane fade show active"
+          id="one-time"
+          role="tabpanel"
+          aria-labelledby="one-time-tab">
+          <div class="f-between-center w-100">
+            <p>入帳方式</p>
+            <p class="text-gray-600">立即入帳</p>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="recurring"
+          role="tabpanel"
+          aria-labelledby="recurring-tab">
+          <div class="w-100">
+            <div class="f-between-center">
+              <div class="flex-grow-1">
+                <p>每月日期</p>
+              </div>
+              <div class="dropdown ms-5">
+                <a class="form-select border-gray-200 bg-gray-100 py-3 px-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">1號</a>
+                <ul class="dropdown-menu mt-3">
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      1號
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      2號
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      3號
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      4號
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      5號
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="f-between-center mt-4">
+              <div class="flex-grow-1">
+                <p>次數</p>
+              </div>
+              <div class="dropdown ms-5">
+                <a class="form-select border-gray-200 bg-gray-100 py-3 px-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">3期</a>
+                <ul class="dropdown-menu mt-3">
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      1期
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      2期
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      3期
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-0 d-flex w-100 p-0 mt-5">
+        <button
+          type="button"
+          class="btn btn-outline-gray-500 bg-surface-second fs-8 w-100"
+          id="cancelPeriodSettingCard">
+          取消
+        </button>
+        <button
+          type="button"
+          class="btn btn-gray-600 fs-8 w-100 ms-3"
+          id="addPeriodSettingBtn">
+          儲存
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- remarksModal -->
+<div
+  class="remarksCard d-none"
+  id="remarksCard">
+  <div class="modal-content bg-white border-0 p-6">
+    <div class="modal-header border-0 f-between-center p-0">
+      <p
+        class="modal-title fs-6"
+        id="addSubCategoryModalLabel">
+        備註
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closeRemarksCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <p class="fs-8">香菜蒜頭奶昔是哪來的想法請問是什麼邪教嗎豪恐怖</p>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script type="module" src="../assets/js/accounting-modal.js"></script>
 
 <script>
-  var swiper = new Swiper(".category-swiper", {
-    direction: "vertical",
-    slidesPerView: 1,
-    spaceBetween: 30,
-    mousewheel: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+  swiper = new Swiper(".category-swiper", {
+  direction: "vertical",
+  slidesPerView: 1,
+  spaceBetween: 30,
+  mousewheel: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 </script>
+
