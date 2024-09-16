@@ -1,14 +1,3 @@
-swiper = new Swiper(".category-swiper", {
-  direction: "vertical",
-  slidesPerView: 1,
-  spaceBetween: 30,
-  mousewheel: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
 document.addEventListener('DOMContentLoaded', function() {
 const addCategoryCard = document.getElementById('addCategoryCard');
 const addSubCategoryCard = document.getElementById('addSubCategoryCard');
