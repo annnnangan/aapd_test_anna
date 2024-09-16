@@ -1,31 +1,26 @@
-let savingLineChart = document.querySelector("#savingLineChart");
+let balanceBarChart = document.querySelector("#balanceBarChart");
 let labels = ["1", "2", "3", "4", "5", "6", "7"];
-let datasetData = [20000, 30000, 40000, 55000, 49000, 58000, 60000];
+let expenseData = [34000, 32000, 30700, 33500, 43200, 30100, 33000];
+let incomeData = [36000, 35200, 40100, 35000, 36000, 35600, 35000];
 
-new Chart(savingLineChart, {
-  type: "line",
+new Chart(balanceBarChart, {
+  type: "bar",
   data: {
     labels: labels,
     datasets: [
       {
-        data: datasetData,
-        borderColor: "#FE8439",
-        borderWidth: 3,
+        data: expenseData,
         fill: false,
-        borderJoinStyle: "round",
         yAxisID: "y",
-        pointRadius: 5,
-        backgroundColor: "#ffffff",
+        backgroundColor: "#FF6964",
+        borderRadius: 5,
       },
       {
-        data: datasetData,
-        borderColor: "#FE8439",
-        borderWidth: 0,
+        data: incomeData,
         fill: false,
-        borderJoinStyle: "round",
         yAxisID: "y2",
-        pointRadius: 0,
-        backgroundColor: "#ffffff",
+        backgroundColor: "#92E863",
+        borderRadius: 5,
       },
     ],
   },
@@ -42,13 +37,18 @@ new Chart(savingLineChart, {
           },
         },
       },
+      //y axis on left
       y: {
+        beginAtZero: false,
+        maxTicksLimit: 6,
+        suggestedMin: 20000,
+        suggestedMax: 45000,
         ticks: {
           font: {
             size: 15,
             family: "Nunito",
           },
-          maxTicksLimit: 5,
+          maxTicksLimit: 6,
           callback: (context, index) => {
             return Intl.NumberFormat("en-US", {
               notation: "compact",
@@ -60,14 +60,19 @@ new Chart(savingLineChart, {
           display: false,
         },
       },
+      //y axis on right
       y2: {
+        beginAtZero: false,
+        maxTicksLimit: 6,
+        suggestedMin: 20000,
+        suggestedMax: 45000,
         position: "right",
         ticks: {
           font: {
             size: 15,
             family: "Nunito",
           },
-          maxTicksLimit: 5,
+
           callback: (context, index) => {
             return Intl.NumberFormat("en-US", {
               notation: "compact",
