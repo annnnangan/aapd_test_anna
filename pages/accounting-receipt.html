@@ -12,139 +12,179 @@
 
 <body>
   <%- include('./layout/header', { page: '明細' , showBackButton: false, showSearchButton: true }); -%>
-    <div class="accounting-receipt-section pb-14">
-      <%- include('./layout/calendar', {page:'accounting-receipt'}); -%>
-        <!-- 8/5區塊 -->
-        <div id="accounting-receipt-section" class="mt-2">
-          <div class="f-between-center px-4 bg-surface-dark-gray">
-            <p class="text-white fs-8 fw-normal"><span class="font-Nunito fw-semibold">8</span> 月<span
-                class="font-Nunito fw-semibold"> 5</span> 日<span class="ms-2">星期一</span>
-            </p>
-            <div class="font-Nunito text-white fw-semibold d-flex align-items-center py-1">
-              <p class="">-$ 2,050</p>
-            </div>
-          </div>
-          <div class="bg-white border-bottom f-between-center py-2 px-4">
-            <div class="d-flex align-items-center py-tiny">
-              <div class="flex-shrink-0">
-                <img src="../assets/images/icon/account/category-shop.svg" alt="category-shop"
-                  style="width: 48px; height: 48px" />
-              </div>
-              <div class="flex-grow-1 ms-2">
-                <p class="fs-6">購物</p>
-                <p class="fs-8">衣服</p>
-              </div>
-            </div>
-            <div class="font-Nunito text-red-600 fw-semibold d-flex align-items-center">
-              <p>-$1,600</p>
-            </div>
-          </div>
-          <div class="bg-white border-bottom f-between-center py-2 px-4">
-            <div class="d-flex align-items-center py-tiny">
-              <div class="flex-shrink-0">
-                <img src="../assets/images/icon/account/category-transport.svg" alt="category-transport"
-                  style="width: 48px; height: 48px" />
-              </div>
-              <div class="flex-grow-1 ms-2">
-                <p class="fs-6">交通</p>
-                <p class="fs-8">月票</p>
-              </div>
-            </div>
-            <div class="font-Nunito text-red-600 fw-semibold text-end py-tiny">
-              <p>-$1,200</p>
-              <span class="fs-9 text-white fw-normal bg-gray-300 rounded-pill text-center mt-1 px-2">
-                週期3
-              </span>
-            </div>
-          </div>
-          <div class="bg-white border-bottom f-between-center py-2 px-4">
-            <div class="d-flex align-items-center py-tiny">
-              <div class="flex-shrink-0">
-                <img src="../assets/images/icon/account/category-learn.svg" alt="category-learn"
-                  style="width: 48px; height: 48px" />
-              </div>
-              <div class="flex-grow-1 ms-2">
-                <p class="fs-6">獎學金</p>
-              </div>
-            </div>
-            <div class="font-Nunito text-green-500 fw-semibold d-flex align-items-center">
-              <p>+$2,000</p>
-            </div>
-          </div>
-          <div class="bg-white border-bottom f-between-center py-2 px-4">
-            <div class="d-flex align-items-center py-tiny">
-              <div class="flex-shrink-0">
-                <img src="../assets/images/icon/account/category-bank.svg" alt="category-bank"
-                  style="width: 48px; height: 48px" />
-              </div>
-              <div class="flex-grow-1 ms-2">
-                <p class="fs-6">帳戶內轉</p>
-              </div>
-            </div>
-            <div class="font-Nunito text-gray-300 fw-semibold d-flex align-items-center">
-              <p>$1,000</p>
-            </div>
+  <div class="accounting-receipt-section pb-14">
+    <%- include('./layout/calendar', {page:'accounting-receipt'}); -%>
+      <!-- 8/5區塊 -->
+      <div id="accounting-receipt-section" class="mt-2">
+        <div class="f-between-center px-4 bg-surface-dark-gray">
+          <p class="text-white fs-8 fw-normal"><span class="font-Nunito fw-semibold">8</span> 月<span
+              class="font-Nunito fw-semibold"> 5</span> 日<span class="ms-2">星期一</span>
+          </p>
+          <div class="font-Nunito text-white fw-semibold d-flex align-items-center py-1">
+            <p class="">-$ 2,050</p>
           </div>
         </div>
-
-        <!-- 無記帳紀錄 -->
-        <div id="no-record-section" class="mt-2 d-none">
-          <div class="f-between-center px-4 bg-surface-dark-gray">
-            <p class="text-white fs-8 fw-normal"><span class="font-Nunito fw-semibold">8</span> 月<span
-                class="font-Nunito fw-semibold"> 2</span> 日<span class="ms-2">星期五</span>
-            </p>
-            <div class="font-Nunito text-white fw-semibold d-flex align-items-center py-1">
-              <p>$0</p>
+        <div class="swipe-container bg-white border-bottom f-between-center py-2 px-4">
+          <div class="content-wrapper d-flex align-items-center py-tiny">
+            <div class="flex-shrink-0">
+              <img src="../assets/images/icon/account/category-shop.png" alt="category-shop"
+                style="width: 48px; height: 48px" />
+            </div>
+            <div class="flex-grow-1 ms-2">
+              <p class="fs-6">購物</p>
+              <p class="fs-8">衣服</p>
             </div>
           </div>
-          <div class="f-center pt-10">
-            <p class="text-gray-500">無記帳紀錄</p>
+          <div class="price-container font-Nunito text-red-600 fw-semibold d-flex align-items-center">
+            <p>-$1,600</p>
           </div>
-        </div>
-
-        <!-- 8/3區塊 -->
-        <div id="special-record-section" class="mt-2 d-none">
-          <div class="f-between-center px-4 bg-surface-dark-gray">
-            <p class="text-white fs-8 fw-normal"><span class="font-Nunito fw-semibold">8</span> 月<span
-                class="font-Nunito fw-semibold"> 3</span> 日<span class="ms-2">星期六</span>
-            </p>
-            <div class="font-Nunito text-white fw-semibold d -flex align-items-center py-1">
-              <p class="">-$ 1,300</p>
-            </div>
-          </div>
-          <div class="bg-white border-bottom f-between-center py-2 px-4">
-            <div class="d-flex align-items-center py-tiny">
-              <div class="flex-shrink-0">
-                <img src="../assets/images/icon/account/category-entertainment.svg" alt="category-entertainment"
-                  style="width: 48px; height: 48px" />
-              </div>
-              <div class="flex-grow-1 ms-2">
-                <p class="fs-6">娛樂</p>
-              </div>
-            </div>
-            <div class="font-Nunito text-red-600 fw-semibold d-flex align-items-center">
-              <p>-$500</p>
-            </div>
-          </div>
-          <div class="bg-white border-bottom f-between-center py-2 px-4">
-            <div class="d-flex align-items-center py-tiny">
-              <div class="flex-shrink-0">
-                <img src="../assets/images/icon/account/category-medical.svg" alt="category-medical"
-                  style="width: 48px; height: 48px" />
-              </div>
-              <div class="flex-grow-1 ms-2">
-                <p class="fs-6">醫療</p>
-              </div>
-            </div>
-            <div class="font-Nunito text-red-600 fw-semibold f-column-center">
-              <p>-$800</p>
-            </div>
+          <div class="delete-btn">
+            <img src="../assets/images/icon/trash/trash_white.svg" alt="icon-delete" />
           </div>
         </div>
-    </div>
-    <%- include('./layout/tab-bar', {page:'accounting-receipt'}); -%>
+        <div class="swipe-container bg-white border-bottom f-between-center py-2 px-4">
+          <div class="content-wrapper d-flex align-items-center py-tiny">
+            <div class="flex-shrink-0">
+              <img src="../assets/images/icon/account/category-transport.svg" alt="category-transport"
+                style="width: 48px; height: 48px" />
+            </div>
+            <div class="flex-grow-1 ms-2">
+              <p class="fs-6">交通</p>
+              <p class="fs-8">月票</p>
+            </div>
+          </div>
+          <div class="price-container font-Nunito text-red-600 fw-semibold text-end py-tiny">
+            <p>-$1,200</p>
+            <span class="fs-9 text-white fw-normal bg-gray-300 rounded-pill text-center mt-1 px-2">
+              週期3
+            </span>
+          </div>
+          <div class="delete-btn">
+            <img src="../assets/images/icon/trash/trash_white.svg" alt="icon-delete" />
+          </div>
+        </div>
+        <div class="swipe-container bg-white border-bottom f-between-center py-2 px-4">
+          <div class="content-wrapper d-flex align-items-center py-tiny">
+            <div class="flex-shrink-0">
+              <img src="../assets/images/icon/account/category-learn.svg" alt="category-learn"
+                style="width: 48px; height: 48px" />
+            </div>
+            <div class="flex-grow-1 ms-2">
+              <p class="fs-6">獎學金</p>
+            </div>
+          </div>
+          <div class="price-container font-Nunito text-green-500 fw-semibold d-flex align-items-center">
+            <p>+$2,000</p>
+          </div>
+          <div class="delete-btn">
+            <img src="../assets/images/icon/trash/trash_white.svg" alt="icon-delete" />
+          </div>
+        </div>
+        <div class="swipe-container bg-white border-bottom f-between-center py-2 px-4">
+          <div class="content-wrapper d-flex align-items-center py-tiny">
+            <div class="flex-shrink-0">
+              <img src="../assets/images/icon/account/category-bank.svg" alt="category-bank"
+                style="width: 48px; height: 48px" />
+            </div>
+            <div class="flex-grow-1 ms-2">
+              <p class="fs-6">帳戶內轉</p>
+            </div>
+          </div>
+          <div class="price-container font-Nunito text-gray-300 fw-semibold d-flex align-items-center">
+            <p>$1,000</p>
+          </div>
+          <div class="delete-btn">
+            <img src="../assets/images/icon/trash/trash_white.svg" alt="icon-delete" />
+          </div>
+        </div>
+      </div>
 
-    <script type="module" src="../main.js"></script>
+      <!-- 無記帳紀錄 -->
+      <div id="no-record-section" class="mt-2 d-none">
+        <div class="f-between-center px-4 bg-surface-dark-gray">
+          <p class="text-white fs-8 fw-normal"><span class="font-Nunito fw-semibold">8</span> 月<span
+              class="font-Nunito fw-semibold"> 2</span> 日<span class="ms-2">星期五</span>
+          </p>
+          <div class="font-Nunito text-white fw-semibold d-flex align-items-center py-1">
+            <p>$0</p>
+          </div>
+        </div>
+        <div class="f-center pt-10">
+          <p class="text-gray-500">無記帳紀錄</p>
+        </div>
+      </div>
+
+      <!-- 8/3區塊 -->
+      <div id="special-record-section" class="mt-2 d-none">
+        <div class="f-between-center px-4 bg-surface-dark-gray">
+          <p class="text-white fs-8 fw-normal"><span class="font-Nunito fw-semibold">8</span> 月<span
+              class="font-Nunito fw-semibold"> 3</span> 日<span class="ms-2">星期六</span>
+          </p>
+          <div class="font-Nunito text-white fw-semibold d -flex align-items-center py-1">
+            <p class="">-$ 1,300</p>
+          </div>
+        </div>
+        <div class="swipe-container bg-white border-bottom f-between-center py-2 px-4">
+          <div class="content-wrapper d-flex align-items-center py-tiny">
+            <div class="flex-shrink-0">
+              <img src="../assets/images/icon/account/category-entertainment.svg" alt="category-entertainment"
+                style="width: 48px; height: 48px" />
+            </div>
+            <div class="flex-grow-1 ms-2">
+              <p class="fs-6">娛樂</p>
+            </div>
+          </div>
+          <div class="price-container font-Nunito text-red-600 fw-semibold d-flex align-items-center">
+            <p>-$500</p>
+          </div>
+          <div class="delete-btn">
+            <img src="../assets/images/icon/trash/trash_white.svg" alt="icon-delete" />
+          </div>
+        </div>
+        <div class="swipe-container bg-white border-bottom f-between-center py-2 px-4">
+          <div class="content-wrapper d-flex align-items-center py-tiny">
+            <div class="flex-shrink-0">
+              <img src="../assets/images/icon/account/category-medical.svg" alt="category-medical"
+                style="width: 48px; height: 48px" />
+            </div>
+            <div class="flex-grow-1 ms-2">
+              <p class="fs-6">醫療</p>
+            </div>
+          </div>
+          <div class="price-container font-Nunito text-red-600 fw-semibold f-column-center">
+            <p>-$800</p>
+          </div>
+          <div class="delete-btn">
+            <img src="../assets/images/icon/trash/trash_white.svg" alt="icon-delete" />
+          </div>
+        </div>
+      </div>
+  </div>
+  <%- include('./layout/tab-bar', {page:'accounting-receipt'}); -%>
+
+  <script type="module" src="../main.js"></script>
+  <script>
+  const swipeContainers = document.querySelectorAll('.swipe-container');
+
+  swipeContainers.forEach(container => {
+    let startX;
+
+    container.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    container.addEventListener('touchmove', (e) => {
+      const moveX = e.touches[0].clientX;
+      const diff = startX - moveX;
+
+      if (diff > 50) {
+        container.classList.add('swiped');
+      } else if (diff < -50) {
+        container.classList.remove('swiped');
+      }
+    });
+  });
+  </script>
 </body>
 
 </html>

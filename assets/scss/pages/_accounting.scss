@@ -4,3 +4,39 @@
 .accounting-search-results-section {
   padding-top: 72px;
 }
+
+.accounting-receipt-section {
+  .swipe-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .content-wrapper, .price-container {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+  
+  .delete-btn {
+    position: absolute;
+    right: -100%;
+    top: 0;
+    height: 100%;
+    width: 64px;
+    background-color: $red-600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease;
+    z-index: 2;
+  }
+  
+  .swipe-container.swiped .delete-btn {
+    right: 0;
+  }
+  
+  .swipe-container.swiped .content-wrapper, 
+  .swipe-container.swiped .price-container {
+    transform: translateX(-64px);
+  }
+}
