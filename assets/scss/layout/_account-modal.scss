@@ -2,7 +2,8 @@
 .accountModal {
   .modal-dialog {
     position: fixed;
-    bottom: 0; left: 0;
+    bottom: env(safe-area-inset-bottom, 0);
+    left: 0;
     margin: 0;
     max-width: 100%;
     width: 100%;
@@ -10,6 +11,7 @@
     @include short-screen {
       height: 100vh;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
   }
 
