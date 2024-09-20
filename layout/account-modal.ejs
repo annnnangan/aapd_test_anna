@@ -394,11 +394,12 @@
         style="width: 24px; height: 24px;"></button>
     </div>
     <div class="modal-body f-column-center p-0 mt-5">
-      <%- include('./layout/calendar', {page:'account-modal'}); -%>
+      <%- include('./layout/receipt-calendar'); -%>
       <div class="border-0 d-flex w-100 p-0 mt-8">
         <button
           type="button"
-          class="btn btn-gray-600 fs-8 w-100">
+          class="btn btn-gray-600 fs-8 w-100"
+          id="cancelSelectDateCard">
           確認
         </button>
       </div>
