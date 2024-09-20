@@ -10,3 +10,28 @@
     display: inline-block;
   }
 }
+
+.date-header {
+  p {
+    font-size: 17px;
+    transform: translateY(2px);
+  }
+
+  @media (max-width: 328px) {
+    p {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 292px) {
+    p {
+      font-size: 13px;
+    }
+
+    .review-icon {
+      width: 22px;
+      height: 22px;
+      transform: translateY(0px);
+    }
+  }
+}
