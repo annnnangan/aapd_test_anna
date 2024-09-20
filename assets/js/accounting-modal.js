@@ -70,6 +70,10 @@ const cancelPeriodSettingCard = document.getElementById('cancelPeriodSettingCard
 cancelPeriodSettingCard.addEventListener('click', function() {
   periodSettingCard.classList.add('d-none');
 });
+const cancelSelectDateCard = document.getElementById('cancelSelectDateCard');
+cancelSelectDateCard.addEventListener('click', function() {
+  selectDateCard.classList.add('d-none');
+});
 
 /* 計算機週期文字 */
 addPeriodSettingBtn.addEventListener('click', function() {
