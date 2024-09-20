@@ -21,7 +21,7 @@
   </head>
   <body>
     <!-- Header -->
-    <div class="header position-fixed w-100" data-page="首頁">
+    <!-- <div class="header position-fixed w-100" data-page="首頁">
       <div class="bg-white py-3 shadow font-Nunito fs-7 position-relative">
         <p class="text-center" style="transform: translateY(3px)">
           2024 / 07 / 05 - 2024 / 08 / 04
@@ -36,8 +36,24 @@
           />
         </div>
       </div>
-    </div>
+    </div> -->
 
+    <div class="header date-header w-100 position-fixed" data-page="首頁">
+      <div class="bg-white py-3 shadow font-Nunito d-flex position-relative">
+        <p class="text-center d-flex mx-auto">
+          2024&nbsp;/&nbsp;07&nbsp;/&nbsp;05&nbsp;-&nbsp;2024&nbsp;/&nbsp;08&nbsp;/&nbsp;04
+        </p>
+
+        <img
+          src="../assets/images/icon/review/review_uncheceked.svg"
+          alt="review icon"
+          style="cursor: pointer; right: 10px"
+          data-bs-toggle="modal"
+          data-bs-target="#expenseReviewModal"
+          class="position-absolute review-icon"
+        />
+      </div>
+    </div>
     <div
       class="modal fade"
       id="expenseReviewModal"
