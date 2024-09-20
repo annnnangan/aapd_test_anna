@@ -6,10 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>landingPage</title>
+   <!-- Material icon -->
+   <link rel="stylesheet"
+   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-  <section class="landing-page bg-orange-50 vh-100 py-6">
+  <%- include('./layout/header', { page: '輸入月收入' , showBackButton: true, showSearchButton: false }); -%>
+  <section class="landing-page bg-orange-50 vh-100 py-13">
     <div class="container h-100 px-4">
       <div class="btn bg-orange-400 step-btn mb-10">
         <h4 class="text-white">步驟1</h4>
@@ -25,12 +29,12 @@
         <label for="inputIncome" class="form-label mb-4">
           <h5>每月總收入</h5>
         </label>
-        <div class="mb-12 position-relative">
+        <div class="position-relative">
           <input type="number" id="inputIncome" class="form-control input-padding" placeholder="0" min="0" required>
           <span id="dollarSign" class="position-absolute start-0 top-50 translate-middle-y ms-4 custom-dollar">$</span>
         </div>
       </form>
-      <div class="image-wrapper" style="margin-top: 62px;">
+      <div class="image-wrapper">
         <img src="../assets/images/image_calender.png" class="mx-auto d-block" style="max-width: 185px;">
       </div>
     </div>
@@ -41,7 +45,7 @@
           <a href="landingpage-step2.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
           <a href="landingpage-step3.html" class="badge rounded-circle p-2 bg-gray-200"> </a>
         </div>
-        <a href="landingpage-step2.html" class="btn w-100 bg-gray-100 text-gray-200">下一步</a>
+        <a href="landingpage-step2.html" id="nextStepBtn" class="btn w-100 bg-gray-100 text-gray-200 disabled-link">下一步</a>
       </div>
     </div>
   </section>
@@ -69,6 +73,21 @@
       }
     });
   </script>
+      <script>
+        const nextStepBtn = document.getElementById('nextStepBtn');
+  
+        inputIncome.addEventListener('input', function () {
+          if (this.value.trim() !== '') {
+            nextStepBtn.classList.remove('bg-gray-100', 'text-gray-200', 'disabled-link');
+            nextStepBtn.classList.add('bg-gray-600', 'text-white');
+            nextStepBtn.setAttribute('href', 'landingpage-step2.html');  // 設定有效連結
+          } else {
+            nextStepBtn.classList.remove('bg-gray-600', 'text-white');
+            nextStepBtn.classList.add('bg-gray-100', 'text-gray-200', 'disabled-link');
+            nextStepBtn.removeAttribute('href');  // 移除連結，模擬禁用
+          }
+        });
+      </script>
   <script type="module" src="../main.js"></script>
 </body>
 
