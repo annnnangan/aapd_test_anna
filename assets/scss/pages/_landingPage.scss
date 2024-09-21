@@ -1,4 +1,16 @@
 .landing-page {
+  .pagination-padding {
+    padding: 6px;
+  }
+  .min-height {
+    margin-top: 0px;
+    @media (min-height: 710px) {
+      margin-top: 31px;
+    }
+    @media (min-height: 768px) {
+      margin-top: 62px;
+    }
+  }
   .disabled-link {
     pointer-events: none;  // 禁用點擊事件
     cursor: not-allowed;   // 顯示禁用圖標
