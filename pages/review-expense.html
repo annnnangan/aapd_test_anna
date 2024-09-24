@@ -3,36 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="../assets/images/image_app.png"
-    />
+    <link rel="icon" type="image/x-icon" href="../assets/images/image_app.png" />
     <title>記帳甜甜圈 | 復盤</title>
     <!-- Material icon -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </head>
   <body>
-    <%- include('./layout/header', { page: '復盤' , showBackButton: true,
-    showSearchButton: false}); -%>
+    <%- include('./layout/header', { page: '復盤' , showBackButton: true, showSearchButton: false}); -%>
     <div class="review-expense pt-13 pb-14">
       <div class="container px-4">
         <div class="goal-card mb-6">
-          <div
-            class="d-flex py-4 px-6 bg-white radius-R justify-content-between align-items-center"
-          >
+          <div class="d-flex py-4 px-6 bg-white radius-R justify-content-between align-items-center">
             <div class="me-4">
-              <h2 class="fs-6">恭喜達成上個月目標!</h2>
-              <h3 class="fw-bold fs-3 text-orange-400">
-                存款 <span class="font-Nunito">$8,000 元</span>
-              </h3>
+              <h2 class="fs-6 text-orange-950">恭喜達成上個月目標!</h2>
+              <h3 class="fw-bold fs-3 text-orange-400">存款 <span class="font-Nunito">$8,000 元</span></h3>
               <div class="py-2 px-4 border border-grey-700 radius-3xs">
                 <p class="fs-8">總資產累計：$208,000</p>
               </div>
@@ -44,18 +31,10 @@
         </div>
 
         <div class="date-picker mb-6">
-          <div
-            class="d-flex justify-content-between align-items-center bg-white radius-sm py-3 px-4"
-          >
-            <img
-              src="../assets/images/icon/arrow-left/arrow_left_default.svg"
-              alt="right arrow"
-            />
+          <div class="d-flex justify-content-between align-items-center bg-white radius-sm py-3 px-4">
+            <img src="../assets/images/icon/arrow-left/arrow_left_default.svg" alt="right arrow" />
             <p class="text-black d-flex">2024 / 07/ 01 - 2024 / 07 / 31</p>
-            <img
-              src="../assets/images/icon/arrow-right/arrow_right_default.svg"
-              alt="right arrow"
-            />
+            <img src="../assets/images/icon/arrow-right/arrow_right_default.svg" alt="right arrow" />
           </div>
         </div>
 
@@ -65,7 +44,7 @@
             <div class="list-group-wrapper mb-3">
               <div class="list-group flex-row" id="list-tab" role="tablist">
                 <a
-                  class="list-group-item list-group-item-action active"
+                  class="list-group-item list-group-item-action active fs-8"
                   id="list-expense-overview-list"
                   data-bs-toggle="list"
                   href="#list-expense-overview"
@@ -74,7 +53,7 @@
                   >花費總覽</a
                 >
                 <a
-                  class="list-group-item list-group-item-action"
+                  class="list-group-item list-group-item-action fs-8"
                   id="list-expense-rank-list"
                   data-bs-toggle="list"
                   href="#list-expense-rank"
@@ -88,114 +67,89 @@
             <div>
               <div class="tab-content" id="nav-tabContent">
                 <!-- Tab 1 - 花費總覽 - Details -->
-                <div
-                  class="tab-pane fade show active"
-                  id="list-expense-overview"
-                  role="tabpanel"
-                  aria-labelledby="list-expense-overview-list"
-                >
+                <div class="tab-pane fade show active" id="list-expense-overview" role="tabpanel" aria-labelledby="list-expense-overview-list">
                   <!-- Tab 1 - 花費總覽 - Details - 花費 -->
                   <div class="section-block mb-6">
                     <canvas id="total-expense-pie-chart"></canvas>
-                    <table
-                      class="table expense-overview-table mt-5 table-hover"
-                    >
+                    <table class="table expense-overview-table mt-5 table-hover">
                       <thead>
                         <tr>
                           <th scope="col"></th>
-                          <th scope="col">總花費</th>
-                          <th scope="col">類別預算</th>
+                          <th scope="col" class="fs-8">總花費</th>
+                          <th scope="col" class="fs-8">類別預算</th>
                         </tr>
                       </thead>
                       <tbody>
                         <!-- Category Food -->
-                        <%-
-                        include('./layout/expense-review-overview-list-item', {
-                        backgroundColor:"light-food",
-                        category:"飲食",spentAmount:12000, budget:14000}); -%>
+                        <%- include('./layout/expense-review-overview-list-item', { backgroundColor:"light-food", category:"飲食",spentAmount:12000,
+                        budget:14000}); -%>
+
+                        <!-- Category Learn -->
+                        <%- include('./layout/expense-review-overview-list-item', { backgroundColor:"light-shop", category:"購物",spentAmount:4300,
+                        budget:5000}); -%>
+
+                        <!-- Category Learn -->
+                        <%- include('./layout/expense-review-overview-list-item', { backgroundColor:"light-learn", category:"學習",spentAmount:4600,
+                        budget:4000}); -%>
+
+                        <!-- Category Transport -->
+                        <%- include('./layout/expense-review-overview-list-item', { backgroundColor:"light-transport",
+                        category:"交通",spentAmount:2000, budget:2000}); -%>
+
+                        <!-- Category Life -->
+                        <%- include('./layout/expense-review-overview-list-item', { backgroundColor:"light-life", category:"生活",spentAmount:8000,
+                        budget:10000}); -%>
+
+                        <!-- Category Entertainment -->
+                        <%- include('./layout/expense-review-overview-list-item', { backgroundColor:"light-entertainment",
+                        category:"娛樂",spentAmount:4700, budget:"----"}); -%>
+
+                        <!-- Category Medical -->
+                        <%- include('./layout/expense-review-overview-list-item', { backgroundColor:"light-medical", category:"醫療",spentAmount:3000,
+                        budget:"----"}); -%>
                       </tbody>
-
-                      <!-- Category Learn -->
-                      <%- include('./layout/expense-review-overview-list-item',
-                      { backgroundColor:"light-shop",
-                      category:"購物",spentAmount:4300, budget:5000}); -%>
-
-                      <!-- Category Learn -->
-                      <%- include('./layout/expense-review-overview-list-item',
-                      { backgroundColor:"light-learn",
-                      category:"學習",spentAmount:4600, budget:4000}); -%>
-
-                      <!-- Category Transport -->
-                      <%- include('./layout/expense-review-overview-list-item',
-                      { backgroundColor:"light-transport",
-                      category:"交通",spentAmount:8000, budget:10000}); -%>
-
-                      <!-- Category Entertainment -->
-                      <%- include('./layout/expense-review-overview-list-item',
-                      { backgroundColor:"light-entertainment",
-                      category:"娛樂",spentAmount:4700, budget:"----"}); -%>
-
-                      <!-- Category Medical -->
-                      <%- include('./layout/expense-review-overview-list-item',
-                      { backgroundColor:"light-medical",
-                      category:"醫療",spentAmount:3000, budget:"----"}); -%>
                     </table>
                   </div>
                   <!-- Tab 1 - 花費總覽 - Details - 與上月相比 -->
                   <div class="section-block expense-comparison">
-                    <h4 class="fs-7 fw-bold mb-4 px-6">與上月相比</h4>
+                    <h4 class="fs-6 fw-bold mb-4 px-6">與上月相比</h4>
                     <ol class="ps-0">
                       <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 學習 -->
-                      <%- include('./layout/expense-review-compare-list-item', {
-                      backgroundColor:"light-learn", category:"學習", change:
-                      4000, status:"increase", progress:"120" }); -%>
+                      <%- include('./layout/expense-review-compare-list-item', { backgroundColor:"light-learn", category:"學習", change: 4000,
+                      status:"increase", progress:"120" }); -%>
 
                       <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 飲食 -->
 
-                      <%- include('./layout/expense-review-compare-list-item', {
-                      backgroundColor:"light-food", category:"飲食", change:
-                      1000, status:"increase",progress:"50" }); -%>
+                      <%- include('./layout/expense-review-compare-list-item', { backgroundColor:"light-food", category:"飲食", change: 1000,
+                      status:"increase",progress:"50" }); -%>
 
                       <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 購物 -->
 
-                      <%- include('./layout/expense-review-compare-list-item', {
-                      backgroundColor:"light-shop", category:"購物", change:
-                      1000, status:"decrease", progress:"40" }); -%>
+                      <%- include('./layout/expense-review-compare-list-item', { backgroundColor:"light-shop", category:"購物", change: 1000,
+                      status:"decrease", progress:"40" }); -%>
 
                       <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 娛樂 -->
 
-                      <%- include('./layout/expense-review-compare-list-item', {
-                      backgroundColor:"light-entertainment", category:"娛樂",
-                      change: 2400, status:"decrease", progress:"70" }); -%>
+                      <%- include('./layout/expense-review-compare-list-item', { backgroundColor:"light-entertainment", category:"娛樂", change: 2400,
+                      status:"decrease", progress:"70" }); -%>
                     </ol>
                   </div>
                 </div>
 
                 <!-- Tab 2 - 花費排名 - Details -->
-                <div
-                  class="tab-pane fade"
-                  id="list-expense-rank"
-                  role="tabpanel"
-                  aria-labelledby="list-expense-rank-list"
-                >
+                <div class="tab-pane fade" id="list-expense-rank" role="tabpanel" aria-labelledby="list-expense-rank-list">
                   <!-- 單筆花費 TOP3 -->
                   <div class="section-block mb-5">
                     <h4 class="fs-6 fw-bold mb-4 px-6">單筆花費 TOP3</h4>
                     <ol class="top-expense-list link-hover">
                       <!-- Top 1 -->
-                      <%-
-                      include('./layout/expense-review-top-3-overall-list-item',
-                      {index: 1, backgroundColor:"light-food", category:"飲食",
+                      <%- include('./layout/expense-review-top-3-overall-list-item', {index: 1, backgroundColor:"light-food", category:"飲食",
                       details:"晚餐", expense:4000}); -%>
                       <!-- Top 2 -->
-                      <%-
-                      include('./layout/expense-review-top-3-overall-list-item',
-                      {index: 2, backgroundColor:"light-shop", category:"購物",
+                      <%- include('./layout/expense-review-top-3-overall-list-item', {index: 2, backgroundColor:"light-shop", category:"購物",
                       details:"衣服", expense:3200}); -%>
                       <!-- Top 3 -->
-                      <%-
-                      include('./layout/expense-review-top-3-overall-list-item',
-                      {index: 3, backgroundColor:"light-learn", category:"學習",
+                      <%- include('./layout/expense-review-top-3-overall-list-item', {index: 3, backgroundColor:"light-learn", category:"學習",
                       details:"課程", expense:3000}); -%>
                     </ol>
                   </div>
@@ -205,16 +159,10 @@
 
                     <!-- navigation buttons -->
                     <div class="swiper-button-custom-prev">
-                      <img
-                        src="../assets/images/icon/arrow-left/arrow_left_pressed.svg"
-                        alt=""
-                      />
+                      <img src="../assets/images/icon/arrow-left/arrow_left_pressed.svg" alt="" />
                     </div>
                     <div class="swiper-button-custom-next">
-                      <img
-                        src="../assets/images/icon/arrow-right/arrow_right_pressed.svg"
-                        alt=""
-                      />
+                      <img src="../assets/images/icon/arrow-right/arrow_right_pressed.svg" alt="" />
                     </div>
 
                     <!-- Slider main container -->
@@ -224,82 +172,45 @@
                         <!-- Slides -->
                         <div class="swiper-slide">
                           <div class="d-flex justify-content-center mb-3">
-                            <img
-                              src="../assets/images/icon/account/category-food.svg"
-                              alt="category-food"
-                              width="28"
-                              height="28"
-                              class="me-2"
-                            />
+                            <img src="../assets/images/icon/account/category-food.svg" alt="category-food" width="28" height="28" class="me-2" />
                             <p class="fs-7">飲食</p>
                           </div>
                           <ol class="top-expense-list">
                             <!-- Top 1 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 1, details:"牛排", expense:1200}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"牛排", expense:1200}); -%>
                             <!-- Top 2 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 2, details:"甜點", expense:480}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"甜點", expense:480}); -%>
                             <!-- Top 3 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 3, details:"壽司", expense:360}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 3, details:"壽司", expense:360}); -%>
                           </ol>
                         </div>
                         <div class="swiper-slide">
                           <div class="d-flex justify-content-center mb-3">
-                            <img
-                              src="../assets/images/icon/account/category-shop.svg"
-                              alt="category-shop"
-                              width="28"
-                              height="28"
-                              class="me-2"
-                            />
+                            <img src="../assets/images/icon/account/category-shop.svg" alt="category-shop" width="28" height="28" class="me-2" />
                             <p class="fs-7">購物</p>
                           </div>
                           <ol class="top-expense-list">
                             <!-- Top 1 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 1, details:"平板電腦", expense:2500}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"平板電腦", expense:2500}); -%>
                             <!-- Top 2 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 2, details:"韓版上衣", expense:1000}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"韓版上衣", expense:1000}); -%>
                             <!-- Top 3 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 3, details:"黑色短褲", expense:800}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 3, details:"黑色短褲", expense:800}); -%>
                           </ol>
                         </div>
                         <div class="swiper-slide">
                           <div class="d-flex justify-content-center mb-3">
-                            <img
-                              src="../assets/images/icon/account/category-learn.svg"
-                              alt="category-learn"
-                              width="28"
-                              height="28"
-                              class="me-2"
-                            />
+                            <img src="../assets/images/icon/account/category-learn.svg" alt="category-learn" width="28" height="28" class="me-2" />
                             <p class="fs-7">學習</p>
                           </div>
                           <ol class="top-expense-list">
                             <!-- Top 1 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 1, details:"UI 設計線上實戰營",
-                            expense:2500}); -%>
-                            <!-- Top 2 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 2, details:"網頁切版直播班", expense:2000});
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"UI 設計線上實戰營", expense:2500});
                             -%>
+                            <!-- Top 2 -->
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"網頁切版直播班", expense:2000}); -%>
                             <!-- Top 3 -->
-                            <%-
-                            include('./layout/expense-review-top-3-category-list-item',
-                            {index: 3, details:"使用 HTML、CSS 開發一個網站",
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 3, details:"使用 HTML、CSS 開發一個網站",
                             expense:1600}); -%>
                           </ol>
                         </div>
@@ -315,9 +226,7 @@
     </div>
 
     <div class="set-goal-tab fixed-bottom py-4 px-8 bg-white shadow">
-      <a href="month-target.html" class="btn py-2 px-4 w-100 btn-gray-600 fs-7"
-        >前往設定本月目標</a
-      >
+      <a href="month-target.html" class="btn py-2 px-4 w-100 btn-gray-600 fs-7">前往設定本月目標</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
