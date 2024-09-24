@@ -3,13 +3,13 @@
     <div class="d-flex align-items-center me-4">
       <div class="top-list-index font-Nunito"><%= index %></div>
       <div class="category-color-index bg-<%= backgroundColor %>"></div>
-      <p><%= category %> | <%= details %></p>
+      <p class="fs-8"><%= category %> | <%= details %></p>
     </div>
 
     <hr class="flex-grow-1" />
 
     <div class="ms-4">
-      <p>$<%= expense.toLocaleString('en-IN') %></p>
+      <p class="fs-8">$<%= expense.toLocaleString('en-IN') %></p>
     </div>
   </div>
 </li>
