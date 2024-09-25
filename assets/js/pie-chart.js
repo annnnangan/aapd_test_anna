@@ -2,6 +2,7 @@
 const budgetPieChart = document.getElementById("budget-pie-chart");
 
 if (budgetPieChart) {
+  //set chart title and subtitle
   const doughnutLabel = {
     id: "doughnutLabel",
     beforeDatasetsDraw(chart, args, pluginOptions) {
@@ -31,6 +32,19 @@ if (budgetPieChart) {
     },
   };
 
+  Chart.Tooltip.positioners.top = function (elements, eventPosition) {
+    const datasetIndex = elements[0].index;
+
+    const { chartArea } = this.chart;
+
+    if (datasetIndex === 1) {
+      return { x: 0, y: 0 };
+    } else {
+      return { x: chartArea.right, y: 0 };
+    }
+  };
+
+  //chart configuration
   new Chart(budgetPieChart, {
     type: "doughnut",
     options: {
@@ -40,6 +54,39 @@ if (budgetPieChart) {
       plugins: {
         legend: {
           display: false,
+        },
+
+        tooltip: {
+          position: "top",
+          displayColors: false,
+          backgroundColor: "#fff",
+          bodyColor: "#000",
+          titleColor: "#000",
+          titleFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          bodyFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          caretSize: 0,
+          padding: {
+            top: 8,
+            bottom: 8,
+            left: 8,
+            right: 50,
+          },
+          callbacks: {
+            label: function (context) {
+              return `$${context.formattedValue}`;
+            },
+            afterBody: function (context) {
+              const sum = context[0].dataset.data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+              const percentage = (context[0].raw / sum) * 100;
+              return `${percentage}%`;
+            },
+          },
         },
       },
     },
@@ -59,9 +106,7 @@ if (budgetPieChart) {
 }
 
 //Homepage chart - expense
-const homeExpensePieChart = document.getElementById(
-  "home-total-expense-pie-chart"
-);
+const homeExpensePieChart = document.getElementById("home-total-expense-pie-chart");
 
 if (homeExpensePieChart) {
   const doughnutLabel4 = {
@@ -112,15 +157,7 @@ if (homeExpensePieChart) {
       datasets: [
         {
           data: [2500, 500, 2000, 800, 2200, 6400, 150],
-          backgroundColor: [
-            "#FFE4C1",
-            "#C7F1FF",
-            "#CCDCFF",
-            "#DAB5FF",
-            "#B0DCC7",
-            "#FEC9A7",
-            "#FFCECF",
-          ],
+          backgroundColor: ["#FFE4C1", "#C7F1FF", "#CCDCFF", "#DAB5FF", "#B0DCC7", "#FEC9A7", "#FFCECF"],
           borderColor: ["rgba(247, 247, 247, 1)", "rgba(247, 247, 247, 1)"],
         },
       ],
@@ -180,15 +217,7 @@ if (totalExpensePieChart) {
       datasets: [
         {
           data: [12000, 4300, 2000, 4700, 4600, 8000, 3000],
-          backgroundColor: [
-            "#FFE4C1",
-            "#C7F1FF",
-            "#CCDCFF",
-            "#DAB5FF",
-            "#B0DCC7",
-            "#FEC9A7",
-            "#FFCECF",
-          ],
+          backgroundColor: ["#FFE4C1", "#C7F1FF", "#CCDCFF", "#DAB5FF", "#B0DCC7", "#FEC9A7", "#FFCECF"],
           borderColor: ["rgba(247, 247, 247, 1)", "rgba(247, 247, 247, 1)"],
         },
       ],
@@ -197,9 +226,7 @@ if (totalExpensePieChart) {
 }
 
 //Pie Chart 3 - Statistic - Monthly Total Expense
-const monthlyTotalExpensePieChart = document.getElementById(
-  "monthly-total-expense-pie-chart"
-);
+const monthlyTotalExpensePieChart = document.getElementById("monthly-total-expense-pie-chart");
 
 if (monthlyTotalExpensePieChart) {
   const doughnutLabel3 = {
@@ -250,15 +277,7 @@ if (monthlyTotalExpensePieChart) {
       datasets: [
         {
           data: [14000, 400, 2000, 4700, 4600, 8000, 3000],
-          backgroundColor: [
-            "#FFE4C1",
-            "#C7F1FF",
-            "#CCDCFF",
-            "#DAB5FF",
-            "#B0DCC7",
-            "#FEC9A7",
-            "#FFCECF",
-          ],
+          backgroundColor: ["#FFE4C1", "#C7F1FF", "#CCDCFF", "#DAB5FF", "#B0DCC7", "#FEC9A7", "#FFCECF"],
           borderColor: ["rgba(247, 247, 247, 1)", "rgba(247, 247, 247, 1)"],
         },
       ],
