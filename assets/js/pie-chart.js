@@ -32,6 +32,7 @@ if (budgetPieChart) {
     },
   };
 
+  //define tooltip position
   Chart.Tooltip.positioners.top = function (elements, eventPosition) {
     const datasetIndex = elements[0].index;
 
@@ -62,6 +63,7 @@ if (budgetPieChart) {
           backgroundColor: "#fff",
           bodyColor: "#000",
           titleColor: "#000",
+
           titleFont: {
             family: "Gensen",
             size: 11,
@@ -109,6 +111,7 @@ if (budgetPieChart) {
 const homeExpensePieChart = document.getElementById("home-total-expense-pie-chart");
 
 if (homeExpensePieChart) {
+  //set chart title and subtitle
   const doughnutLabel4 = {
     id: "doughnutLabel4",
     beforeDatasetsDraw(chart, args, pluginOptions) {
@@ -138,6 +141,18 @@ if (homeExpensePieChart) {
     },
   };
 
+  //define tooltip position
+  Chart.Tooltip.positioners.side = function (elements, eventPosition) {
+    const startAngle = elements[0].element.startAngle;
+
+    if (startAngle < 1) {
+      return { x: eventPosition.x + 350, y: eventPosition.y };
+    } else {
+      return { x: eventPosition.x - 350, y: eventPosition.y };
+    }
+  };
+
+  //chart configuration
   new Chart(homeExpensePieChart, {
     type: "doughnut",
     options: {
@@ -147,6 +162,38 @@ if (homeExpensePieChart) {
       plugins: {
         legend: {
           display: false,
+        },
+        tooltip: {
+          position: "side",
+          displayColors: false,
+          backgroundColor: "#fff",
+          bodyColor: "#000",
+          titleColor: "#000",
+          titleFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          bodyFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          caretSize: 0,
+          padding: {
+            top: 8,
+            bottom: 8,
+            left: 8,
+            right: 50,
+          },
+          callbacks: {
+            label: function (context) {
+              return `$${context.formattedValue}`;
+            },
+            afterBody: function (context) {
+              const sum = context[0].dataset.data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+              const percentage = (context[0].raw / sum) * 100;
+              return `${percentage.toFixed(2)}%`;
+            },
+          },
         },
       },
     },
@@ -197,6 +244,17 @@ if (totalExpensePieChart) {
       ctx.restore();
     },
   };
+  //define tooltip position
+
+  Chart.Tooltip.positioners.side = function (elements, eventPosition) {
+    const startAngle = elements[0].element.startAngle;
+
+    if (startAngle < 1) {
+      return { x: eventPosition.x + 350, y: eventPosition.y };
+    } else {
+      return { x: eventPosition.x - 350, y: eventPosition.y };
+    }
+  };
 
   new Chart(totalExpensePieChart, {
     type: "doughnut",
@@ -207,6 +265,40 @@ if (totalExpensePieChart) {
       plugins: {
         legend: {
           display: false,
+        },
+        tooltip: {
+          position: "side",
+          displayColors: false,
+          backgroundColor: "#fff",
+          borderColor: "#ededf1",
+          borderWidth: 1,
+          bodyColor: "#000",
+          titleColor: "#000",
+          titleFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          bodyFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          caretSize: 0,
+          padding: {
+            top: 8,
+            bottom: 8,
+            left: 8,
+            right: 50,
+          },
+          callbacks: {
+            label: function (context) {
+              return `$${context.formattedValue}`;
+            },
+            afterBody: function (context) {
+              const sum = context[0].dataset.data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+              const percentage = (context[0].raw / sum) * 100;
+              return `${percentage.toFixed(2)}%`;
+            },
+          },
         },
       },
     },
@@ -257,6 +349,15 @@ if (monthlyTotalExpensePieChart) {
       ctx.restore();
     },
   };
+  Chart.Tooltip.positioners.side = function (elements, eventPosition) {
+    const startAngle = elements[0].element.startAngle;
+
+    if (startAngle < 1) {
+      return { x: eventPosition.x + 350, y: eventPosition.y };
+    } else {
+      return { x: eventPosition.x - 350, y: eventPosition.y };
+    }
+  };
 
   new Chart(monthlyTotalExpensePieChart, {
     type: "doughnut",
@@ -267,6 +368,40 @@ if (monthlyTotalExpensePieChart) {
       plugins: {
         legend: {
           display: false,
+        },
+        tooltip: {
+          position: "side",
+          displayColors: false,
+          backgroundColor: "#fff",
+          borderColor: "#ededf1",
+          borderWidth: 1,
+          bodyColor: "#000",
+          titleColor: "#000",
+          titleFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          bodyFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          caretSize: 0,
+          padding: {
+            top: 8,
+            bottom: 8,
+            left: 8,
+            right: 50,
+          },
+          callbacks: {
+            label: function (context) {
+              return `$${context.formattedValue}`;
+            },
+            afterBody: function (context) {
+              const sum = context[0].dataset.data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+              const percentage = (context[0].raw / sum) * 100;
+              return `${percentage.toFixed(2)}%`;
+            },
+          },
         },
       },
     },
@@ -316,6 +451,15 @@ if (totalIncomePieChart) {
       ctx.restore();
     },
   };
+  Chart.Tooltip.positioners.side = function (elements, eventPosition) {
+    const startAngle = elements[0].element.startAngle;
+
+    if (startAngle < 1) {
+      return { x: eventPosition.x + 350, y: eventPosition.y };
+    } else {
+      return { x: eventPosition.x - 350, y: eventPosition.y };
+    }
+  };
 
   new Chart(totalIncomePieChart, {
     type: "doughnut",
@@ -326,6 +470,40 @@ if (totalIncomePieChart) {
       plugins: {
         legend: {
           display: false,
+        },
+        tooltip: {
+          position: "side",
+          displayColors: false,
+          backgroundColor: "#fff",
+          borderColor: "#ededf1",
+          borderWidth: 1,
+          bodyColor: "#000",
+          titleColor: "#000",
+          titleFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          bodyFont: {
+            family: "Gensen",
+            size: 11,
+          },
+          caretSize: 0,
+          padding: {
+            top: 8,
+            bottom: 8,
+            left: 8,
+            right: 50,
+          },
+          callbacks: {
+            label: function (context) {
+              return `$${context.formattedValue}`;
+            },
+            afterBody: function (context) {
+              const sum = context[0].dataset.data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+              const percentage = (context[0].raw / sum) * 100;
+              return `${percentage.toFixed(2)}%`;
+            },
+          },
         },
       },
     },
