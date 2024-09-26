@@ -193,7 +193,7 @@
         </div>
         <div class="d-flex mt-2 py-1">
           <button
-            class="btn btn-outline-gray-500 fs-8 bg-white py-1 f-center flex-grow-1 position-relative"
+            class="btn btn-outline-gray-500 fs-8 bg-white radius-xs py-1 f-center flex-grow-1 position-relative"
             id="addSelectDateModal">
             今天 08/05
             <img
@@ -208,7 +208,7 @@
               style="width: 24px; height: 24px;">
           </button>
           <button
-            class="btn btn-outline-gray-500 fs-8 bg-white ms-2 py-1 flex-grow-1"
+            class="btn btn-outline-gray-500 fs-8 bg-white radius-xs ms-2 py-1 flex-grow-1"
             id="periodSettingModal">
             週期性記帳
           </button>
@@ -216,7 +216,7 @@
         <div class="mt-2 position-relative">
           <input
             type="text"
-            class="form-control w-100 bg-gray-50 border-gray-200"
+            class="form-control w-100 bg-gray-50 border-gray-200 radius-sm"
             placeholder="請輸入備註...">
             <button
               class="btn position-absolute top-0 end-0 p-0 mt-2 me-4"
@@ -297,6 +297,10 @@
 <div
   class="addCategoryCard d-none"
   id="addCategoryCard">
+  <div
+    id="custom-backdrop-addCategory"
+    class="custom-backdrop d-none">
+  </div>
   <div class="modal-content bg-white border-0 p-6">
     <div class="modal-header border-0 f-between-center p-0">
       <p class="modal-title fs-6" id="addCategoryCardLabel">
@@ -316,7 +320,7 @@
         style="width: 56px; height: 56px;">
       <input
         type="text"
-        class="form-control w-100 bg-white border-gray-300 mt-3"
+        class="form-control w-100 bg-white border-gray-300 radius-sm mt-3"
         placeholder="請輸入類別名稱">
       <div class="border-0 d-flex w-100 p-0 mt-5">
         <button
@@ -339,6 +343,10 @@
 <div
   class="addSubCategoryCard d-none"
   id="addSubCategoryCard">
+  <div
+    id="custom-backdrop-addSubCategory"
+    class="custom-backdrop d-none">
+  </div>
   <div class="modal-content bg-white border-0 p-6">
     <div class="modal-header border-0 f-between-center p-0">
       <p
@@ -379,6 +387,10 @@
 <div
   class="selectDateCard d-none"
   id="selectDateCard">
+  <div
+    id="custom-backdrop-selectDate"
+    class="custom-backdrop d-none">
+  </div>
   <div class="modal-content bg-white border-0">
     <div class="modal-header f-between-center border-0 p-0">
       <p
@@ -411,6 +423,10 @@
 <div
   class="periodSettingCard d-none"
   id="periodSettingCard">
+  <div
+    id="custom-backdrop-periodSetting"
+    class="custom-backdrop d-none">
+  </div>
   <div class="modal-content bg-white border-0 p-6">
     <div class="modal-header border-0 f-between-center p-0">
       <p
@@ -425,7 +441,7 @@
         aria-label="Close"
         style="width: 24px; height: 24px;"></button>
     </div>
-    <div class="modal-body f-column-center p-0 mt-5">
+    <div class="modal-body f-column-center p-0 mt-6">
       <ul
         class="nav nav-pills bg-gray-100 radius-xs w-100 p-1"
         id="categoryTab" role="tablist">
@@ -452,7 +468,7 @@
             aria-selected="true">週期</a>
         </li>
       </ul>
-      <div class="tab-content w-100 mt-6" id="categoryTabContent">
+      <div class="tab-content w-100 mt-5" id="categoryTabContent">
         <div
           class="one-time tab-pane fade show active"
           id="one-time"
@@ -532,7 +548,7 @@
           </div>
         </div>
       </div>
-      <div class="border-0 d-flex w-100 p-0 mt-5">
+      <div class="border-0 d-flex w-100 p-0 mt-6">
         <button
           type="button"
           class="btn btn-outline-gray-500 bg-surface-second fs-8 w-100"
@@ -554,6 +570,10 @@
 <div
   class="remarksCard d-none"
   id="remarksCard">
+  <div
+    id="custom-backdrop-remarks"
+    class="custom-backdrop d-none">
+  </div>
   <div class="modal-content bg-white border-0 p-6">
     <div class="modal-header border-0 f-between-center p-0">
       <p
