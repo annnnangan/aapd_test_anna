@@ -1,6 +1,6 @@
 const date = new Date(2024, 7, 5);
 let selectedDate = { day: 5, month: 7, year: 2024 };
-const boldDates = ["1", "3", "4"];
+const boldDates = ["1", "3", "4", "5"];
 
 function renderCalendar() {
   const month = date.getMonth();
@@ -38,7 +38,7 @@ function renderCalendar() {
     const isBold = boldDates.includes(i.toString()) && month === 7;
 
     calendarDays.innerHTML += `
-      <div class="day ${isSelected ? "active selected" : ""} ${isBold ? "fw-bolder" : ""}" data-day="${i}"> ${i}
+      <div class="day ${isSelected ? "active selected" : ""} ${isBold ? "fw-bolder text-gray-950" : ""}" data-day="${i}"> ${i}
       </div>`;
   }
 
