@@ -5,11 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    rel="icon"
-    type="image/x-icon"
-    href="../assets/images/image_app.png"
-  />
+  <link rel="icon" type="image/x-icon" href="../assets/images/image_app.png" />
   <title>記帳甜甜圈 | 設定每月目標</title>
   <!-- Material icon -->
   <link rel="stylesheet"
@@ -20,7 +16,7 @@
   <%- include('./layout/header', { page: '設定每月目標' , showBackButton: true, showSearchButton: false }); -%>
     <section class="month-target bg-orange-50 vh-100 py-13">
       <div class="container px-4">
-        <div class="rounded bg-white shadow py-5 px-4 mb-4">
+        <div class="rounded bg-white py-5 px-4 mb-4">
           <div class="d-flex">
             <p class="">
               個人化預算建議
@@ -43,7 +39,7 @@
               <label for="inpuIncome" class="col-form-label fs-7">本月總收入</label>
             </div>
             <div class="col">
-              <input type="number" id="inpuIncome" class="form-control" value="36000" readonly placeholder="$請輸入金額" />
+              <input type="number" id="inpuIncome" class="form-control" value="36000" placeholder="$請輸入金額" />
             </div>
           </li>
           <li class="row align-items-center mb-2">
@@ -51,7 +47,7 @@
               <label for="inpuBudget" class="col-form-label fs-7">本月預算</label>
             </div>
             <div class="col">
-              <input type="number" id="inpuBudget" class="form-control" value="27000" readonly placeholder="$請輸入金額" />
+              <input type="number" id="inpuBudget" class="form-control" value="27000" placeholder="$請輸入金額" />
             </div>
           </li>
           <li class="row align-items-center mb-2">
@@ -59,12 +55,12 @@
               <label for="inpuDeposit" class="col-form-label fs-7">目標存款金額</label>
             </div>
             <div class="col">
-              <input type="number" id="inpuDeposit" class="form-control" value="80000" readonly placeholder="$請輸入金額" />
+              <input type="number" id="inpuDeposit" class="form-control" value="80000" placeholder="$請輸入金額" />
             </div>
           </li>
         </ul>
 
-        <div class="rounded bg-white shadow py-5 px-4 mb-4">
+        <div class="rounded bg-white py-5 px-4 mb-4">
           <div class="d-flex text-orange-950 fw-bold mb-4">
             <p>可用預算</p>
             <p class="ms-auto">$27,000</p>
@@ -78,13 +74,12 @@
                 <label for="food" class="col-form-label fs-7">飲食</label>
               </div>
               <div class="col-3">
-                <input type="text" id="food" class="form-control text-center percentage" value="33%" readonly />
+                <input type="text" id="food" class="form-control text-center percentage" value="33%" />
               </div>
               <div class="col">
-                <input type="text" id="food" class="form-control text-center" value="$9,000" readonly
-                  placeholder="$請輸入金額" />
+                <input type="text" id="food" class="form-control text-center" value="$9,000" placeholder="$請輸入金額" />
               </div>
-              <p class="text-gray-600 fs-9 text-end">上月花費：2,500</p>
+              <p class="text-gray-600 fs-9 text-end">上月花費：$2,500</p>
             </li>
             <li class="row align-items-center mb-4">
               <div class="col-auto">
@@ -94,13 +89,12 @@
                 <label for="shop" class="col-form-label fs-7">購物</label>
               </div>
               <div class="col-3">
-                <input type="text" id="shop" class="form-control text-center percentage" value="15%" readonly />
+                <input type="text" id="shop" class="form-control text-center percentage" value="15%" />
               </div>
               <div class="col">
-                <input type="text" id="shop" class="form-control text-center" value="$9,000" readonly
-                  placeholder="$請輸入金額" />
+                <input type="text" id="shop" class="form-control text-center" value="$9,000" placeholder="$請輸入金額" />
               </div>
-              <p class="text-gray-600 fs-9 text-end">上月花費：500</p>
+              <p class="text-gray-600 fs-9 text-end">上月花費：$500</p>
             </li>
             <li class="row align-items-center mb-4">
               <div class="col-auto">
@@ -110,13 +104,12 @@
                 <label for="learn" class="col-form-label fs-7">學習</label>
               </div>
               <div class="col-3">
-                <input type="text" id="learn" class="form-control text-center percentage" value="11%" readonly />
+                <input type="text" id="learn" class="form-control text-center percentage" value="11%" />
               </div>
               <div class="col">
-                <input type="text" id="learn" class="form-control text-center" value="$9,000" readonly
-                  placeholder="$請輸入金額" />
+                <input type="text" id="learn" class="form-control text-center" value="$9,000" placeholder="$請輸入金額" />
               </div>
-              <p class="text-gray-600 fs-9 text-end">上月花費：2,200</p>
+              <p class="text-gray-600 fs-9 text-end">上月花費：$2,200</p>
             </li>
             <li class="row align-items-center mb-4">
               <div class="col-auto">
@@ -126,13 +119,13 @@
                 <label for="transport" class="col-form-label fs-7">交通</label>
               </div>
               <div class="col-3">
-                <input type="text" id="transport" class="form-control text-center percentage" value="11%" readonly />
+                <input type="text" id="transport" class="form-control text-center percentage" value="11%" />
               </div>
               <div class="col">
-                <input type="text" id="transport" class="form-control text-center" value="$9,000" readonly
+                <input type="text" id="transport" class="form-control text-center" value="$9,000"
                   placeholder="$請輸入金額" />
               </div>
-              <p class="text-gray-600 fs-9 text-end">上月花費：2,500</p>
+              <p class="text-gray-600 fs-9 text-end">上月花費：$2,500</p>
             </li>
             <li class="row align-items-center mb-4">
               <div class="col-auto">
@@ -142,13 +135,12 @@
                 <label for="life" class="col-form-label fs-7">生活</label>
               </div>
               <div class="col-3">
-                <input type="text" id="life" class="form-control text-center percentage" value="30%" readonly />
+                <input type="text" id="life" class="form-control text-center percentage" value="30%" />
               </div>
               <div class="col">
-                <input type="text" id="life" class="form-control text-center" value="$9,000" readonly
-                  placeholder="$請輸入金額" />
+                <input type="text" id="life" class="form-control text-center" value="$9,000" placeholder="$請輸入金額" />
               </div>
-              <p class="text-gray-600 fs-9 text-end">上月花費：6,400</p>
+              <p class="text-gray-600 fs-9 text-end">上月花費：$6,400</p>
             </li>
             <li class="row align-items-center mb-4">
               <div class="col-auto">
@@ -158,13 +150,12 @@
                 <label for="entertainment" class="col-form-label fs-7">娛樂</label>
               </div>
               <div class="col-3">
-                <input type="text" id="medical" class="form-control text-center text-gray-300 percentage" value="-%"
-                  readonly />
+                <input type="text" id="medical" class="form-control text-center text-gray-300 percentage" value="-%" />
               </div>
               <div class="col">
-                <input type="number" id="entertainment" class="form-control text-center" placeholder="$請輸入金額" />
+                <input type="text" id="entertainment" class="form-control text-center" placeholder="$請輸入金額" />
               </div>
-              <p class="text-gray-600 fs-9 text-end">上月花費：800</p>
+              <p class="text-gray-600 fs-9 text-end">上月花費：$800</p>
             </li>
             <li class="row align-items-center mb-4">
               <div class="col-auto">
@@ -174,13 +165,12 @@
                 <label for="medical" class="col-form-label fs-7">醫療</label>
               </div>
               <div class="col-3">
-                <input type="text" id="medical" class="form-control text-center text-gray-300 percentage" value="-%"
-                  readonly />
+                <input type="text" id="medical" class="form-control text-center text-gray-300 percentage" value="-%" />
               </div>
               <div class="col">
-                <input type="number" id="entertainment" class="form-control text-center" placeholder="$請輸入金額" />
+                <input type="text" id="entertainment" class="form-control text-center" placeholder="$請輸入金額" />
               </div>
-              <p class="text-gray-600 fs-9 text-end">上月花費：160</p>
+              <p class="text-gray-600 fs-9 text-end">上月花費：$160</p>
             </li>
           </ul>
         </div>
@@ -192,7 +182,7 @@
           <button type="button" id="clear-btn" class="btn btn-outline-secondary me-md-2 w-50">
             清除設定
           </button>
-          <button type="button" class="btn btn-secondary w-50">儲存預算</button>
+          <a href="index.html" class="btn btn-secondary w-50">儲存預算</a>
         </div>
       </div>
     </div>
