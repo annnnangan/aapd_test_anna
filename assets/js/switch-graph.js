@@ -4,6 +4,7 @@ const pressedSwitchIcon = document.querySelector(".pressed-icon");
 
 const budgetPieChart = document.querySelector("#budget-pie-chart");
 const expensePieChart = document.querySelector("#home-total-expense-pie-chart");
+const chartLabel = document.querySelector(".chart-label-list");
 
 let isBudgetPieChart = true;
 
@@ -17,11 +18,13 @@ switchGraphIcon.forEach((item) =>
       expensePieChart.classList.add("d-none");
       defaultSwitchIcon.classList.remove("d-none");
       pressedSwitchIcon.classList.add("d-none");
+      chartLabel.classList.remove("d-none");
     } else {
       budgetPieChart.classList.add("d-none");
       expensePieChart.classList.remove("d-none");
       defaultSwitchIcon.classList.add("d-none");
       pressedSwitchIcon.classList.remove("d-none");
+      chartLabel.classList.add("d-none");
     }
   })
 );

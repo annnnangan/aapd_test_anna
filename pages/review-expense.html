@@ -31,9 +31,9 @@
         </div>
 
         <div class="date-picker mb-6">
-          <div class="d-flex justify-content-between align-items-center bg-white radius-sm py-3 px-4">
+          <div class="d-flex justify-content-center align-items-center bg-white radius-sm py-2 px-4">
             <img src="../assets/images/icon/arrow-left/arrow_left_default.svg" alt="right arrow" />
-            <p class="text-black d-flex">2024 / 07/ 01 - 2024 / 07 / 31</p>
+            <p class="text-black d-flex mx-2" style="transform: translateY(1px)">2024 / 07/ 01 - 2024 / 07 / 31</p>
             <img src="../assets/images/icon/arrow-right/arrow_right_default.svg" alt="right arrow" />
           </div>
         </div>
@@ -53,7 +53,7 @@
                   >花費總覽</a
                 >
                 <a
-                  class="list-group-item list-group-item-action fs-8"
+                  class="list-group-item list-group-item-action fs-8 list-expense-rank-list"
                   id="list-expense-rank-list"
                   data-bs-toggle="list"
                   href="#list-expense-rank"
@@ -70,7 +70,14 @@
                 <div class="tab-pane fade show active" id="list-expense-overview" role="tabpanel" aria-labelledby="list-expense-overview-list">
                   <!-- Tab 1 - 花費總覽 - Details - 花費 -->
                   <div class="section-block mb-6">
-                    <canvas id="total-expense-pie-chart"></canvas>
+                    <div class="chart-section">
+                      <div class="f-center">
+                        <div class="chart-container" style="height: 180px; width: 180px">
+                          <canvas id="total-expense-pie-chart"></canvas>
+                        </div>
+                      </div>
+                    </div>
+
                     <table class="table expense-overview-table mt-5 table-hover">
                       <thead>
                         <tr>
@@ -158,10 +165,10 @@
                     <h4 class="fs-6 fw-bold mb-4 px-6">各類別花費 TOP3</h4>
 
                     <!-- navigation buttons -->
-                    <div class="swiper-button-custom-prev">
+                    <div class="swiper-button-custom-prev swiper-button">
                       <img src="../assets/images/icon/arrow-left/arrow_left_pressed.svg" alt="" />
                     </div>
-                    <div class="swiper-button-custom-next">
+                    <div class="swiper-button-custom-next swiper-button">
                       <img src="../assets/images/icon/arrow-right/arrow_right_pressed.svg" alt="" />
                     </div>
 
@@ -175,7 +182,7 @@
                             <img src="../assets/images/icon/account/category-food.svg" alt="category-food" width="28" height="28" class="me-2" />
                             <p class="fs-7">飲食</p>
                           </div>
-                          <ol class="top-expense-list">
+                          <ol class="top-expense-list top-expense-category-list">
                             <!-- Top 1 -->
                             <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"牛排", expense:1200}); -%>
                             <!-- Top 2 -->
@@ -189,7 +196,7 @@
                             <img src="../assets/images/icon/account/category-shop.svg" alt="category-shop" width="28" height="28" class="me-2" />
                             <p class="fs-7">購物</p>
                           </div>
-                          <ol class="top-expense-list">
+                          <ol class="top-expense-list top-expense-category-list">
                             <!-- Top 1 -->
                             <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"平板電腦", expense:2500}); -%>
                             <!-- Top 2 -->
@@ -203,7 +210,7 @@
                             <img src="../assets/images/icon/account/category-learn.svg" alt="category-learn" width="28" height="28" class="me-2" />
                             <p class="fs-7">學習</p>
                           </div>
-                          <ol class="top-expense-list">
+                          <ol class="top-expense-list top-expense-category-list learn">
                             <!-- Top 1 -->
                             <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"UI 設計線上實戰營", expense:2500});
                             -%>

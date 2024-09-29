@@ -1,0 +1,11 @@
+.chart-section {
+  position: relative;
+  .chart-label-list {
+    position: absolute;
+    bottom: -10px;
+    right: 0px;
+  }
+  .chart-label {
+    font-size: 11px;
+  }
+}
