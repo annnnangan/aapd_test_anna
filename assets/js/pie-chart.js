@@ -12,7 +12,8 @@ if (budgetPieChart) {
       ctx.save();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      let fontSize = (height / 17).toFixed(2);
+      // let fontSize = (height / 17).toFixed(2);
+      let fontSize = 15;
       ctx.font = fontSize + "px Gensen";
       ctx.fillStyle = "rgba(108, 115, 139, 1)";
       let textYLocation = yCenter - fontSize;
@@ -49,9 +50,10 @@ if (budgetPieChart) {
   new Chart(budgetPieChart, {
     type: "doughnut",
     options: {
-      borderRadius: 10,
-      cutout: "72%",
-      aspectRatio: 1.5,
+      borderRadius: 4,
+      borderWidth: 2,
+      borderColor: "#f7f7f7",
+      cutout: "70%",
       plugins: {
         legend: {
           display: false,
@@ -121,7 +123,8 @@ if (homeExpensePieChart) {
       ctx.save();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      let fontSize = (height / 17).toFixed(2);
+      // let fontSize = (height / 17).toFixed(2);
+      let fontSize = 15;
       ctx.font = fontSize + "px Gensen";
       ctx.fillStyle = "rgba(108, 115, 139, 1)";
       let textYLocation = yCenter - fontSize;
@@ -156,9 +159,10 @@ if (homeExpensePieChart) {
   new Chart(homeExpensePieChart, {
     type: "doughnut",
     options: {
-      borderRadius: 10,
-      cutout: "72%",
-      aspectRatio: 1.5,
+      borderRadius: 4,
+      borderWidth: 2,
+      borderColor: "#f7f7f7",
+      cutout: "70%",
       plugins: {
         legend: {
           display: false,
@@ -225,7 +229,8 @@ if (totalExpensePieChart) {
       ctx.save();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      let fontSize = (height / 17).toFixed(2);
+      // let fontSize = (height / 17).toFixed(2);
+      let fontSize = 15;
       ctx.font = fontSize + "px Gensen";
       ctx.fillStyle = "rgba(108, 115, 139, 1)";
       let textYLocation = yCenter - fontSize;
@@ -259,9 +264,10 @@ if (totalExpensePieChart) {
   new Chart(totalExpensePieChart, {
     type: "doughnut",
     options: {
-      borderRadius: 10,
-      cutout: "72%",
-      aspectRatio: 1.5,
+      borderRadius: 4,
+      borderWidth: 2,
+      borderColor: "#f7f7f7",
+      cutout: "70%",
       plugins: {
         legend: {
           display: false,
@@ -330,7 +336,8 @@ if (monthlyTotalExpensePieChart) {
       ctx.save();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      let fontSize = (height / 17).toFixed(2);
+      // let fontSize = (height / 17).toFixed(2);
+      let fontSize = 15;
       ctx.font = fontSize + "px Gensen";
       ctx.fillStyle = "rgba(108, 115, 139, 1)";
       let textYLocation = yCenter - fontSize;
@@ -362,9 +369,10 @@ if (monthlyTotalExpensePieChart) {
   new Chart(monthlyTotalExpensePieChart, {
     type: "doughnut",
     options: {
-      borderRadius: 10,
-      cutout: "72%",
-      aspectRatio: 1.5,
+      borderRadius: 4,
+      borderWidth: 2,
+      borderColor: "#f7f7f7",
+      cutout: "70%",
       plugins: {
         legend: {
           display: false,
@@ -432,21 +440,22 @@ if (totalIncomePieChart) {
       ctx.save();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      let fontSize = (height / 12).toFixed(2);
+      // let fontSize = (height / 12).toFixed(2);
+      let fontSize = 15;
       ctx.font = fontSize + "px Gensen";
       ctx.fillStyle = "rgba(108, 115, 139, 1)";
-      let textYLocation = yCenter - fontSize + 10;
+      let textYLocation = yCenter - fontSize;
 
       ctx.fillText("本月總收入", xCenter, textYLocation);
 
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      fontSize = (height / 10).toFixed(2);
+      fontSize = (height / 8).toFixed(2);
       ctx.font = "bold " + fontSize + "px Nunito";
       // ctx.font = "bold 30px Nunito";
       ctx.fillStyle = "rgba(36, 37, 45, 1)";
-      textYLocation = yCenter + 20;
-      ctx.fillText("$38,0000", xCenter, textYLocation);
+      textYLocation = yCenter + (fontSize - 10);
+      ctx.fillText("$38,000", xCenter, textYLocation);
 
       ctx.restore();
     },
@@ -464,9 +473,10 @@ if (totalIncomePieChart) {
   new Chart(totalIncomePieChart, {
     type: "doughnut",
     options: {
-      borderRadius: 10,
-      cutout: "72%",
-      aspectRatio: 1.5,
+      borderRadius: 4,
+      borderWidth: 2,
+      borderColor: "#f7f7f7",
+      cutout: "70%",
       plugins: {
         legend: {
           display: false,
