@@ -1,17 +1,10 @@
-<div class="w-50 me-2">
-  <div class="<%= background %> radius-l py-4 px-5 income-card">
-    <div class="d-flex mb-3 align-items-center">
-      <p class="<%= fontSize %> text-gray-600" style="margin-right: 2px">
-        <%= text %>
-      </p>
+<div class="w-50">
+  <div class="<%= background %> radius-l px-5 d-flex flex-column align-items-start justify-content-center income-card" style="height: 76px">
+    <div class="d-flex align-items-center">
+      <p class="<%= fontSize %> text-gray-600" style="margin-right: 2px"><%= text %></p>
 
       <% if(hasIcon){ %>
-      <img
-        src="../assets/images/icon/edit/edit_presed.svg"
-        alt="edit icon"
-        width="16"
-        height="16"
-      />
+      <img src="../assets/images/icon/edit/edit_presed.svg" alt="edit icon" width="16" height="16" />
       <% } else { %> <% } %>
     </div>
 

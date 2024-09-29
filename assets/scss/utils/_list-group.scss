@@ -5,10 +5,18 @@
 }
 
 .list-group-item {
-  border-radius: 14px;
+  border-radius: 12px;
   background-color: $white;
   text-align: center;
   border: 0px;
+
+  &:first-child {
+    border-radius: 12px;
+  }
+
+  &:last-child {
+    border-radius: 12px;
+  }
 }
 
 .list-group-wrapper-secondary {

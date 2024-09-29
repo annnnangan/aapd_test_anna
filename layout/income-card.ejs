@@ -1,6 +1,8 @@
 <div class="<%= width %> me-2">
-  <div class="<%= background %> radius-l py-4 px-5 income-card h-100">
-    <div class="d-flex mb-3 align-items-center">
+  <div
+    class="<%= background %> radius-l px-5 income-card d-flex flex-column align-items-start justify-content-center income-card"
+    style="height: 76px">
+    <div class="d-flex align-items-center">
       <p class="fs-9 text-gray-600" style="margin-right: 2px"><%= title %></p>
       <img
         src="https://raw.githubusercontent.com/ahmomoz/AAPD_Hex_Doughnut_Expense_Tracker/main/assets/images/icon/eyes/eye_grey_yes.svg"
@@ -8,12 +10,9 @@
         class="eye-icon"
         data-show="true"
         width="16"
-        height="16"
-      />
+        height="16" />
     </div>
 
-    <p class="income font-Nunito text-gray-950 fw-bold fs-5">
-      $<span><%= income %></span>
-    </p>
+    <p class="income font-Nunito text-gray-950 fw-bold fs-5">$<span><%= income %></span></p>
   </div>
 </div>

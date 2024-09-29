@@ -30,10 +30,11 @@
           aria-valuenow="<%= spentAmount / budget * 100 %>%"
           aria-valuemin="0"
           aria-valuemax="100"
+          style="height: 8px;"
         >
           <div
             class="progress-bar"
-            style="width: <%= spentAmount / budget * 100 %>%"
+            style="height:8px; width: <%= spentAmount / budget * 100 %>%"
           ></div>
         </div>
         <% } else { %> <% } %>
