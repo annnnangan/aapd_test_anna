@@ -184,11 +184,14 @@
                           </div>
                           <ol class="top-expense-list top-expense-category-list">
                             <!-- Top 1 -->
-                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"牛排", expense:1200}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"牛排", longText: false,
+                            expense:1200}); -%>
                             <!-- Top 2 -->
-                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"甜點", expense:480}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"甜點", longText: false, expense:480});
+                            -%>
                             <!-- Top 3 -->
-                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 3, details:"壽司", expense:360}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 3, details:"壽司", longText: false, expense:360});
+                            -%>
                           </ol>
                         </div>
                         <div class="swiper-slide">
@@ -198,11 +201,14 @@
                           </div>
                           <ol class="top-expense-list top-expense-category-list">
                             <!-- Top 1 -->
-                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"平板電腦", expense:2500}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"平板電腦", longText: false,
+                            expense:2500}); -%>
                             <!-- Top 2 -->
-                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"韓版上衣", expense:1000}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"韓版上衣", longText: false,
+                            expense:1000}); -%>
                             <!-- Top 3 -->
-                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 3, details:"黑色短褲", expense:800}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 3, details:"黑色短褲", longText: false,
+                            expense:800}); -%>
                           </ol>
                         </div>
                         <div class="swiper-slide">
@@ -212,13 +218,14 @@
                           </div>
                           <ol class="top-expense-list top-expense-category-list learn">
                             <!-- Top 1 -->
-                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"UI 設計線上實戰營", expense:2500});
-                            -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 1, details:"UI 設計線上實戰營", longText: false,
+                            expense:2500}); -%>
                             <!-- Top 2 -->
-                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"網頁切版直播班", expense:2000}); -%>
+                            <%- include('./layout/expense-review-top-3-category-list-item', {index: 2, details:"網頁切版直播班", longText: false,
+                            expense:2000}); -%>
                             <!-- Top 3 -->
                             <%- include('./layout/expense-review-top-3-category-list-item', {index: 3, details:"使用 HTML、CSS 開發一個網站",
-                            expense:1600}); -%>
+                            longText: true, expense:1600}); -%>
                           </ol>
                         </div>
                       </div>
