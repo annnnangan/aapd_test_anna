@@ -436,7 +436,7 @@ const totalIncomePieChart = document.getElementById("total-income-pie-char");
 
 if (totalIncomePieChart) {
   const doughnutLabel4 = {
-    id: "doughnutLabe4",
+    id: "doughnutLabel4",
     beforeDatasetsDraw(chart, args, pluginOptions) {
       const { ctx, data, height } = chart;
       const xCenter = chart.getDatasetMeta(0).data[0].x;
