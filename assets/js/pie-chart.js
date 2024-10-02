@@ -54,6 +54,7 @@ if (budgetPieChart) {
       borderWidth: 2,
       borderColor: "#f7f7f7",
       cutout: "70%",
+      aspectRatio: 1.9,
       plugins: {
         legend: {
           display: false,
@@ -79,7 +80,7 @@ if (budgetPieChart) {
             top: 8,
             bottom: 8,
             left: 8,
-            right: 50,
+            right: 28,
           },
           callbacks: {
             label: function (context) {
@@ -161,6 +162,7 @@ if (homeExpensePieChart) {
     options: {
       borderRadius: 4,
       borderWidth: 2,
+      aspectRatio: 1.9,
       borderColor: "#f7f7f7",
       cutout: "70%",
       plugins: {
@@ -186,7 +188,7 @@ if (homeExpensePieChart) {
             top: 8,
             bottom: 8,
             left: 8,
-            right: 50,
+            right: 28,
           },
           callbacks: {
             label: function (context) {
@@ -266,6 +268,7 @@ if (totalExpensePieChart) {
     options: {
       borderRadius: 4,
       borderWidth: 2,
+      aspectRatio: 1.9,
       borderColor: "#f7f7f7",
       cutout: "70%",
       plugins: {
@@ -293,7 +296,7 @@ if (totalExpensePieChart) {
             top: 8,
             bottom: 8,
             left: 8,
-            right: 50,
+            right: 28,
           },
           callbacks: {
             label: function (context) {
@@ -360,9 +363,9 @@ if (monthlyTotalExpensePieChart) {
     const startAngle = elements[0].element.startAngle;
 
     if (startAngle < 1) {
-      return { x: eventPosition.x + 350, y: eventPosition.y };
+      return { x: eventPosition.x, y: eventPosition.y };
     } else {
-      return { x: eventPosition.x - 350, y: eventPosition.y };
+      return { x: eventPosition.x, y: eventPosition.y };
     }
   };
 
@@ -373,6 +376,7 @@ if (monthlyTotalExpensePieChart) {
       borderWidth: 2,
       borderColor: "#f7f7f7",
       cutout: "70%",
+      aspectRatio: 1.9,
       plugins: {
         legend: {
           display: false,
@@ -398,7 +402,7 @@ if (monthlyTotalExpensePieChart) {
             top: 8,
             bottom: 8,
             left: 8,
-            right: 50,
+            right: 25,
           },
           callbacks: {
             label: function (context) {
@@ -464,9 +468,9 @@ if (totalIncomePieChart) {
     const startAngle = elements[0].element.startAngle;
 
     if (startAngle < 1) {
-      return { x: eventPosition.x + 350, y: eventPosition.y };
+      return { x: eventPosition.x + 200, y: eventPosition.y };
     } else {
-      return { x: eventPosition.x - 350, y: eventPosition.y };
+      return { x: eventPosition.x - 200, y: eventPosition.y };
     }
   };
 
@@ -475,6 +479,7 @@ if (totalIncomePieChart) {
     options: {
       borderRadius: 4,
       borderWidth: 2,
+      aspectRatio: 1.9,
       borderColor: "#f7f7f7",
       cutout: "70%",
       plugins: {
@@ -502,7 +507,7 @@ if (totalIncomePieChart) {
             top: 8,
             bottom: 8,
             left: 8,
-            right: 50,
+            right: 25,
           },
           callbacks: {
             label: function (context) {
