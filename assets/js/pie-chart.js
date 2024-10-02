@@ -150,9 +150,9 @@ if (homeExpensePieChart) {
     const startAngle = elements[0].element.startAngle;
 
     if (startAngle < 1) {
-      return { x: eventPosition.x + 350, y: eventPosition.y };
+      return { x: eventPosition.x + 300, y: eventPosition.y };
     } else {
-      return { x: eventPosition.x - 350, y: eventPosition.y };
+      return { x: eventPosition.x - 300, y: eventPosition.y };
     }
   };
 
@@ -257,9 +257,9 @@ if (totalExpensePieChart) {
     const startAngle = elements[0].element.startAngle;
 
     if (startAngle < 1) {
-      return { x: eventPosition.x + 350, y: eventPosition.y };
+      return { x: eventPosition.x + 300, y: eventPosition.y };
     } else {
-      return { x: eventPosition.x - 350, y: eventPosition.y };
+      return { x: eventPosition.x - 300, y: eventPosition.y };
     }
   };
 
@@ -363,9 +363,9 @@ if (monthlyTotalExpensePieChart) {
     const startAngle = elements[0].element.startAngle;
 
     if (startAngle < 1) {
-      return { x: eventPosition.x, y: eventPosition.y };
+      return { x: eventPosition.x + 300, y: eventPosition.y };
     } else {
-      return { x: eventPosition.x, y: eventPosition.y };
+      return { x: eventPosition.x - 300, y: eventPosition.y };
     }
   };
 
@@ -468,9 +468,9 @@ if (totalIncomePieChart) {
     const startAngle = elements[0].element.startAngle;
 
     if (startAngle < 1) {
-      return { x: eventPosition.x + 200, y: eventPosition.y };
+      return { x: eventPosition.x + 300, y: eventPosition.y };
     } else {
-      return { x: eventPosition.x - 200, y: eventPosition.y };
+      return { x: eventPosition.x - 300, y: eventPosition.y };
     }
   };
 
