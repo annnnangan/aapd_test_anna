@@ -359,15 +359,15 @@ if (monthlyTotalExpensePieChart) {
       ctx.restore();
     },
   };
-  Chart.Tooltip.positioners.side = function (elements, eventPosition) {
-    const startAngle = elements[0].element.startAngle;
+  // Chart.Tooltip.positioners.side = function (elements, eventPosition) {
+  //   const startAngle = elements[0].element.startAngle;
 
-    if (startAngle < 1) {
-      return { x: eventPosition.x + 300, y: eventPosition.y };
-    } else {
-      return { x: eventPosition.x - 300, y: eventPosition.y };
-    }
-  };
+  //   if (startAngle < 1) {
+  //     return { x: eventPosition.x + 300, y: eventPosition.y };
+  //   } else {
+  //     return { x: eventPosition.x - 300, y: eventPosition.y };
+  //   }
+  // };
 
   new Chart(monthlyTotalExpensePieChart, {
     type: "doughnut",
@@ -382,7 +382,7 @@ if (monthlyTotalExpensePieChart) {
           display: false,
         },
         tooltip: {
-          position: "side",
+          // position: "side",
           displayColors: false,
           backgroundColor: "#fff",
           borderColor: "#ededf1",
@@ -435,8 +435,8 @@ if (monthlyTotalExpensePieChart) {
 const totalIncomePieChart = document.getElementById("total-income-pie-char");
 
 if (totalIncomePieChart) {
-  const doughnutLabel4 = {
-    id: "doughnutLabel4",
+  const doughnutLabel5 = {
+    id: "doughnutLabel5",
     beforeDatasetsDraw(chart, args, pluginOptions) {
       const { ctx, data, height } = chart;
       const xCenter = chart.getDatasetMeta(0).data[0].x;
@@ -464,15 +464,15 @@ if (totalIncomePieChart) {
       ctx.restore();
     },
   };
-  Chart.Tooltip.positioners.side = function (elements, eventPosition) {
-    const startAngle = elements[0].element.startAngle;
+  // Chart.Tooltip.positioners.side = function (elements, eventPosition) {
+  //   const startAngle = elements[0].element.startAngle;
 
-    if (startAngle < 1) {
-      return { x: eventPosition.x + 300, y: eventPosition.y };
-    } else {
-      return { x: eventPosition.x - 300, y: eventPosition.y };
-    }
-  };
+  //   if (startAngle < 1) {
+  //     return { x: eventPosition.x + 300, y: eventPosition.y };
+  //   } else {
+  //     return { x: eventPosition.x - 300, y: eventPosition.y };
+  //   }
+  // };
 
   new Chart(totalIncomePieChart, {
     type: "doughnut",
@@ -487,7 +487,7 @@ if (totalIncomePieChart) {
           display: false,
         },
         tooltip: {
-          position: "side",
+          // position: "side",
           displayColors: false,
           backgroundColor: "#fff",
           borderColor: "#ededf1",
@@ -522,7 +522,7 @@ if (totalIncomePieChart) {
         },
       },
     },
-    plugins: [doughnutLabel4],
+    plugins: [doughnutLabel5],
 
     data: {
       labels: ["薪水", "獎金"],
