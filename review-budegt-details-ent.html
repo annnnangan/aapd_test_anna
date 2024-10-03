@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/aapd_test_anna/assets/image_app-8a2b377b.png" />
+    <title>記帳甜甜圈 | 檢視預算</title>
+    <!-- Material icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script type="module" crossorigin src="/aapd_test_anna/assets/main-56b3dd28.js"></script>
+    <script type="module" crossorigin src="/aapd_test_anna/assets/accounting-modal-8e49b4e7.js"></script>
+    <link rel="stylesheet" href="/aapd_test_anna/assets/main-9ec44c92.css">
+  </head>
+  <body>
+    <div
+  class="header position-fixed w-100 fs-7"
+  data-page="檢視預算"
+  style="z-index: 200"
+>
+  <div class="bg-white py-3 shadow position-relative">
+    
+    <div class="position-absolute start-0 top-50 translate-middle-y ms-4">
+      <button onclick="window.history.back()" class="btn p-0">
+        <span class="material-symbols-outlined text-gray-600"
+          >chevron_left</span
+        >
+      </button>
+    </div>
+    
+    <p class="text-center" id="pageTitle"></p>
+    
+  </div>
+</div>
+ <nav class="tab-bar-section fixed-bottom bg-white">
+  <ul class="f-between-center px-4">
+    <li>
+      <a
+        href="index.html"
+        class="pt-3 pb-1 px-3 d-none"
+      >
+        <img
+          src="/aapd_test_anna/assets/home_default-0be4515a.svg"
+          alt="home-icon"
+        />
+        <p class="fs-10 text-gray-600 mt-1">首頁</p>
+      </a>
+      <a
+        href="index.html"
+        class="pt-3 pb-1 px-3 "
+      >
+        <img
+          src="/aapd_test_anna/assets/home_selected-1b7def18.svg"
+          alt="home_selected-icon"
+        />
+        <p class="fs-10 text-orange-400 mt-1">首頁</p>
+      </a>
+    </li>
+    <li>
+      <a
+        href="accounting-receipt.html"
+        class="pt-3 pb-1 px-3 "
+      >
+        <img
+          src="/aapd_test_anna/assets/details_default-8edeb0e8.svg"
+          alt="detail-icon"
+        />
+        <p class="fs-10 text-gray-600 mt-1">明細</p>
+      </a>
+      <a
+        href="accounting-receipt.html"
+        class="pt-3 pb-1 px-3 d-none"
+      >
+        <img
+          src="/aapd_test_anna/assets/details_selected-cce88395.svg"
+          alt="detail_selected-icon"
+        />
+        <p class="fs-10 text-orange-400 mt-1">明細</p>
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        class="account-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#accountModal"
+      >
+        <img
+          src="/aapd_test_anna/assets/account_btn-lg-0350bf5d.png"
+          alt="account-btn"
+          style="width: 64px; height: 64px;"
+        />
+      </a>
+    </li>
+    <!-- 統計 -->
+    <li>
+      <a
+        href="statistics.html"
+        class="pt-3 pb-1 px-3 "
+      >
+        <img
+          src="/aapd_test_anna/assets/chart_default-68b8566f.svg"
+          alt="chart-icon"
+        />
+        <p class="fs-10 text-gray-600 mt-1">統計</p>
+      </a>
+
+      <a
+        href="statistics.html"
+        class="pt-3 pb-1 px-3 d-none"
+      >
+        <img
+          src="/aapd_test_anna/assets/chart_selected-e741477c.svg"
+          alt="chart-icon"
+        />
+        <p class="fs-10 text-orange-400 mt-1">統計</p>
+      </a>
+    </li>
+    <li>
+      <a
+      href="account-setting-total.html"
+      class="pt-3 pb-1 px-3 "
+    >
+      <img
+        src="/aapd_test_anna/assets/user_default-865b9d9d.svg"
+        alt="user-icon"
+      />
+      <p class="fs-10 text-gray-600 mt-1">設定</p>
+    </a>
+
+    <a
+      href="account-setting-total.html"
+      class="pt-3 pb-1 px-3 d-none"
+    >
+      <img
+        src="/aapd_test_anna/assets/user_selected-829affb9.svg"
+        alt="user-icon"
+      />
+      <p class="fs-10 text-orange-400 mt-1">設定</p>
+    </a>
+    </li>
+  </ul>
+</nav>
+<!-- accountModal -->
+<div
+  class="accountModal modal fade"
+  id="accountModal"
+  tabindex="-1"
+  aria-labelledby="accountModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content bg-white border-0">
+      <div class="modal-header py-2">
+        <p
+          class="modal-title fs-7"
+          id="accountModalLabel">
+          記帳
+        </p>
+        <button
+          type="button"
+          class="btn-close text-gray-600 position-absolute end-0 me-4"
+          data-bs-dismiss="modal"
+          aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body py-0">
+        <div class="radius-xl bg-gray-50 py-3 px-6 position-relative">
+          <ul
+            class="categoryTab nav nav-pills bg-white radius-xs p-1"
+            id="categoryTab" role="tablist">
+            <li class="nav-item flex-grow-1">
+              <a 
+                class="nav-link active text-center" href="#"
+                id="pay-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#pay"
+                type="button"
+                role="tab"
+                aria-controls="pay"
+                aria-selected="true">支出</a>
+            </li>
+            <li class="nav-item flex-grow-1">
+              <a 
+                class="nav-link text-center" href="#"
+                id="income-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#income"
+                type="button"
+                role="tab"
+                aria-controls="income"
+                aria-selected="true">收入</a>
+            </li>
+            <li class="nav-item flex-grow-1">
+              <a
+                class="nav-link text-center" href="#"
+                id="move-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#move"
+                type="button"
+                role="tab"
+                aria-controls="move"
+                aria-selected="true">移轉</a>
+            </li>
+          </ul>
+          <div class="tab-content mt-2" id="categoryTabContent">
+            <div
+              class="pay-tab-pane tab-pane fade show active d-flex"
+              id="pay"
+              role="tabpanel"
+              aria-labelledby="pay-tab">
+              <div class="swiper category-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <ul class="nav w-100">
+                      <li class="nav-item active radius-l p-1">
+                        <a
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="/aapd_test_anna/assets/category-food-dbe632d7.svg" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            飲食
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="/aapd_test_anna/assets/category-shop-2500ad3e.svg" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            購物
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="/aapd_test_anna/assets/category-transport-ee331f0c.svg" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            交通
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="/aapd_test_anna/assets/category-entertainment-36ab704c.svg" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            娛樂
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="/aapd_test_anna/assets/category-learn-5bc12a19.svg" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            學習
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="/aapd_test_anna/assets/category-life-9072642b.svg" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            生活
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0">
+                          <img src="/aapd_test_anna/assets/category-medical-b9cea189.svg" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            醫療
+                          </p>
+                        </a>
+                      </li>
+                      <li class="nav-item radius-l p-1">
+                        <a  
+                          href="#"
+                          class="nav-link f-column-center p-0"
+                          id="addCategoryModal"
+                        >
+                          <img src="/aapd_test_anna/assets/category-add-cd04ccaf.svg" alt="category-food-icon">
+                          <p class="fs-9 font-Nunito mt-1">
+                            新增
+                          </p>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="swiper-slide"></div>
+                </div>
+              </div>
+              <div class="swiper-pagination category-pagination"></div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="income"
+              role="tabpanel"
+              aria-labelledby="income-tab">
+            </div>
+            <div
+              class="tab-pane fade"
+              id="move"
+              role="tabpanel"
+              aria-labelledby="move-tab">
+            </div>
+          </div>
+        </div>
+        <div class="account-category-tag-wrap mt-2">
+          <a href="#" class="badge badge-xs badge-gray-100 d-flex align-items-center">#早餐</a>
+          <a href="#" class="badge badge-xs badge-gray-100 d-flex align-items-center">#午餐</a>
+          <a href="#" class="badge badge-xs badge-gray-100 d-flex align-items-center">#晚餐</a>
+          <a href="#" class="badge badge-xs badge-gray-100 d-flex align-items-center">#宵夜</a>
+          <a href="#" class="badge badge-xs badge-gray-100 d-flex align-items-center">#點心</a>
+          <a
+            href="#"
+            class="badge badge-xs badge-gray-100 d-flex align-items-center"
+            id="addSubCategoryModal"
+          >
+            <img
+              src="/aapd_test_anna/assets/add_pressed-abaa834d.svg"
+              alt="add-icon"
+              style="width: 16px; height: 16px;">
+          </a>
+        </div>
+        <div class="d-flex mt-2 py-1">
+          <button
+            class="btn btn-outline-gray-500 fs-8 bg-white radius-xs py-1 f-center flex-grow-1 position-relative"
+            id="addSelectDateModal">
+            今天 08/05
+            <img
+              src="/aapd_test_anna/assets/arrow_left_pressed-c19c196e.svg"
+              alt="arrow_left-icon"
+              class="position-absolute start-0 ms-2"
+              style="width: 24px; height: 24px;">
+            <img
+              src="/aapd_test_anna/assets/arrow_right_pressed-159812b3.svg"
+              alt="arrow_right-icon"
+              class="position-absolute end-0 me-2"
+              style="width: 24px; height: 24px;">
+          </button>
+          <button
+            class="btn btn-outline-gray-500 fs-8 bg-white radius-xs ms-2 py-1 flex-grow-1"
+            id="periodSettingModal">
+            週期性記帳
+          </button>
+        </div>
+        <div class="mt-2 position-relative">
+          <input
+            type="text"
+            class="form-control w-100 bg-gray-50 border-gray-200 radius-sm"
+            placeholder="請輸入備註...">
+            <button
+              class="btn position-absolute top-0 end-0 p-0 mt-2 me-4"
+              id="remarksModal">
+              <img src="/aapd_test_anna/assets/extension_default-483fb1f4.svg"
+                alt="extension-icon"
+                style="width: 24px; height: 24px;">
+            </button>
+        </div>
+      </div>
+      <div class="modal-footer border-0 mt-3 p-0">
+        <div class="calculator w-100 m-0">
+          <div class="cal-total">
+            <div class="f-between-center">
+              <img
+              src="/aapd_test_anna/assets/scan-61d40a79.svg"
+              alt="scan-icon"
+              style="width: 24px; height: 24px;">
+              <div class="f-center">
+                <h4 class="font-Nunito">＄</h4>
+                <h2 class="font-Nunito">0</h2>
+              </div>
+            </div>
+            <p
+              class="fs-9 text-gray-600 text-end d-none"
+              id="cal-total-remark">
+              週期：每月1號 / 分3期
+            </p>
+          </div>
+          <div class="cal-btn-group mt-4">
+            <button class="cal-btn btn">7</button>
+            <button class="cal-btn btn ms-1">8</button>
+            <button class="cal-btn btn ms-1">9</button>
+            <button class="cal-btn btn bg-gray-300 ms-1">
+              <img
+              src="/aapd_test_anna/assets/tag-cross-550db432.svg"
+              alt="tag-cross-icon"
+              style="width: 32px; height: 32px;">
+            </button>
+      
+            <button class="cal-btn btn">4</button>
+            <button class="cal-btn btn ms-1">5</button>
+            <button class="cal-btn btn ms-1">6</button>
+            <button class="cal-btn btn bg-gray-300 ms-1">
+              <img
+                src="/aapd_test_anna/assets/add-3f825500.svg"
+                alt="add-icon"
+                style="width: 32px; height: 32px;">
+            </button>
+      
+            <button class="cal-btn btn">1</button>
+            <button class="cal-btn btn ms-1">2</button>
+            <button class="cal-btn btn ms-1">3</button>
+            <button class="cal-btn btn bg-gray-300 ms-1">
+              <img
+                src="/aapd_test_anna/assets/minus-2defea62.svg"
+                alt="minus-icon"
+                style="width: 32px; height: 32px;">
+            </button>
+      
+            <button class="cal-btn btn">.</button>
+            <button class="cal-btn btn ms-1">0</button>
+            <button class="cal-btn btn ms-1">00</button>
+            <button class="cal-btn btn bg-orange-400 ms-1">
+              <img
+                src="/aapd_test_anna/assets/check_white-b6b99a90.svg"
+                alt="check-icon"
+                style="width: 32px; height: 32px;">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- addCategoryModal -->
+<div
+  class="addCategoryCard d-none"
+  id="addCategoryCard">
+  <div
+    id="custom-backdrop-addCategory"
+    class="custom-backdrop d-none">
+  </div>
+  <div class="modal-content bg-white border-0 p-6">
+    <div class="modal-header border-0 f-between-center p-0">
+      <p class="modal-title fs-6" id="addCategoryCardLabel">
+        新增類別
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closeAddCategoryCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <img
+        src="/aapd_test_anna/assets/category-necessary-f2fb28e5.svg"
+        alt="category-necessary-icon"
+        style="width: 56px; height: 56px;">
+      <input
+        type="text"
+        class="form-control w-100 bg-white border-gray-300 radius-sm mt-3"
+        placeholder="請輸入類別名稱">
+      <div class="border-0 d-flex w-100 p-0 mt-5">
+        <button
+          type="button"
+          class="btn btn-outline-gray-500 bg-surface-second fs-8 w-100"
+          id="cancelAddCategory">
+          取消
+        </button>
+        <button
+          type="button"
+          class="btn btn-gray-600 fs-8 w-100 ms-3">
+          儲存
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- addSubCategoryModal -->
+<div
+  class="addSubCategoryCard d-none"
+  id="addSubCategoryCard">
+  <div
+    id="custom-backdrop-addSubCategory"
+    class="custom-backdrop d-none">
+  </div>
+  <div class="modal-content bg-white border-0 p-6">
+    <div class="modal-header border-0 f-between-center p-0">
+      <p
+        class="modal-title fs-6"
+        id="addSubCategoryModalLabel">
+        新增飲食子類別
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closeAddSubCategoryCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <input
+        type="text"
+        class="form-control w-100 bg-white border-gray-300"
+        placeholder="請輸入類別名稱">
+      <div class="border-0 d-flex w-100 p-0 mt-5">
+        <button
+          type="button"
+          class="btn btn-outline-gray-500 bg-surface-second fs-8 w-100"
+          id="cancelAddSubCategory">
+          取消
+        </button>
+        <button
+          type="button"
+          class="btn btn-gray-600 fs-8 w-100 ms-3">
+          儲存
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- selectDateModal -->
+<div
+  class="selectDateCard d-none"
+  id="selectDateCard">
+  <div
+    id="custom-backdrop-selectDate"
+    class="custom-backdrop d-none">
+  </div>
+  <div class="modal-content bg-white border-0">
+    <div class="modal-header f-between-center border-0 p-0">
+      <p
+        class="modal-title fs-6"
+        id="selectDateModalLabel">
+        選擇日期
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closeSelectDateCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <!-- receipt-calendar -->
+<div class="calendar">
+  <div class="calendar-header">
+    <button id="prev-month" class="p-0 me-5">
+      <img
+        src="/aapd_test_anna/assets/arrow_left_pressed-c19c196e.svg"
+        alt="arrow_left-icon"
+        style="width: 24px; height: 24px"
+      />
+    </button>
+    <div class="current-month">
+      <span class="month-number">8</span><span class="month-text ms-1">月</span>
+    </div>
+    <button id="next-month" class="p-0 ms-5">
+      <img
+        src="/aapd_test_anna/assets/arrow_right_pressed-159812b3.svg"
+        alt="arrow_right-icon"
+        style="width: 24px; height: 24px"
+      />
+    </button>
+  </div>
+  <div class="calendar-weekdays px-0">
+    <div class="weekday">日</div>
+    <div class="weekday">一</div>
+    <div class="weekday">二</div>
+    <div class="weekday">三</div>
+    <div class="weekday">四</div>
+    <div class="weekday">五</div>
+    <div class="weekday">六</div>
+  </div>
+  <div class="calendar-days px-0">
+    <div class="day prev-month">28</div>
+    <div class="day prev-month">29</div>
+    <div class="day prev-month">30</div>
+    <div class="day prev-month">31</div>
+    <div class="day" data-day="1">1</div>
+    <div class="day" data-day="2">2</div>
+    <div class="day" data-day="3">3</div>
+    <div class="day" data-day="4">4</div>
+    <div class="day selected" data-day="5">5</div>
+    <div class="day" data-day="6">6</div>
+    <div class="day" data-day="7">7</div>
+    <div class="day" data-day="8">8</div>
+    <div class="day" data-day="9">9</div>
+    <div class="day" data-day="10">10</div>
+    <div class="day" data-day="11">11</div>
+    <div class="day" data-day="12">12</div>
+    <div class="day" data-day="13">13</div>
+    <div class="day" data-day="14">14</div>
+    <div class="day" data-day="15">15</div>
+    <div class="day" data-day="16">16</div>
+    <div class="day" data-day="17">17</div>
+    <div class="day" data-day="18">18</div>
+    <div class="day" data-day="19">19</div>
+    <div class="day" data-day="20">20</div>
+    <div class="day" data-day="21">21</div>
+    <div class="day" data-day="22">22</div>
+    <div class="day" data-day="23">23</div>
+    <div class="day" data-day="24">24</div>
+    <div class="day" data-day="25">25</div>
+    <div class="day" data-day="26">26</div>
+    <div class="day" data-day="27">27</div>
+    <div class="day" data-day="28">28</div>
+    <div class="day" data-day="29">29</div>
+    <div class="day" data-day="30">30</div>
+    <div class="day" data-day="31">31</div>
+    <div class="day next-month">1</div>
+    <div class="day next-month">2</div>
+    <div class="day next-month">3</div>
+    <div class="day next-month">4</div>
+    <div class="day next-month">5</div>
+    <div class="day next-month">6</div>
+    <div class="day next-month">7</div>
+  </div>
+</div>
+      <div class="border-0 d-flex w-100 p-0 mt-8">
+        <button
+          type="button"
+          class="btn btn-gray-600 fs-8 w-100"
+          id="cancelSelectDateCard">
+          確認
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- periodSettingCard -->
+<div
+  class="periodSettingCard d-none"
+  id="periodSettingCard">
+  <div
+    id="custom-backdrop-periodSetting"
+    class="custom-backdrop d-none">
+  </div>
+  <div class="modal-content bg-white border-0 p-6">
+    <div class="modal-header border-0 f-between-center p-0">
+      <p
+        class="modal-title fs-6"
+        id="addSubCategoryModalLabel">
+        設定週期
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closePeriodSettingCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-6">
+      <ul
+        class="periodTab nav nav-pills bg-gray-100 radius-xs w-100 p-1"
+        id="categoryTab" role="tablist">
+        <li class="nav-item flex-grow-1">
+          <a 
+            class="nav-link text-center text-gray-950 active" href="#"
+            id="one-time-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#one-time"
+            type="button"
+            role="tab"
+            aria-controls="one-time"
+            aria-selected="true">單次</a>
+        </li>
+        <li class="nav-item flex-grow-1">
+          <a 
+            class="nav-link text-center text-gray-950" href="#"
+            id="recurring-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#recurring"
+            type="button"
+            role="tab"
+            aria-controls="recurring"
+            aria-selected="true">週期</a>
+        </li>
+      </ul>
+      <div class="tab-content w-100 mt-5" id="categoryTabContent">
+        <div
+          class="one-time tab-pane fade show active"
+          id="one-time"
+          role="tabpanel"
+          aria-labelledby="one-time-tab">
+          <div class="f-between-center w-100">
+            <p>入帳方式</p>
+            <p class="text-gray-600">立即入帳</p>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="recurring"
+          role="tabpanel"
+          aria-labelledby="recurring-tab">
+          <div class="w-100">
+            <div class="f-between-center">
+              <div class="flex-grow-1">
+                <p>每月日期</p>
+              </div>
+              <div class="dropdown ms-5">
+                <a class="form-select border-gray-200 bg-gray-100 py-3 px-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">1號</a>
+                <ul class="dropdown-menu mt-3">
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      1號
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      2號
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      3號
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      4號
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      5號
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="f-between-center mt-4">
+              <div class="flex-grow-1">
+                <p>次數</p>
+              </div>
+              <div class="dropdown ms-5">
+                <a class="form-select border-gray-200 bg-gray-100 py-3 px-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">3期</a>
+                <ul class="dropdown-menu mt-3">
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      1期
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      2期
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item radius-3xs" href="#">
+                      3期
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-0 d-flex w-100 p-0 mt-6">
+        <button
+          type="button"
+          class="btn btn-outline-gray-500 bg-surface-second fs-8 w-100"
+          id="cancelPeriodSettingCard">
+          取消
+        </button>
+        <button
+          type="button"
+          class="btn btn-gray-600 fs-8 w-100 ms-3"
+          id="addPeriodSettingBtn">
+          儲存
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- remarksModal -->
+<div
+  class="remarksCard d-none"
+  id="remarksCard">
+  <div
+    id="custom-backdrop-remarks"
+    class="custom-backdrop d-none">
+  </div>
+  <div class="modal-content bg-white border-0 p-6">
+    <div class="modal-header border-0 f-between-center p-0">
+      <p
+        class="modal-title fs-6"
+        id="addSubCategoryModalLabel">
+        備註
+      </p>
+      <button
+        type="button"
+        class="btn-close"
+        id="closeRemarksCard"
+        aria-label="Close"
+        style="width: 24px; height: 24px;"></button>
+    </div>
+    <div class="modal-body f-column-center p-0 mt-5">
+      <p class="fs-8">香菜蒜頭奶昔是哪來的想法請問是什麼邪教嗎豪恐怖</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+<script>
+  swiper = new Swiper(".category-swiper", {
+  direction: "vertical",
+  slidesPerView: 1,
+  spaceBetween: 30,
+  mousewheel: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+</script>
+
+
+    <div class="review-budget-details pt-13 pb-14">
+      <div class="container px-4">
+        <div class="section-block py-5 px-6">
+          <!-- card head -->
+          <div class="d-flex mb-5">
+            <!-- category image-->
+            <img src="/aapd_test_anna/assets/category-entertainment-36ab704c.svg" alt="category-entertainment" width="32" height="32" class="me-1" />
+            <!-- category -->
+            <p class="fs-5 fw-bold">娛樂</p>
+          </div>
+          <!-- card body -->
+          <div>
+            <div class="d-flex f-between-center mb-3 flex-wrap">
+              <!-- budget count -->
+              <p><span class="fs-8 text-gray-600">剩餘 </span><span class="font-Nunito fw-bold fs-3">$1,700</span></p>
+            </div>
+            <!-- progress bar -->
+
+            <div
+              class="progress mb-3"
+              role="progressbar"
+              aria-label="progress bar"
+              aria-valuenow="28%"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="height: 12px">
+              <div class="progress-bar" style="width: 32%; height: 12px"></div>
+            </div>
+
+            <!-- budget count details -->
+            <div class="fs-9 text-gray-600">
+              <p>
+                已用: <span>$800</span>
+                <span>/ $2,500</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <table class="table mt-5 table-hover" style="background-color: #f7f7f7">
+          <thead>
+            <tr>
+              <th class="py-3 px-4" scope="col">支出</th>
+              <th scope="col" class="font-Nunito fw-semibold text-end py-3 px-4">$ 800</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border-0 py-6 text-center fs-7 text-gray-600" colspan="2">尚無子分類支出</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    
+  </body>
+</html>

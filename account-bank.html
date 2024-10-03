@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="/aapd_test_anna/assets/image_app-8a2b377b.png"
+  />
+  <title>記帳甜甜圈 | 帳戶授權</title>
+  <!-- Material icon -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <script type="module" crossorigin src="/aapd_test_anna/assets/main-56b3dd28.js"></script>
+  <link rel="stylesheet" href="/aapd_test_anna/assets/main-9ec44c92.css">
+</head>
+
+<body>
+  <section class="account-bank py-6 vh-100">
+    <div class="container h-100 px-4">
+      <div class="d-flex align-items-center mb-8">
+        <img src="data:image/png;base64,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" alt="esu">
+        <p class="fs-7 text-esu ms-4">帳戶授權同步</p>
+      </div>
+      <div class="rounded bg-white shadow py-8 px-4 mb-3">
+        <form>
+          <div class="mb-3">
+            <div class="position-relative">
+              <input type="text" class="form-control border-0 border-bottom rounded-0" id="exampleInputPassword1"
+                placeholder="身分證字號" required />
+              <button type="button" class="btn position-absolute end-0 top-50 translate-middle-y toggle-password"
+                data-target="#exampleInputPassword1">
+                <span class="material-symbols-outlined icon-filled">visibility</span>
+              </button>
+            </div>
+          </div>
+          <div class="mb-10 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+            <label class="form-check-label" for="exampleCheck1">記住我</label>
+          </div>
+          <div class="mb-10">
+            <div class="position-relative">
+              <input type="password" class="form-control border-0 border-bottom rounded-0" id="exampleInputPassword2"
+                placeholder="使用者名稱" required />
+              <button type="button" class="btn position-absolute end-0 top-50 translate-middle-y toggle-password"
+                data-target="#exampleInputPassword2">
+                <span class="material-symbols-outlined icon-filled">visibility_off</span>
+              </button>
+            </div>
+          </div>
+          <div class="mb-10">
+            <div class="position-relative">
+              <input type="password" class="form-control border-0 border-bottom rounded-0" id="exampleInputPassword3"
+                placeholder="使用者密碼" required />
+              <button type="button" class="btn position-absolute end-0 top-50 translate-middle-y toggle-password"
+                data-target="#exampleInputPassword3">
+                <span class="material-symbols-outlined icon-filled">visibility_off</span>
+              </button>
+            </div>
+          </div>
+          <a href="account-bank-done.html" class="btn btn-esu text-white w-100 mb-5">登入並同步</a>
+        </form>
+        <div>
+          <a href="#" class="text-center text-decoration-underline text-esu">忘記使用者名稱 / 密碼</a>
+        </div>
+
+      </div>
+      <div class="collapsed rounded bg-white shadow p-4" data-bs-toggle="collapse" data-bs-target="#collapsevisibility"
+        aria-expanded="false" aria-controls="collapsevisibility">
+        <div class="d-flex">
+          <span class="material-symbols-outlined">
+            verified_user
+          </span>
+          <p class="text-gray-600 ms-2">我們如何保護您的帳戶資訊</p>
+          <span class="material-symbols-outlined open ms-auto text-gray-300">
+            chevron_right
+          </span>
+        </div>
+        <div class="collapse" id="collapsevisibility">
+          <div class="card-body p-3">
+            <div class="d-flex">
+              <div class="accordion-body text-gray-600">
+                透過與銀行合作，我們不存取用戶的銀行登入憑證，交易資料由銀行加密回傳。我們僅接收必要的交易明細，並嚴格遵循金融安全標準，確保您的財務資訊安全。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // 初始化圖標和輸入框狀態
+    document.querySelectorAll('.toggle-password').forEach(function (button) {
+      const targetInput = document.querySelector(button.getAttribute('data-target'));
+      const icon = button.querySelector('span');
+
+      // 根據輸入框的初始類型設置圖標
+      if (targetInput.getAttribute('type') === 'password') {
+        icon.textContent = 'visibility_off'; // 顯示閉眼圖標（隱藏密碼）
+      } else {
+        icon.textContent = 'visibility'; // 顯示開眼圖標（顯示明碼）
+      }
+
+      // 點擊事件處理
+      button.addEventListener('click', function () {
+        const currentType = targetInput.getAttribute('type');
+        const newType = currentType === 'password' ? 'text' : 'password';
+        targetInput.setAttribute('type', newType);
+
+        // 更新圖標
+        icon.textContent = newType === 'password' ? 'visibility_off' : 'visibility';
+      });
+    });
+
+  </script>
+  
+</body>
+
+</html>

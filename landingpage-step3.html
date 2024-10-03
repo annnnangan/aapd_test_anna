@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="/aapd_test_anna/assets/image_app-8a2b377b.png"
+  />
+  <title>記帳甜甜圈</title>
+  <!-- Material icon -->
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script type="module" crossorigin src="/aapd_test_anna/assets/main-56b3dd28.js"></script>
+  <link rel="stylesheet" href="/aapd_test_anna/assets/main-9ec44c92.css">
+</head>
+
+<body>
+  <div
+  class="header position-fixed w-100 fs-7"
+  data-page="前往綁定帳戶"
+  style="z-index: 200"
+>
+  <div class="bg-white py-3 shadow position-relative">
+    
+    <div class="position-absolute start-0 top-50 translate-middle-y ms-4">
+      <button onclick="window.history.back()" class="btn p-0">
+        <span class="material-symbols-outlined text-gray-600"
+          >chevron_left</span
+        >
+      </button>
+    </div>
+    
+    <p class="text-center" id="pageTitle"></p>
+    
+  </div>
+</div>
+  <section class="landing-page bg-orange-50 vh-100 py-13">
+    <div class="container h-100 px-4">
+      <div class="btn bg-orange-400 step-btn mb-10">
+        <h4 class="text-white">步驟3</h4>
+      </div>
+      <h5 class="mb-12">綁定帳戶，<br />
+        記下你的存款起始點</h5>
+      <div class="image-wrapper">
+        <img src="/aapd_test_anna/assets/image_cash-36649d7b.png" class="mx-auto d-block" style="max-width: 185px;">
+      </div>
+    </div>
+    <div class="fixed-bottom mb-6">
+      <div class="container px-4">
+        <div class="d-flex mb-4 justify-content-center">
+          <a href="landingpage-step1.html" class="badge rounded-circle pagination-padding bg-gray-200"> </a>
+          <a href="landingpage-step2.html" class="badge rounded-circle pagination-padding bg-gray-200"> </a>
+          <a href="landingpage-step3.html" class="badge rounded-circle pagination-padding bg-gray-600"> </a>
+        </div>
+        <div class="d-flex">
+          <a href="index.html" class="btn btn-outline-secondary me-md-2 w-50 py-2" type="button">跳過</a>
+          <a href="account-setting.html" class="btn btn-secondary w-50 py-2" type="button">前往設定</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const inputIncome = document.getElementById('inputIncome');
+    const dollarSign = document.getElementById('dollarSign');
+
+    inputIncome.addEventListener('input', function () {
+      if (this.value.length > 0) {
+        dollarSign.classList.add('active'); // 當有值時，添加 active 類別
+      } else {
+        dollarSign.classList.remove('active'); // 沒有值時移除 active 類別
+      }
+    });
+  </script>
+  
+</body>
+
+</html>

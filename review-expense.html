@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/aapd_test_anna/assets/image_app-8a2b377b.png" />
+    <title>記帳甜甜圈 | 復盤</title>
+    <!-- Material icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script type="module" crossorigin src="/aapd_test_anna/assets/review-expense-dbb40720.js"></script>
+    <link rel="modulepreload" crossorigin href="/aapd_test_anna/assets/main-56b3dd28.js">
+    <link rel="modulepreload" crossorigin href="/aapd_test_anna/assets/pie-chart-eafbf2af.js">
+    <link rel="stylesheet" href="/aapd_test_anna/assets/main-9ec44c92.css">
+  </head>
+  <body>
+    <div
+  class="header position-fixed w-100 fs-7"
+  data-page="復盤"
+  style="z-index: 200"
+>
+  <div class="bg-white py-3 shadow position-relative">
+    
+    <div class="position-absolute start-0 top-50 translate-middle-y ms-4">
+      <button onclick="window.history.back()" class="btn p-0">
+        <span class="material-symbols-outlined text-gray-600"
+          >chevron_left</span
+        >
+      </button>
+    </div>
+    
+    <p class="text-center" id="pageTitle"></p>
+    
+  </div>
+</div>
+    <div class="review-expense pt-13 pb-14">
+      <div class="container px-4">
+        <div class="goal-card mb-6">
+          <div class="d-flex py-4 px-6 bg-white radius-R justify-content-between align-items-center">
+            <div class="me-4">
+              <h2 class="fs-6 text-orange-950">恭喜達成上個月目標!</h2>
+              <h3 class="fw-bold fs-3 text-orange-400">存款 <span class="font-Nunito">$8,000 元</span></h3>
+              <div class="py-2 px-4 border border-grey-700 radius-3xs">
+                <p class="fs-8">總資產累計：$208,000</p>
+              </div>
+            </div>
+            <div>
+              <img src="/aapd_test_anna/assets/img_good-a8d1d057.png" alt="img good" />
+            </div>
+          </div>
+        </div>
+
+        <div class="date-picker mb-6">
+          <div class="d-flex justify-content-center align-items-center bg-white radius-sm py-2 px-4">
+            <img src="/aapd_test_anna/assets/arrow_left_default-39b2c831.svg" alt="right arrow" />
+            <p class="text-black d-flex mx-2" style="transform: translateY(1px)">2024 / 07/ 01 - 2024 / 07 / 31</p>
+            <img src="/aapd_test_anna/assets/arrow_right_default-3f0227da.svg" alt="right arrow" />
+          </div>
+        </div>
+
+        <div class="main-content">
+          <div class="d-flex flex-column">
+            <!-- tab -->
+            <div class="list-group-wrapper mb-3">
+              <div class="list-group flex-row" id="list-tab" role="tablist">
+                <a
+                  class="list-group-item list-group-item-action active fs-8"
+                  id="list-expense-overview-list"
+                  data-bs-toggle="list"
+                  href="#list-expense-overview"
+                  role="tab"
+                  aria-controls="list-expense-overview"
+                  >花費總覽</a
+                >
+                <a
+                  class="list-group-item list-group-item-action fs-8 list-expense-rank-list"
+                  id="list-expense-rank-list"
+                  data-bs-toggle="list"
+                  href="#list-expense-rank"
+                  role="tab"
+                  aria-controls="list-expense-rank"
+                  >花費排名</a
+                >
+              </div>
+            </div>
+            <!-- tab content -->
+            <div>
+              <div class="tab-content" id="nav-tabContent">
+                <!-- Tab 1 - 花費總覽 - Details -->
+                <div class="tab-pane fade show active" id="list-expense-overview" role="tabpanel" aria-labelledby="list-expense-overview-list">
+                  <!-- Tab 1 - 花費總覽 - Details - 花費 -->
+                  <div class="section-block mb-6">
+                    <div class="chart-section">
+                      <div class="f-center">
+                        <div class="chart-container">
+                          <canvas id="total-expense-pie-chart"></canvas>
+                        </div>
+                      </div>
+                    </div>
+
+                    <table class="table expense-overview-table mt-5 table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col" class="fs-8">總花費</th>
+                          <th scope="col" class="fs-8">類別預算</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Category Food -->
+                        <tr>
+  <td>
+    <div class="d-flex align-items-center">
+      <div class="category-color-index bg-light-food"></div>
+      <p class="fs-8">飲食</p>
+    </div>
+  </td>
+  <td class="second-column">
+    <div class="d-flex align-items-center flex-wrap">
+      <p
+        class="spent-amount me-3 font-Nunito fw-semibold "
+      >
+        $12,000
+      </p>
+
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="progress bar"
+        aria-valuenow="85.71428571428571%"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div
+          class="progress-bar"
+          style="width: 85.71428571428571%"
+        ></div>
+      </div>
+    </div>
+  </td>
+  <td>
+    <p class="font-Nunito fw-semibold">
+      $14,000
+    </p>
+  </td>
+</tr>
+
+                        <!-- Category Learn -->
+                        <tr>
+  <td>
+    <div class="d-flex align-items-center">
+      <div class="category-color-index bg-light-shop"></div>
+      <p class="fs-8">購物</p>
+    </div>
+  </td>
+  <td class="second-column">
+    <div class="d-flex align-items-center flex-wrap">
+      <p
+        class="spent-amount me-3 font-Nunito fw-semibold "
+      >
+        $4,300
+      </p>
+
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="progress bar"
+        aria-valuenow="86%"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div
+          class="progress-bar"
+          style="width: 86%"
+        ></div>
+      </div>
+    </div>
+  </td>
+  <td>
+    <p class="font-Nunito fw-semibold">
+      $5,000
+    </p>
+  </td>
+</tr>
+
+                        <!-- Category Learn -->
+                        <tr>
+  <td>
+    <div class="d-flex align-items-center">
+      <div class="category-color-index bg-light-learn"></div>
+      <p class="fs-8">學習</p>
+    </div>
+  </td>
+  <td class="second-column">
+    <div class="d-flex align-items-center flex-wrap">
+      <p
+        class="spent-amount me-3 font-Nunito fw-semibold overbudget"
+      >
+        $4,600
+      </p>
+
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="progress bar"
+        aria-valuenow="114.99999999999999%"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div
+          class="progress-bar"
+          style="width: 114.99999999999999%"
+        ></div>
+      </div>
+    </div>
+  </td>
+  <td>
+    <p class="font-Nunito fw-semibold">
+      $4,000
+    </p>
+  </td>
+</tr>
+
+                        <!-- Category Transport -->
+                        <tr>
+  <td>
+    <div class="d-flex align-items-center">
+      <div class="category-color-index bg-light-transport"></div>
+      <p class="fs-8">交通</p>
+    </div>
+  </td>
+  <td class="second-column">
+    <div class="d-flex align-items-center flex-wrap">
+      <p
+        class="spent-amount me-3 font-Nunito fw-semibold "
+      >
+        $2,000
+      </p>
+
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="progress bar"
+        aria-valuenow="100%"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div
+          class="progress-bar"
+          style="width: 100%"
+        ></div>
+      </div>
+    </div>
+  </td>
+  <td>
+    <p class="font-Nunito fw-semibold">
+      $2,000
+    </p>
+  </td>
+</tr>
+
+                        <!-- Category Life -->
+                        <tr>
+  <td>
+    <div class="d-flex align-items-center">
+      <div class="category-color-index bg-light-life"></div>
+      <p class="fs-8">生活</p>
+    </div>
+  </td>
+  <td class="second-column">
+    <div class="d-flex align-items-center flex-wrap">
+      <p
+        class="spent-amount me-3 font-Nunito fw-semibold "
+      >
+        $8,000
+      </p>
+
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="progress bar"
+        aria-valuenow="80%"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div
+          class="progress-bar"
+          style="width: 80%"
+        ></div>
+      </div>
+    </div>
+  </td>
+  <td>
+    <p class="font-Nunito fw-semibold">
+      $10,000
+    </p>
+  </td>
+</tr>
+
+                        <!-- Category Entertainment -->
+                        <tr>
+  <td>
+    <div class="d-flex align-items-center">
+      <div class="category-color-index bg-light-entertainment"></div>
+      <p class="fs-8">娛樂</p>
+    </div>
+  </td>
+  <td class="second-column">
+    <div class="d-flex align-items-center flex-wrap">
+      <p
+        class="spent-amount me-3 font-Nunito fw-semibold "
+      >
+        $4,700
+      </p>
+
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="progress bar"
+        aria-valuenow="NaN%"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div
+          class="progress-bar"
+          style="width: NaN%"
+        ></div>
+      </div>
+    </div>
+  </td>
+  <td>
+    <p class="font-Nunito fw-semibold">
+      $----
+    </p>
+  </td>
+</tr>
+
+                        <!-- Category Medical -->
+                        <tr>
+  <td>
+    <div class="d-flex align-items-center">
+      <div class="category-color-index bg-light-medical"></div>
+      <p class="fs-8">醫療</p>
+    </div>
+  </td>
+  <td class="second-column">
+    <div class="d-flex align-items-center flex-wrap">
+      <p
+        class="spent-amount me-3 font-Nunito fw-semibold "
+      >
+        $3,000
+      </p>
+
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="progress bar"
+        aria-valuenow="NaN%"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div
+          class="progress-bar"
+          style="width: NaN%"
+        ></div>
+      </div>
+    </div>
+  </td>
+  <td>
+    <p class="font-Nunito fw-semibold">
+      $----
+    </p>
+  </td>
+</tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- Tab 1 - 花費總覽 - Details - 與上月相比 -->
+                  <div class="section-block expense-comparison">
+                    <h4 class="fs-6 fw-bold mb-4 px-6">與上月相比</h4>
+                    <ol class="ps-0">
+                      <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 學習 -->
+                      <li class="px-6 d-flex expense-review-compare-list-item align-items-center list-hover">
+  <div class="d-flex position-relative ms-auto">
+    <div class="d-flex align-items-center category">
+      <div class="category-color-index bg-light-learn"></div>
+      <p class="fs-8">學習</p>
+    </div>
+    <div class="progress-bar-thick-wrapper progress-bar-thick-wrapper-right">
+      <div class="progress-bar-thick" style="width: 120%"></div>
+    </div>
+  </div>
+
+  <div class="ms-auto comparison-expense">
+    <div class="d-flex">
+      <img src="/aapd_test_anna/assets/arrow-up-1b5e0874.svg" alt="arrow" width="20" height="20">
+      <p class="font-Nunito fw-semibold fs-8">$4,000</p>
+    </div>
+  </div>
+</li>
+
+                      <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 飲食 -->
+
+                      <li class="px-6 d-flex expense-review-compare-list-item align-items-center list-hover">
+  <div class="d-flex position-relative ms-auto">
+    <div class="d-flex align-items-center category">
+      <div class="category-color-index bg-light-food"></div>
+      <p class="fs-8">飲食</p>
+    </div>
+    <div class="progress-bar-thick-wrapper progress-bar-thick-wrapper-right">
+      <div class="progress-bar-thick" style="width: 50%"></div>
+    </div>
+  </div>
+
+  <div class="ms-auto comparison-expense">
+    <div class="d-flex">
+      <img src="/aapd_test_anna/assets/arrow-up-1b5e0874.svg" alt="arrow" width="20" height="20">
+      <p class="font-Nunito fw-semibold fs-8">$1,000</p>
+    </div>
+  </div>
+</li>
+
+                      <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 購物 -->
+
+                      <li class="px-6 d-flex expense-review-compare-list-item align-items-center list-hover">
+  <div class="d-flex position-relative ms-auto">
+    <div class="d-flex align-items-center category">
+      <div class="category-color-index bg-light-shop"></div>
+      <p class="fs-8">購物</p>
+    </div>
+    <div class="progress-bar-thick-wrapper progress-bar-thick-wrapper-left">
+      <div class="progress-bar-thick" style="width: 40%"></div>
+    </div>
+  </div>
+
+  <div class="ms-auto comparison-expense">
+    <div class="d-flex">
+      <img src="/aapd_test_anna/assets/arrow-down-f2293206.svg" alt="arrow" width="20" height="20">
+      <p class="font-Nunito fw-semibold fs-8">$1,000</p>
+    </div>
+  </div>
+</li>
+
+                      <!-- Tab 1 - 花費總覽 - Details - 與上月相比 - 娛樂 -->
+
+                      <li class="px-6 d-flex expense-review-compare-list-item align-items-center list-hover">
+  <div class="d-flex position-relative ms-auto">
+    <div class="d-flex align-items-center category">
+      <div class="category-color-index bg-light-entertainment"></div>
+      <p class="fs-8">娛樂</p>
+    </div>
+    <div class="progress-bar-thick-wrapper progress-bar-thick-wrapper-left">
+      <div class="progress-bar-thick" style="width: 70%"></div>
+    </div>
+  </div>
+
+  <div class="ms-auto comparison-expense">
+    <div class="d-flex">
+      <img src="/aapd_test_anna/assets/arrow-down-f2293206.svg" alt="arrow" width="20" height="20">
+      <p class="font-Nunito fw-semibold fs-8">$2,400</p>
+    </div>
+  </div>
+</li>
+                    </ol>
+                  </div>
+                </div>
+
+                <!-- Tab 2 - 花費排名 - Details -->
+                <div class="tab-pane fade" id="list-expense-rank" role="tabpanel" aria-labelledby="list-expense-rank-list">
+                  <!-- 單筆花費 TOP3 -->
+                  <div class="section-block mb-5">
+                    <h4 class="fs-6 fw-bold mb-4 px-6">單筆花費 TOP3</h4>
+                    <ol class="top-expense-list link-hover">
+                      <!-- Top 1 -->
+                      <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">1</div>
+      <div class="category-color-index bg-light-food"></div>
+      <p class="fs-8">飲食 | 晚餐</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="ms-4">
+      <p class="fs-8">$4,000</p>
+    </div>
+  </div>
+</li>
+                      <!-- Top 2 -->
+                      <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">2</div>
+      <div class="category-color-index bg-light-shop"></div>
+      <p class="fs-8">購物 | 衣服</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="ms-4">
+      <p class="fs-8">$3,200</p>
+    </div>
+  </div>
+</li>
+                      <!-- Top 3 -->
+                      <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">3</div>
+      <div class="category-color-index bg-light-learn"></div>
+      <p class="fs-8">學習 | 課程</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="ms-4">
+      <p class="fs-8">$3,000</p>
+    </div>
+  </div>
+</li>
+                    </ol>
+                  </div>
+                  <!-- 各類別花費 TOP3 -->
+                  <div class="section-block category-top-3-expense-list">
+                    <h4 class="fs-6 fw-bold mb-4 px-6">各類別花費 TOP3</h4>
+
+                    <!-- navigation buttons -->
+                    <div class="swiper-button-custom-prev swiper-button">
+                      <img src="/aapd_test_anna/assets/arrow_left_pressed-c19c196e.svg" alt="" />
+                    </div>
+                    <div class="swiper-button-custom-next swiper-button">
+                      <img src="/aapd_test_anna/assets/arrow_right_pressed-159812b3.svg" alt="" />
+                    </div>
+
+                    <!-- Slider main container -->
+                    <div class="swiper category-top-3-swiper">
+                      <!-- Additional required wrapper -->
+                      <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                          <div class="d-flex justify-content-center mb-3">
+                            <img src="/aapd_test_anna/assets/category-food-dbe632d7.svg" alt="category-food" width="28" height="28" class="me-2" />
+                            <p class="fs-7">飲食</p>
+                          </div>
+                          <ol class="top-expense-list top-expense-category-list">
+                            <!-- Top 1 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">1</div>
+      <p class="fs-8">牛排</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$1,200</p>
+    </div>
+  </div>
+</li>
+                            <!-- Top 2 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">2</div>
+      <p class="fs-8">甜點</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$480</p>
+    </div>
+  </div>
+</li>
+                            <!-- Top 3 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">3</div>
+      <p class="fs-8">壽司</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$360</p>
+    </div>
+  </div>
+</li>
+                          </ol>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="d-flex justify-content-center mb-3">
+                            <img src="/aapd_test_anna/assets/category-shop-2500ad3e.svg" alt="category-shop" width="28" height="28" class="me-2" />
+                            <p class="fs-7">購物</p>
+                          </div>
+                          <ol class="top-expense-list top-expense-category-list">
+                            <!-- Top 1 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">1</div>
+      <p class="fs-8">平板電腦</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$2,500</p>
+    </div>
+  </div>
+</li>
+                            <!-- Top 2 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">2</div>
+      <p class="fs-8">韓版上衣</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$1,000</p>
+    </div>
+  </div>
+</li>
+                            <!-- Top 3 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">3</div>
+      <p class="fs-8">黑色短褲</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$800</p>
+    </div>
+  </div>
+</li>
+                          </ol>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="d-flex justify-content-center mb-3">
+                            <img src="/aapd_test_anna/assets/category-learn-5bc12a19.svg" alt="category-learn" width="28" height="28" class="me-2" />
+                            <p class="fs-7">學習</p>
+                          </div>
+                          <ol class="top-expense-list top-expense-category-list learn">
+                            <!-- Top 1 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">1</div>
+      <p class="fs-8">UI 設計線上實戰營</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$2,500</p>
+    </div>
+  </div>
+</li>
+                            <!-- Top 2 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-center me-4">
+      <div class="top-list-index font-Nunito">2</div>
+      <p class="fs-8">網頁切版直播班</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$2,000</p>
+    </div>
+  </div>
+</li>
+                            <!-- Top 3 -->
+                            <li class="list-hover">
+  <div class="px-6 d-flex top-3-list-item align-items-center left">
+    <div class="d-flex align-items-start me-4">
+      <div class="top-list-index font-Nunito">3</div>
+      <p class="fs-8">使用 HTML、CSS 開發一個網站</p>
+    </div>
+
+    <hr class="flex-grow-1" />
+
+    <div class="price">
+      <p class="ms-4 fs-8">$1,600</p>
+    </div>
+  </div>
+</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="set-goal-tab fixed-bottom py-4 px-8 bg-white shadow">
+      <a href="month-target.html" class="btn py-2 px-4 w-100 btn-gray-600 fs-7">前往設定本月目標</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    
+    
+  </body>
+</html>
