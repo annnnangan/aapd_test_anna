@@ -376,7 +376,7 @@ if (monthlyTotalExpensePieChart) {
       borderWidth: 2,
       borderColor: "#f7f7f7",
       cutout: "70%",
-      aspectRatio: 1.9,
+      // aspectRatio: 1.9,
       plugins: {
         legend: {
           display: false,
@@ -479,7 +479,7 @@ if (totalIncomePieChart) {
     options: {
       borderRadius: 4,
       borderWidth: 2,
-      aspectRatio: 1.9,
+      // aspectRatio: 1.9,
       borderColor: "#f7f7f7",
       cutout: "70%",
       plugins: {
