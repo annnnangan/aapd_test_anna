@@ -339,7 +339,6 @@ if (monthlyTotalExpensePieChart) {
       ctx.save();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      // let fontSize = (height / 17).toFixed(2);
       let fontSize = 15;
       ctx.font = fontSize + "px Gensen";
       ctx.fillStyle = "rgba(108, 115, 139, 1)";
@@ -359,15 +358,15 @@ if (monthlyTotalExpensePieChart) {
       ctx.restore();
     },
   };
-  // Chart.Tooltip.positioners.side = function (elements, eventPosition) {
-  //   const startAngle = elements[0].element.startAngle;
+  Chart.Tooltip.positioners.side = function (elements, eventPosition) {
+    const startAngle = elements[0].element.startAngle;
 
-  //   if (startAngle < 1) {
-  //     return { x: eventPosition.x + 300, y: eventPosition.y };
-  //   } else {
-  //     return { x: eventPosition.x - 300, y: eventPosition.y };
-  //   }
-  // };
+    if (startAngle < 1) {
+      return { x: eventPosition.x + 300, y: eventPosition.y };
+    } else {
+      return { x: eventPosition.x - 300, y: eventPosition.y };
+    }
+  };
 
   new Chart(monthlyTotalExpensePieChart, {
     type: "doughnut",
@@ -376,13 +375,13 @@ if (monthlyTotalExpensePieChart) {
       borderWidth: 2,
       borderColor: "#f7f7f7",
       cutout: "70%",
-      // aspectRatio: 1.9,
+      aspectRatio: 1.9,
       plugins: {
         legend: {
           display: false,
         },
         tooltip: {
-          // position: "side",
+          position: "side",
           displayColors: false,
           backgroundColor: "#fff",
           borderColor: "#ededf1",
@@ -444,7 +443,6 @@ if (totalIncomePieChart) {
       ctx.save();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      // let fontSize = (height / 12).toFixed(2);
       let fontSize = 15;
       ctx.font = fontSize + "px Gensen";
       ctx.fillStyle = "rgba(108, 115, 139, 1)";
@@ -456,7 +454,6 @@ if (totalIncomePieChart) {
       ctx.textBaseline = "middle";
       fontSize = (height / 8).toFixed(2);
       ctx.font = "bold " + fontSize + "px Nunito";
-      // ctx.font = "bold 30px Nunito";
       ctx.fillStyle = "rgba(36, 37, 45, 1)";
       textYLocation = yCenter + (fontSize - 10);
       ctx.fillText("$38,000", xCenter, textYLocation);
@@ -464,22 +461,22 @@ if (totalIncomePieChart) {
       ctx.restore();
     },
   };
-  // Chart.Tooltip.positioners.side = function (elements, eventPosition) {
-  //   const startAngle = elements[0].element.startAngle;
+  Chart.Tooltip.positioners.side = function (elements, eventPosition) {
+    const startAngle = elements[0].element.startAngle;
 
-  //   if (startAngle < 1) {
-  //     return { x: eventPosition.x + 300, y: eventPosition.y };
-  //   } else {
-  //     return { x: eventPosition.x - 300, y: eventPosition.y };
-  //   }
-  // };
+    if (startAngle < 1) {
+      return { x: eventPosition.x + 300, y: eventPosition.y };
+    } else {
+      return { x: eventPosition.x - 300, y: eventPosition.y };
+    }
+  };
 
   new Chart(totalIncomePieChart, {
     type: "doughnut",
     options: {
       borderRadius: 4,
       borderWidth: 2,
-      // aspectRatio: 1.9,
+      aspectRatio: 1.9,
       borderColor: "#f7f7f7",
       cutout: "70%",
       plugins: {
@@ -487,7 +484,7 @@ if (totalIncomePieChart) {
           display: false,
         },
         tooltip: {
-          // position: "side",
+          position: "side",
           displayColors: false,
           backgroundColor: "#fff",
           borderColor: "#ededf1",
